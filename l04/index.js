@@ -1,5 +1,3 @@
-//console.log("Hola Mundo");
-
 //Implementación de modulos
 
 //cool-ascii-faces
