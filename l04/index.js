@@ -7,7 +7,7 @@ console.log("Test del modulo cool: " + cool());
 //express -> devuelve una función constructora
 var express = require("express");
 var app = express();
-var port = 1000;
+var port = 10000;
 
 app.get("/cool",(request, response) => {
     response.send(cool());
