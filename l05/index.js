@@ -13,7 +13,7 @@ var path = require("path");
 
 var app = express();
 //var port = 10000;  Solo para local
-var port = process.env.port || 10000;  //Tanto local como para heroku
+var port = process.env.PORT || 10000;  //Tanto local como para heroku
 
 //configurar ruta del server -> Contenido Dinámico
 /*
