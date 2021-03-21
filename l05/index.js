@@ -1,58 +1,150 @@
-/*Modulos empleados:
-    * Express
-*/
-
-/*Comandos empleados:
-    * https://gist.github.com/pafmon/e810838282d995608b6d30f90b2380e3
-*/
-
-
-//Express
-var express = require ("express");
-var path = require("path");
+var express = require("express");
 
 var app = express();
-//var port = 10000;  Solo para local
-var port = process.env.port || 10000;  //Tanto local como para heroku
 
-//configurar ruta del server -> Contenido Dinámico
-/*
-app.get("/", (request, response) => {
-    //response.send("Hello from this tiny server");
-    response.send("<html><body><h1>Hello from this tiny server</h1><p>Practica L05-SOS-2021.</p></body></html>");
+var port = (process.env.PORT|| 10000);  //Tanto local como para heroku
 
-    //Importante notificar el evento dentro del CALLBACK
-    console.log("|| DENTRO DEL CALLBACK || Server ready listening on port: " + port);
-    console.log(`|| DENTRO DEL CALLBACK || Server ready listening on port: ${port}`);
+app.get("/info/culturaBASE", (req, res) => {
+    res.send(`<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<h3> <a href=" http://estadisticas.mecd.gob.es/CulturaDynPx/culturabase/index.htm?type=pcaxis&path=/t20/p20/a2005/&file=pcaxis#"> Enlace de referencia </a>
+</h3>
+
+<table>
+    <colgroup>
+    <col style="background-color:#f2f2f2">
+    </colgroup>
+    <tr>
+    <th>districts</th>
+    <th>years</th>
+    <th>fundraising</th>
+    <th>spectators</th>
+    <th>spending_per_view</th>
+    </tr>
+    <tr>
+    <td>Andalucia</td>
+    <td>2019</td>
+    <td>88.3</td>
+    <td>16.4</td>
+    <td>5.4</td>
+    </tr>
+    <tr>
+    <td>Andalucia</td>
+    <td>2018</td>
+    <td>82.0</td>
+    <td>15.1</td>
+    <td>5.4</td>
+    </tr>
+
+    <tr>
+    <td>Madrid</td>
+    <td>2019</td>
+    <td>134.3</td>
+    <td>20.7</td>
+    <td>6.5</td>
+    </tr>
+
+    <tr>
+    <td>Madrid</td>
+    <td>2018</td>
+    <td>127.8</td>
+    <td>19.3</td>
+    <td>6.6</td>
+    </tr>
+
+    <tr>
+    <td>Ceuta y Melilla</td>
+    <td>2019</td>
+    <td>0.6</td>
+    <td>0.1</td>
+    <td>5.1</td>
+    </tr>
+</table>
+
+</body>
+</html>`);
 });
-*/
 
-//configurar ruta del server -> Contenido Estático
-app.use("/", express.static(path.join(__dirname, "public")));   //Busca x del request(../x.html) en el folder "public"
-                                                                //__dirname:devuelve la carpeta donde se ejecuta el npm start -> mejor que "./directorio"
-                                                                //path.join: permite concatenar un conjunto de directorios independiende del Sistm. Operativo.
+app.get("/info/air_routes", (req, res) => {
+    res.send(`<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+border: 1px solid black;
+}
+</style>
+</head>
+<body>
 
-app.get("/hello", (request, response) => {
-    //response.send("Hello from this tiny server");
-    response.send("<html><body><h1>GET: Hello from this tiny server</h1><p>Practica L05-SOS-2021.</p></body></html>");
+<h3> <a href=" https://www.fomento.gob.es/BE/?nivel=2&orden=03000000"> Enlace de referencia </a>
+</h3>
 
-    //Importante notificar el evento dentro del CALLBACK
-    console.log("|| DENTRO DEL CALLBACK || Server ready listening on port: " + port);
-    console.log(`|| DENTRO DEL CALLBACK || Server ready listening on port: ${port}`);
-});
+<table>
+<colgroup>
+<col style="background-color:#f2f2f2">
+</colgroup>
+<tr>
+<th>districts</th>
+<th>years</th>
+<th>flights</th>
+<th>passengers</th>
+<th>total_goods(kg)</th>
+</tr>
+<tr>
+<td>Madrid</td>
+<td>2020</td>
+<td>158405</td>
+<td>17071089</td>
+<td>401133380</td>
+</tr>
+<tr>
+<td>Cataluña</td>
+<td>2017</td>
+<td>320456</td>
+<td>47262688</td>
+<td>156105304</td>
+</tr>
 
-//Para comprobar POST se debe de utilizar el POSTMAN
-app.post("/hello", (request, response) => {
-    //response.send("Hello from this tiny server");
-    response.send("<html><body><h1>POST: Hello from this tiny server</h1><p>Practica L05-SOS-2021.</p></body></html>");
+<tr>
+<td>Andalucía</td>
+<td>2020</td>
+<td>78777</td>
+<td>7441585</td>
+<td>10561907</td>
+</tr>
 
-    //Importante notificar el evento dentro del CALLBACK
-    console.log("|| DENTRO DEL CALLBACK || Server ready listening on port: " + port);
-    console.log(`|| DENTRO DEL CALLBACK || Server ready listening on port: ${port}`);
+<tr>
+<td>Andalucía</td>
+<td>2019</td>
+<td>194370</td>
+<td>27332163</td>
+<td>12971632</td>
+</tr>
+
+<tr>
+<td>Madrid</td>
+<td>2019</td>
+<td>417958</td>
+<td>61703370</td>
+<td>558566726</td>
+</tr>
+</table>
+
+</body>
+</html>`);
 });
 
 //Arrancar server
-app.listen(port);
-
-//console.log("Server ready listening on port: " + port);
-//console.log(`Server ready listening on port: ${port}`);
+app.listen(port, () => {
+    console.log("Dentro callback- Server ready on port " +port);
+});
