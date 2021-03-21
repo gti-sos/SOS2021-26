@@ -2,7 +2,7 @@
 
 //cool-ascii-faces
 var cool = require("cool-ascii-faces");
-console.log("Test del modulo cooooooooooooooooooooooooooool: " + cool());
+console.log("Test del modulo cool: " + cool());
 
 //express -> devuelve una función constructora
 var express = require("express");
