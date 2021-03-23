@@ -4,6 +4,8 @@ var app = express();
 
 var port = (process.env.PORT|| 10000);  //Tanto local como para heroku
 
+app.use("/",express.static(path.join(__dirname + "/public")));
+
 app.get("/info/culturaBASE", (req, res) => {
     res.send(`<!DOCTYPE html>
 <html>
@@ -143,6 +145,7 @@ border: 1px solid black;
 </body>
 </html>`);
 });
+
 
 app.get("/info/hostelry", (req, res) => {
     res.send(`<!DOCTYPE html>
