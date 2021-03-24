@@ -6,7 +6,11 @@ var port = (process.env.PORT|| 10000);  //Tanto local como para heroku
 
 var path = require("path");
 
+<<<<<<< HEAD
 app.use("/",express.static(path.join(__dirname + "/public")));
+=======
+app.use("/",express.static(path.join(__dirname + "public")));
+>>>>>>> 7b807d307d85231cc9a6590d4baf982739e38396
 
 app.get("/info/culturaBASE", (req, res) => {
     res.send(`<!DOCTYPE html>
