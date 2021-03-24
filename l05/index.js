@@ -97,7 +97,7 @@ border: 1px solid black;
 
 <table>
 <colgroup>
-<col style="background-color:#f2f2f2">
+<col style="background-color:#blue">
 </colgroup>
 <tr>
 <th>districts</th>
