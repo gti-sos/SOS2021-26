@@ -28,10 +28,10 @@ table, th, td {
     <col style="background-color:#f2f2f2">
     </colgroup>
     <tr>
-    <th>districts</th>
-    <th>years</th>
+    <th>district</th>
+    <th>year</th>
     <th>fundraising</th>
-    <th>spectators</th>
+    <th>spectator</th>
     <th>spending_per_view</th>
     </tr>
     <tr>
@@ -98,11 +98,11 @@ border: 1px solid black;
 <col style="background-color:#blue">
 </colgroup>
 <tr>
-<th>districts</th>
-<th>years</th>
-<th>flights</th>
-<th>passengers</th>
-<th>total_goods(kg)</th>
+<th>district</th>
+<th>year</th>
+<th>flight</th>
+<th>passenger</th>
+<th>total_good(kg)</th>
 </tr>
 <tr>
 <td>Madrid</td>
@@ -169,11 +169,11 @@ table, th, td {
     <col style="background-color:#f2f2f2">
     </colgroup>
     <tr>
-    <th>districts</th>
-    <th>years</th>
+    <th>district</th>
+    <th>year</th>
     <th>employee_staff</th>
-    <th>establishments_open </th>
-    <th>travelers_number</th>
+    <th>establishment_open </th>
+    <th>traveler_number</th>
     </tr>
     <tr>
     <td>Andalucia</td>
