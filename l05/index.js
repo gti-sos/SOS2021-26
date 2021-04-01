@@ -149,7 +149,7 @@ border: 1px solid black;
 });
 
 
-app.get("/info/hostelry", (req, res) => {
+app.get("/info/hostelries", (req, res) => {
     res.send(`<!DOCTYPE html>
     <html>
 <head>
