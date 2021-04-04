@@ -115,7 +115,7 @@ app.get(BASE_API_PATH + "/air_routes/:urlDistrict", (req,res) => {
 });
 
 //GET por recurso -distrito y anyo-
-app.get(BASE_API_PATH + "/culturaBASE/:urlDistrict/:urlYear", (req,res) => {
+app.get(BASE_API_PATH + "/air_routes/:urlDistrict/:urlYear", (req,res) => {
 
     var {urlDistrict} = req.params;
     var {urlYear} = req.params;
