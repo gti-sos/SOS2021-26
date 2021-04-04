@@ -17,10 +17,177 @@ app.use(express.json());
 //Static navigation
 app.use("/", express.static(path.join(__dirname + "/public")));
 
-//Resources: air_routes, cultyraBASE, hostelries
+//Resources: air_routes, culturaBASE, hostelries
 
 /*#################################################    Resource: air_routes    ################################################################*/
 
+//Declaracion del array con todos los recursos
+var air_routes_aux = [];
+
+//GET que devuelve el array vacio (la primera vez)
+app.get(BASE_API_PATH + "/air_routes", (req,res) => {
+    res.send(JSON.stringify(air_routes_aux,null,2));
+});
+
+//GET que carga el array de recursos
+app.get(BASE_API_PATH+"/air_routes/loadInitialData", (req,res)=>{
+    var initialData = [
+        {
+            "district" : "Madrid",
+            "year": 2020,
+            "flight": 158405,
+            "passenger": 17071089,
+            "merchandise": 401133380
+        
+        },{
+            "district" : "Cataluña",
+            "year": 2017,
+            "flight": 320456,
+            "passenger": 47262688,
+            "merchandise": 156105304
+        },{
+            "district": "Andalucía",
+            "year": 2020,
+            "flight": 78777,
+            "passenger": 7441585,
+            "merchandise": 10561907
+        },{
+            "district": "Andalucía",
+            "year": 2019,
+            "flight": 194370,
+            "passenger": 27332163,
+            "merchandise": 12971632
+        },{
+            "district": "Madrid",
+            "year": 2019,
+            "flight": 417958,
+            "passenger": 61703370,
+            "merchandise": 558566726
+        }
+    ]
+
+    air_routes_aux = initialData;
+    res.status(201).json(air_routes_aux);
+});
+
+//POST de todo
+app.post(BASE_API_PATH + "/air_routes", (req,res) => {
+    var newResource = req.body;
+    console.log(`Nuevo recurso agregado: <${JSON.stringify(newResource,null,2)}>`);
+    air_routes_aux.push(newResource);
+
+    res.sendStatus(201);
+});
+
+//PUT de todo DEBE DAR ERROR
+app.put(BASE_API_PATH + "/air_routes", (req,res) => {
+    
+    console.log(`Error: No se puede hacer PUT de todo el conjunto `);
+    res.sendStatus(405);
+});
+
+//DELETE de todo
+app.delete(BASE_API_PATH + "/air_routes",(req,res) => {
+    air_routes_aux = [];
+    res.sendStatus(200);
+});
+
+//GET por recurso -distrito-
+app.get(BASE_API_PATH + "/air_routes/:urlDistrict", (req,res) => {
+
+    var {urlDistrict} = req.params;    // == var urlDistrict = req.params.urlDistrict
+
+    var ls_data = [];
+
+    for (var i = 0 ; i < air_routes_aux.length; i++){
+        if(air_routes_aux[i].district == urlDistrict){
+            
+            ls_data.push(air_routes_aux[i]);
+        }
+    };
+
+    if(ls_data.length == 0){
+        res.send('El recurso especificado no existe');
+    }else{
+        res.send(JSON.stringify(ls_data,null,2));
+    }
+   
+});
+
+//GET por recurso -distrito y anyo-
+app.get(BASE_API_PATH + "/culturaBASE/:urlDistrict/:urlYear", (req,res) => {
+
+    var {urlDistrict} = req.params;
+    var {urlYear} = req.params;
+
+    var res_data = {}
+    var resourceFinded = false;
+
+    for (var i = 0 ; i < air_routes_aux.length; i++){
+        if(air_routes_aux[i].district == urlDistrict && air_routes_aux[i].year == urlYear){
+            
+            res_data = air_routes_aux[i];
+            resourceFinded = true;
+        }
+    };
+
+    if(!resourceFinded){
+        res.send('El recurso especificado no existe');
+    }else{
+        res.send(JSON.stringify(res_data,null,2));
+    }
+   
+});
+
+//POST por recurso DEBE DAR ERROR
+app.post(BASE_API_PATH + "/air_routes/:urlDistrict/:urlYear", (req,res) => {
+    console.log(`Error: No puedes usar POST para recursos individuales `);
+    res.sendStatus(405);
+});
+
+//DELETE por recuso -distrito-
+app.delete(BASE_API_PATH + "/air_routes/:urlDistrict", (req,res) => {
+    var {urlDistrict} = req.params;
+
+    const deleted = air_routes_aux.find(resource => resource.district == urlDistrict );
+
+    if(deleted){
+        air_routes_aux = air_routes_aux.filter(resource => resource.district != urlDistrict);
+        res.status(200).json({ message: `El recurso con el distrito : <${urlDistrict}> fue eliminado`});
+    }else{
+        res.status(404).json({ message: "El distrito que buscas no existe "});
+    }
+});
+
+//DELETE por recurso -distrito y anyo-
+app.delete(BASE_API_PATH + "/air_routes/:urlDistrict/:urlYear", (req,res) => {
+    var {urlDistrict} = req.params;
+    var {urlYear} = req.params;
+
+    const deleted = air_routes_aux.find(resource => (resource.district == urlDistrict)&&(resource.year == urlYear));
+
+    if(deleted){
+        air_routes_aux = air_routes_aux.filter(resource => (resource.district == urlDistrict)&&(resource.year != urlYear));
+        res.status(200).json({ message: `El recurso con el distrito : <${urlDistrict}> y con anyo: <${urlYear}> fue eliminado`});
+    }else{
+        res.status(404).json({ message: "El recurso que buscas no existe "});
+    }
+});
+
+//PUT por recurso -distrito y anyo-
+app.put(BASE_API_PATH + "/air_routes/:urlDistrict/:urlYear", (req,res) => {
+    var {urlDistrict} = req.params;
+    var {urlYear} = req.params;
+    const index = air_routes_aux.findIndex(resource => (resource.district == urlDistrict)&&(resource.year == urlYear));
+
+    if(index == -1){
+        res.status(404).json({ message: "El recurso que buscas no existe "});
+    }else{
+        air_routes_aux[index]= req.body;
+        res.status(200).json(air_routes_aux[index]);
+    }
+
+});
 
 /*#################################################    Resource: culturaBASE    ################################################################*/
 
