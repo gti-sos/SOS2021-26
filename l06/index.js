@@ -122,7 +122,7 @@ app.get(BASE_API_PATH + "/culturaBASE/:urlDistrict/:urlYear", (req,res) => {
     var resourceFinded = false;
     //console.log(req.params);
 
-    for (var i = 0 ; i < r_hostelries.length; i++){
+    for (var i = 0 ; i < r_culturaBASE.length; i++){
         if(r_culturaBASE[i].district == urlDistrict && r_culturaBASE[i].year == urlYear){
             
             res_data = r_culturaBASE[i];
