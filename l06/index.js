@@ -315,10 +315,10 @@ app.post(BASE_API_PATH + "/culturaBASE/:urlDistrict/:urlYear", (req,res) => {
 app.delete(BASE_API_PATH + "/culturaBASE/:urlDistrict", (req,res) => {
     var {urlDistrict} = req.params;
 
-    const deleted = r_hostelries.find(resource => resource.district == urlDistrict );
+    const deleted = r_culturaBASE.find(resource => resource.district == urlDistrict );
 
     if(deleted){
-        r_hostelries = r_hostelries.filter(resource => resource.district != urlDistrict);
+        r_culturaBASE = r_culturaBASE.filter(resource => resource.district != urlDistrict);
         res.status(200).json({ message: `The resource with district : <${urlDistrict}> was deleted`})
     }else{
         res.status(404).json({ message: "District you are looking for does not exist "})
@@ -349,7 +349,7 @@ app.put(BASE_API_PATH + "/culturaBASE/:urlDistrict/:urlYear", (req,res) => {
     if(index == -1){
         res.status(404).json({ message: "The resource you are looking for does not exist "});
     }else{
-        r_hostelries[index]= req.body;
+        r_culturaBASE[index]= req.body;
         res.status(200).json(r_culturaBASE[index]);
     }
 
