@@ -450,7 +450,9 @@ app.get(BASE_API_PATH + "/hostelries/:urlDistrict", (req,res) => {
     if(ls_data.length == 0){
         res.send('The resource doesn´t exist.')
     }else{
-        res.send(JSON.stringify(ls_data,null,2));
+        //res.send(JSON.stringify(ls_data,null,2));
+        //Send http status and json object
+        res.status(200).send(JSON.stringify(ls_data,null,2));
     }
    
 });
