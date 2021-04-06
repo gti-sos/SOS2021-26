@@ -363,7 +363,9 @@ var r_hostelries = [];
 //Requests of ../hostelries
 //GET
 app.get(BASE_API_PATH + "/hostelries", (req,res) => {
-    res.send(JSON.stringify(r_hostelries,null,2));
+    res
+    .status(200)
+    .send(JSON.stringify(r_hostelries,null,2));
 });
 //LoadInitialDAta
 app.get(BASE_API_PATH + "/hostelries/loadInitialData", (req,res) => {
@@ -478,7 +480,9 @@ app.get(BASE_API_PATH + "/hostelries/:urlDistrict/:urlYear", (req,res) => {
     if(!resourceFinded){
         res.send('The resource doesn´t exist.')
     }else{
-        res.send(JSON.stringify(res_data,null,2));
+        res
+        .status(200)
+        .send(JSON.stringify(res_data,null,2));
     }
    
 });
