@@ -32,11 +32,13 @@ var hostelriesAPI = require("./hostelriesAPI");
 //l05: "./info/hostelries"
 hostelriesAPI.info(app);
 
+//loadInitialData
+hostelriesAPI.loadInitData(app);
+
 //CRUD: GET , POST, PUT, DELETE
 hostelriesAPI.httpCRUD(app);
 
-//loadInitialData
-hostelriesAPI.loadInitData(app);
+
 
 
 

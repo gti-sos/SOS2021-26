@@ -14,6 +14,18 @@ module.exports.info = (app) => {
     });
 
 };
+//LoadInitData gets priority: has to be before than "./hostelries/:param"
+module.exports.loadInitData = (app) => {
+    app.get(BASE_HOSTELRIES_API_PATH + "/loadInitialData", (req,res) => {
+        //var initData = initJsonData;
+    
+        r_hostelries = initJsonData.JsonInitialData;
+        console.log("   - HostelriesAPI: Initial hostelries data loaded!");
+        //console.log(r_hostelries);
+        res.status(201).json(r_hostelries);
+    });
+
+};
 
 module.exports.httpCRUD = (app) => {
 
@@ -134,7 +146,7 @@ module.exports.httpCRUD = (app) => {
         const deleted = r_hostelries.find(resource => (resource.district == urlDistrict)&&(resource.year == urlYear));
 
         if(deleted){
-            r_hostelries = r_hostelries.filter(resource => (resource.district == urlDistrict)&&(resource.year != urlYear));
+            r_hostelries = r_hostelries.filter(resource => (resource.district != urlDistrict)||(resource.district == urlDistrict && resource.year != urlYear));
             res.status(200).json({ message: `The resources with district : <${urlDistrict}> and year: <${urlYear}> were deleted`})
         }else{
             res.status(404).json({ message: "The resource you are looking for does not exist "})
@@ -160,15 +172,5 @@ module.exports.httpCRUD = (app) => {
 
 };
 
-module.exports.loadInitData = (app) => {
-    app.get(BASE_HOSTELRIES_API_PATH + "/loadInitialData", (req,res) => {
-        //var initData = initJsonData;
-    
-        r_hostelries = initJsonData.JsonInitialData;
-        console.log("   - HostelriesAPI: Initial hostelries data loaded!");
-        //console.log(r_hostelries);
-        res.status(201).json(r_hostelries);
-    });
 
-};
 
