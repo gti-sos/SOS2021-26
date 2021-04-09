@@ -17,6 +17,39 @@ app.use("/", express.static(path.join(__dirname + "/public")));
 
 
 //TODO
+/*#################################################    Resource: air_routes    ################################################################*/
+
+
+/*#################################################    Resource: culturaBASE    ################################################################*/
+
+
+/*#################################################    Resource: hostelries    ################################################################*/
+
+
+//Import API
+var hostelriesAPI = require("./hostelriesAPI");
+
+//l05: "./info/hostelries"
+hostelriesAPI.info(app);
+
+//CRUD: GET , POST, PUT, DELETE
+hostelriesAPI.httpCRUD(app);
+
+//loadInitialData
+hostelriesAPI.loadInitData(app);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Server running
