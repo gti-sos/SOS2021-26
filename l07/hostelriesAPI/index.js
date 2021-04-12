@@ -17,9 +17,9 @@ module.exports.info = (app) => {
 //LoadInitData gets priority: has to be before than "./hostelries/:param"
 module.exports.loadInitData = (app) => {
     app.get(BASE_HOSTELRIES_API_PATH + "/loadInitialData", (req,res) => {
-        //r_hostelries = initJsonData.JsonInitialData;
-        let initJsonData = require('./initialData');
-        r_hostelries = initJsonData;
+
+        const initJsonData = require('./initialData');
+        r_hostelries = Object.assign([],initJsonData);
         console.log("   - HostelriesAPI: Initial hostelries data loaded!");
         //console.log(r_hostelries);
         res.status(201).json(r_hostelries);
@@ -45,7 +45,6 @@ module.exports.httpCRUD = (app) => {
         var reqYear = req.body.year;
 
         //console.log(reqDistrict+"-"+reqYear);
-        /*
 
         const r_exists = r_hostelries.find(resource => (resource.district == reqDistrict) && (resource.year == reqYear));
         
@@ -70,10 +69,11 @@ module.exports.httpCRUD = (app) => {
 
             res.status(201).json(req.body);
         } 
-        */
+        /*
         r_hostelries.push(newResource);
         console.log(`   -Hostelries API: New resource added <${JSON.stringify(newResource,null,2)}>`);
-        res.status(201).json(req.body);    
+        res.status(201).json(req.body);
+        */
     });
     //PUT
     app.put(BASE_HOSTELRIES_API_PATH, (req,res) => {
