@@ -1,4 +1,3 @@
-var initJsonData = require('./initialData');
 var info_htlm = require('./l05');
 
 var BASE_HOSTELRIES_API_PATH = "/api/v1/hostelries";
@@ -14,12 +13,13 @@ module.exports.info = (app) => {
     });
 
 };
+
 //LoadInitData gets priority: has to be before than "./hostelries/:param"
 module.exports.loadInitData = (app) => {
     app.get(BASE_HOSTELRIES_API_PATH + "/loadInitialData", (req,res) => {
-        //var initData = initJsonData;
-    
-        r_hostelries = initJsonData.JsonInitialData;
+        //r_hostelries = initJsonData.JsonInitialData;
+        let initJsonData = require('./initialData');
+        r_hostelries = initJsonData;
         console.log("   - HostelriesAPI: Initial hostelries data loaded!");
         //console.log(r_hostelries);
         res.status(201).json(r_hostelries);
@@ -45,9 +45,10 @@ module.exports.httpCRUD = (app) => {
         var reqYear = req.body.year;
 
         //console.log(reqDistrict+"-"+reqYear);
+        /*
 
         const r_exists = r_hostelries.find(resource => (resource.district == reqDistrict) && (resource.year == reqYear));
-
+        
         if(r_exists){
             console.log(`   -Hostelries API: Conflict->The resource exists:\n <${JSON.stringify(req.body,null,2)}>`);
             res
@@ -55,11 +56,24 @@ module.exports.httpCRUD = (app) => {
             .json({message: `The resource to add exists.`})
 
         }else{
-            console.log(`   -Hostelries API: New resource added <${JSON.stringify(newResource,null,2)}>`);
+            
             r_hostelries.push(newResource);
+            console.log(`   -Hostelries API: New resource added <${JSON.stringify(newResource,null,2)}>`);            
+
+            //Using Splice
+            
+            //var r_host_tam = r_hostelries.length;
+            //console.log(JSON.stringify(initJsonData.JsonInitialData));
+            //r_hostelries.splice(r_host_tam,0,newResource);
+            //console.log(JSON.stringify(initJsonData.JsonInitialData));
+            
 
             res.status(201).json(req.body);
-        }        
+        } 
+        */
+        r_hostelries.push(newResource);
+        console.log(`   -Hostelries API: New resource added <${JSON.stringify(newResource,null,2)}>`);
+        res.status(201).json(req.body);    
     });
     //PUT
     app.put(BASE_HOSTELRIES_API_PATH, (req,res) => {

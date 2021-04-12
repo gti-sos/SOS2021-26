@@ -78,7 +78,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries -Check 5",
+			"name": "/api/v1/hostelries -Check not empty",
 			"event": [
 				{
 					"listen": "test",
@@ -88,9 +88,9 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Array length is 5\", function () {\r",
+							"pm.test(\"Array > 0\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(5);\r",
+							"    pm.expect(jsonData.length).to.greaterThan(0);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -142,44 +142,6 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
-					"host": [
-						"{{HOST}}"
-					],
-					"port": "{{PORT}}",
-					"path": [
-						"api",
-						"v1",
-						"hostelries"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/api/v1/hostelries -Check 6",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Array length is 6\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(6);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
 				"url": {
 					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
 					"host": [
@@ -268,19 +230,14 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries -Check 5 Copy",
+			"name": "/api/v1/hostelries -Check Zaragoza/2020",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Array length is 5\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(5);\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -291,7 +248,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Zaragoza/2020",
 					"host": [
 						"{{HOST}}"
 					],
@@ -299,7 +256,9 @@
 					"path": [
 						"api",
 						"v1",
-						"hostelries"
+						"hostelries",
+						"Zaragoza",
+						"2020"
 					]
 				}
 			},
@@ -428,6 +387,10 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
 					"host": [
@@ -444,7 +407,52 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries -post not allowed",
+			"name": "/api/v1/hostelries/Catalonia/2020 -Put check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"district\"           :   \"Catalonia\",\r\n    \"year\"              :   \"2020\",\r\n    \"employee_staff\"    :   111111,\r\n    \"establishment_open\":   222222,\r\n    \"traveler_numer\"    :   333333\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Catalonia/2020",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"hostelries",
+						"Catalonia",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/hostelries/Catalonia/2020 -post not allowed",
 			"event": [
 				{
 					"listen": "test",
@@ -462,8 +470,12 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Andalucia/2020",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Catalonia/2020",
 					"host": [
 						"{{HOST}}"
 					],
@@ -472,7 +484,7 @@
 						"api",
 						"v1",
 						"hostelries",
-						"Andalucia",
+						"Catalonia",
 						"2020"
 					]
 				}
@@ -554,10 +566,12 @@
 	],
 	"variable": [
 		{
+			"id": "beb0dd7c-2f4e-484f-a394-d6315b3d7551",
 			"key": "HOST",
 			"value": "localhost"
 		},
 		{
+			"id": "928e797f-b156-47c1-a92e-c8b2910486bc",
 			"key": "PORT",
 			"value": "1607"
 		}
