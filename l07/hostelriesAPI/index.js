@@ -41,10 +41,25 @@ module.exports.httpCRUD = (app) => {
     //POST
     app.post(BASE_HOSTELRIES_API_PATH, (req,res) => {
         var newResource = req.body;
-        console.log(`   -Hostelries API: New resource added <${JSON.stringify(newResource,null,2)}>`);
-        r_hostelries.push(newResource);
+        var reqDistrict = req.body.district;
+        var reqYear = req.body.year;
 
-        res.sendStatus(201);
+        //console.log(reqDistrict+"-"+reqYear);
+
+        const r_exists = r_hostelries.find(resource => (resource.district == reqDistrict) && (resource.year == reqYear));
+
+        if(r_exists){
+            console.log(`   -Hostelries API: Conflict->The resource exists:\n <${JSON.stringify(req.body,null,2)}>`);
+            res
+            .status(409)
+            .json({message: `The resource to add exists.`})
+
+        }else{
+            console.log(`   -Hostelries API: New resource added <${JSON.stringify(newResource,null,2)}>`);
+            r_hostelries.push(newResource);
+
+            res.status(201).json(req.body);
+        }        
     });
     //PUT
     app.put(BASE_HOSTELRIES_API_PATH, (req,res) => {
