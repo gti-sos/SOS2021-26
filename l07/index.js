@@ -19,9 +19,31 @@ app.use("/", express.static(path.join(__dirname + "/public")));
 //TODO
 /*#################################################    Resource: air_routes    ################################################################*/
 
+//Import API
+var airRoutesAPI = require("./airRoutesAPI");
+
+//l05: "./info/air_routes"
+airRoutesAPI.info(app);
+
+//loadInitialData
+airRoutesAPI.loadInitData(app);
+
+//CRUD: GET , POST, PUT, DELETE
+airRoutesAPI.httpCRUD(app);
 
 /*#################################################    Resource: culturaBASE    ################################################################*/
 
+//Import API
+var culturaBaseApi = require("./culturaBaseAPI");
+
+//l05: "./info/air_routes"
+culturaBaseApi.info(app);
+
+//loadInitialData
+culturaBaseApi.loadInitData(app);
+
+//CRUD: GET , POST, PUT, DELETE
+culturaBaseApi.httpCRUD(app);
 
 /*#################################################    Resource: hostelries    ################################################################*/
 
