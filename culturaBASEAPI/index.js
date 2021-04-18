@@ -27,17 +27,20 @@ module.exports.httpCRUD = (app, db) =>{
 
         var dbquery = {};
         let offset = 0;
+        //let limit = 1000;
+        //offset es el numero minimo de valores que hay que poner y limit el numero maximo de valores que hay que meter
+        //Un ejemplo es localhost:1607/api/v1/culturaBASE/?limit=3&offset=0
         let limit = Number.MAX_SAFE_INTEGER;
 
         //Paginación
 
         if(req.query.offset){
             offset = parseInt(req.query.offset);
-            delete req.query.offset;
+            //delete req.query.offset;
         }
         if(req.query.limit){
             limit = parseInt(req.query.limit);
-            delete req.query.limit;
+            //delete req.query.limit;
         }
 
         //Busqueda, las querys les pasamos el valor que a priori va a ser un string
