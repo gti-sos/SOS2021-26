@@ -843,6 +843,14 @@
 		{
 			"key": "PORT",
 			"value": "1607"
+		},
+		{
+			"key": "localhost",
+			"value": "HOST"
+		},
+		{
+			"key": "HOST",
+			"value": "localhost"
 		}
 	]
 }
