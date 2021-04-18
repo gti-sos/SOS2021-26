@@ -37,15 +37,15 @@ culturaBASEAPI.httpCRUD(app,db);
 
 /*#################################################    Resource: hostelries    ################################################################*/
 
-/*var hostelriesAPI = require('./hoslteriesAPI');
+//Import API
+var hostelriesAPI = require('./hoslteriesAPI');
 
 //load data into DB
 hostelriesAPI.loadDB(app,db);
 
 //CRUD
 hostelriesAPI.httpCRUD(app,db);
-*/
-//Import API
+
 
 
 
