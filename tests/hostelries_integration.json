@@ -837,20 +837,12 @@
 	],
 	"variable": [
 		{
-			"key": "1607",
-			"value": "PORT"
+			"key": "HOST",
+			"value": "localhost"
 		},
 		{
 			"key": "PORT",
 			"value": "1607"
-		},
-		{
-			"key": "localhost",
-			"value": "HOST"
-		},
-		{
-			"key": "HOST",
-			"value": "localhost"
 		}
 	]
 }
