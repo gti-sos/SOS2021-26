@@ -24,15 +24,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
-						"culturaBASE"
+						"culturaBASE",
+						""
 					]
 				},
 				"description": "this is a simple get that returns the data in this moment"
@@ -60,11 +61,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/loadInitialData",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/loadInitialData",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -100,11 +101,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/?fundraising=88.3",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/?fundraising=88.3",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -142,11 +143,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/?limit=2&offset=0",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/?limit=2&offset=0",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -192,11 +193,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/Andalucia/2019",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/Andalucia/2019",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -228,11 +229,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/Andalucia/2022",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/Andalucia/2022",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -273,11 +274,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/Andalucia/2019",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/Andalucia/2019",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -318,11 +319,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -362,11 +363,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -406,11 +407,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -441,11 +442,11 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/Andalucia/2018",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/Andalucia/2018",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -486,11 +487,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/Andalucia/2019",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/Andalucia/2019",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -522,11 +523,11 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE/",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -557,11 +558,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/culturaBASE",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE",
 					"host": [
-						"localhost"
+						"{{HOST}}"
 					],
-					"port": "1607",
+					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -571,6 +572,16 @@
 				"description": "get empty"
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "localhost"
+		},
+		{
+			"key": "PORT",
+			"value": "1607"
 		}
 	]
 }
