@@ -71,8 +71,25 @@ module.exports.httpCRUD = (app, db) =>{
 
     app.post(BASE_CULTURABASE_API_PATH, (req,res)=>{
         var newData = req.body;
+        var district = req.body.district;
+        var year = req.body.year; //lo tenemos pasado como string el valor, sino deberíamos usar un parseInt
         db.find({$and: [{district: newData.district}, {year: newData.year}]},
-            (err, resourcesInDB)  =>{
+
+            (err, resources) =>{
+                if(resources.length !=0){
+                    console.log("El recurso ya existe");
+                    res.sendStatus(409);
+                }else if(!newData.district || !newData.year ||!newData.fundraising ||!newData.spectator || Object.keys(newData).length != 5){
+                        console.log("El número de campos no es el correcto");
+                        res.sendStatus(400);
+                }else{
+                    console.log(`--CB API:\n  new resource <${newData.district}/${newData.year}> added`)
+                    db.insert(newData);
+                    res.status(201).json(newData);
+                }
+
+            }
+            /*(err, resourcesInDB)  =>{
                 if(err){
                     console.error("Esto no va primo");
                     res.sendStatus(500);
@@ -85,7 +102,7 @@ module.exports.httpCRUD = (app, db) =>{
                         res.sendStatus(409);
                     }
                 }
-            }
+            }*/
             );
     });
 
