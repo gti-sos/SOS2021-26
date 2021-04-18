@@ -28,9 +28,27 @@ app.use("/", express.static(path.join(__dirname + "/public")));
 /*#################################################    Resource: culturaBASE    ################################################################*/
 
 //Import API
+var culturaBASEAPI = require('./culturaBASEAPI');
+
+culturaBASEAPI.loadDB(app, db);
+
+culturaBASEAPI.httpCRUD(app,db);
 
 
 /*#################################################    Resource: hostelries    ################################################################*/
 
+/*var hostelriesAPI = require('./hoslteriesAPI');
 
+//load data into DB
+hostelriesAPI.loadDB(app,db);
+
+//CRUD
+hostelriesAPI.httpCRUD(app,db);
+*/
 //Import API
+
+
+
+app.listen(PORT, () =>{
+    console.log("Server running at port:" + PORT);
+});
