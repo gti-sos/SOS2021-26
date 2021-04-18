@@ -13,7 +13,9 @@ const PORT = (process.env.PORT || 1607);
 var app = express();
 app.use(express.json());
 
-var db = new Datastore();
+var dbAir_Routes = new Datastore();
+var dbCulturaBASE = new Datastore();
+var dbHostelries = new Datastore();
 
 //Static navigation
 app.use("/", express.static(path.join(__dirname + "/public"))); 
@@ -30,9 +32,9 @@ app.use("/", express.static(path.join(__dirname + "/public")));
 //Import API
 var culturaBASEAPI = require('./culturaBASEAPI');
 
-culturaBASEAPI.loadDB(app, db);
+culturaBASEAPI.loadDB(app, dbCulturaBASE);
 
-culturaBASEAPI.httpCRUD(app,db);
+culturaBASEAPI.httpCRUD(app,dbCulturaBASE);
 
 
 /*#################################################    Resource: hostelries    ################################################################*/
@@ -41,10 +43,10 @@ culturaBASEAPI.httpCRUD(app,db);
 var hostelriesAPI = require('./hostelriesAPI');
 
 //load data into DB
-hostelriesAPI.loadDB(app,db);
+hostelriesAPI.loadDB(app,dbHostelries);
 
 //CRUD
-hostelriesAPI.httpCRUD(app,db);
+hostelriesAPI.httpCRUD(app,dbHostelries);
 
 
 
