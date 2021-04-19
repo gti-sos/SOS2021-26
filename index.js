@@ -25,7 +25,11 @@ app.use("/", express.static(path.join(__dirname + "/public")));
 /*#################################################    Resource: air_routes    ################################################################*/
 
 //Import API
+var airRoutesAPI = require('./airRoutesAPI');
 
+airRoutesAPI.loadDB(app,dbAir_Routes);
+
+airRoutesAPI.httpCRUD(app,dbAir_Routes);
 
 /*#################################################    Resource: culturaBASE    ################################################################*/
 
