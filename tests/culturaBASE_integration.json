@@ -525,39 +525,6 @@
 				"description": "absolutetly delete"
 			},
 			"response": []
-		},
-		{
-			"name": "empty",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/api/v1/culturaBASE",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"culturaBASE"
-					]
-				},
-				"description": "get empty"
-			},
-			"response": []
 		}
 	],
 	"variable": [
