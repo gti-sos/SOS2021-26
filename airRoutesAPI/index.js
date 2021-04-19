@@ -70,6 +70,7 @@ module.exports.httpCRUD = (app, db) => {
         Sobre limit-> Como el limit de arriba. Docs a mostrar
         Sobre exec-> Manera alternativa al clasico callback de Pablo
         */
+       
         db.find(reqQuery).sort({district:1,year:-1}).skip(offset).limit(limit).exec((err,resources) => {
             if(err){
                 console.error('--airRoutesAPI:\n  ERROR : accessing DB in GET(../air_routes)');
