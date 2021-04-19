@@ -29,11 +29,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v1/hostelries",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -62,11 +61,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/loadInitialData",
+					"raw": "{{heroku}}/api/v1/hostelries/loadInitialData",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -106,11 +104,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v1/hostelries",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -144,11 +141,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries?district=Andalucia&year=2020",
+					"raw": "{{heroku}}/api/v1/hostelries?district=Andalucia&year=2020",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -192,11 +188,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries?limit=1",
+					"raw": "{{heroku}}/api/v1/hostelries?limit=1",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -240,11 +235,10 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v1/hostelries",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -282,11 +276,10 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v1/hostelries",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -324,11 +317,10 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v1/hostelries",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -358,11 +350,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Andalucia/2020",
+					"raw": "{{heroku}}/api/v1/hostelries/Andalucia/2020",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -394,11 +385,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Zaragoza/2020",
+					"raw": "{{heroku}}/api/v1/hostelries/Zaragoza/2020",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -429,11 +419,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Zaragoza/2020",
+					"raw": "{{heroku}}/api/v1/hostelries/Zaragoza/2020",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -465,11 +454,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Andalucia",
+					"raw": "{{heroku}}/api/v1/hostelries/Andalucia",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -500,11 +488,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Andalucia",
+					"raw": "{{heroku}}/api/v1/hostelries/Andalucia",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -535,11 +522,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v1/hostelries",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -573,11 +559,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v1/hostelries",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -616,11 +601,10 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Catalonia/2020",
+					"raw": "{{heroku}}/api/v1/hostelries/Catalonia/2020",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -661,11 +645,10 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Catalonia/2020",
+					"raw": "{{heroku}}/api/v1/hostelries/Catalonia/2020",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -706,11 +689,10 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Catalonia/2020",
+					"raw": "{{heroku}}/api/v1/hostelries/Catalonia/2020",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -746,11 +728,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries/Catalonia/2020",
+					"raw": "{{heroku}}/api/v1/hostelries/Catalonia/2020",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -782,11 +763,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v1/hostelries",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -820,11 +800,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v1/hostelries",
 					"host": [
-						"{{HOST}}"
+						"{{heroku}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -837,12 +816,8 @@
 	],
 	"variable": [
 		{
-			"key": "HOST",
-			"value": "localhost"
-		},
-		{
-			"key": "PORT",
-			"value": "1607"
+			"key": "heroku",
+			"value": "sos2021-26.herokuapp.com"
 		}
 	]
 }
