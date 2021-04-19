@@ -24,11 +24,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/",
+					"raw": "{{HOST}}/api/v1/culturaBASE/",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -61,11 +60,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/loadInitialData",
+					"raw": "{{HOST}}/api/v1/culturaBASE/loadInitialData",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -101,11 +99,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/?fundraising=88.3",
+					"raw": "{{HOST}}/api/v1/culturaBASE/?fundraising=88.3",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -143,11 +140,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/?limit=2&offset=0",
+					"raw": "{{HOST}}/api/v1/culturaBASE/?limit=2&offset=0",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -193,11 +189,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/Andalucia/2019",
+					"raw": "{{HOST}}/api/v1/culturaBASE/Andalucia/2019",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -229,11 +224,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/Andalucia/2022",
+					"raw": "{{HOST}}/api/v1/culturaBASE/Andalucia/2022",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -274,11 +268,10 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/Andalucia/2019",
+					"raw": "{{HOST}}/api/v1/culturaBASE/Andalucia/2019",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -319,11 +312,10 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/",
+					"raw": "{{HOST}}/api/v1/culturaBASE/",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -363,11 +355,10 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/",
+					"raw": "{{HOST}}/api/v1/culturaBASE/",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -407,11 +398,10 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/",
+					"raw": "{{HOST}}/api/v1/culturaBASE/",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -442,11 +432,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/Andalucia/2018",
+					"raw": "{{HOST}}/api/v1/culturaBASE/Andalucia/2018",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -487,11 +476,10 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/Andalucia/2019",
+					"raw": "{{HOST}}/api/v1/culturaBASE/Andalucia/2019",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -523,11 +511,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE/",
+					"raw": "{{HOST}}/api/v1/culturaBASE/",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
@@ -558,11 +545,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/culturaBASE",
+					"raw": "{{HOST}}/api/v1/culturaBASE",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
 						"api",
 						"v1",
