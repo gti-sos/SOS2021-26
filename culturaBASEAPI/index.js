@@ -201,7 +201,7 @@ module.exports.httpCRUD = (app, db) =>{
                     });
                     res
                     .status(200)
-                    .json(resourcesToSend);
+                    .json(resourcesToSend[0]); //Devolverlo como objeto y no en un array
                 }else{
                     res
                     .status(404)
