@@ -82,7 +82,7 @@
 			"response": []
 		},
 		{
-			"name": "prueba busqueda usando recurso",
+			"name": "prueba busqueda usando 3 recursos",
 			"event": [
 				{
 					"listen": "test",
@@ -95,6 +95,103 @@
 							"pm.test(\"1 cosita te voy a decir\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-26.herokuapp.com/api/v1/culturaBASE/?fundraising=88.3&spectator=16.4&year=2019",
+					"protocol": "https",
+					"host": [
+						"sos2021-26",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturaBASE",
+						""
+					],
+					"query": [
+						{
+							"key": "fundraising",
+							"value": "88.3"
+						},
+						{
+							"key": "spectator",
+							"value": "16.4"
+						},
+						{
+							"key": "year",
+							"value": "2019"
+						}
+					]
+				},
+				"description": "search for resource using search for element"
+			},
+			"response": []
+		},
+		{
+			"name": "busqueda usando 2 recursos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-26.herokuapp.com/api/v1/culturaBASE/?fundraising=88.3&spectator=16.4",
+					"protocol": "https",
+					"host": [
+						"sos2021-26",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"culturaBASE",
+						""
+					],
+					"query": [
+						{
+							"key": "fundraising",
+							"value": "88.3"
+						},
+						{
+							"key": "spectator",
+							"value": "16.4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "prueba usando 1 recursos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -124,8 +221,7 @@
 							"value": "88.3"
 						}
 					]
-				},
-				"description": "search for resource using search for element"
+				}
 			},
 			"response": []
 		},
