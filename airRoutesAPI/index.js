@@ -184,7 +184,6 @@ module.exports.httpCRUD = (app, db) => {
         var {urlDistrict} = req.params;        
         var {urlYear} = req.params;
 
-
         db.find({ $and: [{district : urlDistrict}, {year : urlYear}]}, (err,resources) =>{
             if(err){
                 console.error(`--airRoutesAPI:\n  ERROR : accessing DB in GET(../air_routes/${urlDistrict})`);
@@ -197,7 +196,7 @@ module.exports.httpCRUD = (app, db) => {
                     });
                     res
                     .status(200)
-                    .json(resourcesToSend[0]); //Devolverlo como objeto y no en un array
+                    .json(resourcesToSend[0]);  //Devolverlo como objeto y no en un array
                 }else{
                     res
                     .status(404)
