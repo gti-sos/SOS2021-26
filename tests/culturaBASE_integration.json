@@ -53,6 +53,10 @@
 							"    pm.response.to.have.status(201);\r",
 							"});\r",
 							"\r",
+							"pm.test(\"Kachaw\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
 							""
 						],
 						"type": "text/javascript"
@@ -283,10 +287,8 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"\r",
-							"pm.test(\"Tamos rustico papi\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"pm.test(\"Más rápido que rayo mcquín\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 							"});"
 						],
 						"type": "text/javascript"
