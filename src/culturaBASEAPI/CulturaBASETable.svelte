@@ -3,6 +3,7 @@
     import{
         onMount
     }from "svelte";
+
     let r_culturaBASE = []
 
     async function getCulturaBASEResource(){
@@ -50,6 +51,5 @@
             {/each}
         </tbody>
     </table>
-
 </main>
 
