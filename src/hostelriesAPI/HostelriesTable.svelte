@@ -1,7 +1,7 @@
 <script>
 
     //Permite lanzar/cargar cuando se cargue el componente
-    //nuestrp componente : getHostelryResource()
+    //nuestro componente : getHostelryResource()
     import {
         onMount
     }from "svelte";
@@ -19,7 +19,7 @@
         const res = await fetch("/api/v1/hostelries");
 
         if(res.ok){
-            console.log("--HostelriesAPI:\n  FrontEnd -> Succes");
+            console.log("--HostelriesAPI:\n  FrontEnd -> Success");
             const json = await res.json();
             r_hostelries = json;
             console.log(`--HostelriesAPI:\n  FrontEnd -> We have received ${r_hostelries.length} resources `);

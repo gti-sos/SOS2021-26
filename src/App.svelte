@@ -3,8 +3,10 @@
 	
 	import Router from 'svelte-spa-router';
 	import Home from './Home.svelte';
+	import CulturaBASE from './culturaBASEAPI/CulturaBASE.svelte';
 	import Hostelries from './hostelriesAPI/Hostelries.svelte';
 	import NotFound from './NotFound.svelte';
+
 
 	/*	The route definition is just a JavaScript dictionary (object)
 		where the key is a string with the path (including parameters, etc),
@@ -13,6 +15,7 @@
 	const routes = {
 		'/': Home,
 		'/hostelries': Hostelries,
+		'/culturaBASE': CulturaBASE,
 		'*': NotFound
 	};
 </script>
