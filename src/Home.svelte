@@ -15,7 +15,9 @@
                 Our sources are aimed to analyzing the balance of losses, profits and investment in the following areas:
             </b>
             <ul>
-                <li>Film industry</li>
+                <li>
+                    <a href= "#/culturaBASE"> Film industry</a>
+                    </li>
                 <li>
                     <a href = "#/hostelries">Hostelry industry</a>
                 </li>
