@@ -1,12 +1,31 @@
 <script>
-	export let name;
+	//export let name;
+	
+	import Router from 'svelte-spa-router';
+	import Home from './Home.svelte';
+	import Hostelries from './hostelriesAPI/Hostelries.svelte';
+	import NotFound from './NotFound.svelte';
+
+	/*	The route definition is just a JavaScript dictionary (object)
+		where the key is a string with the path (including parameters, etc),
+		and the value is the route object.
+	*/
+	const routes = {
+		'/': Home,
+		'/hostelries': Hostelries,
+		'*': NotFound
+	};
 </script>
 
 <main>
+	<!--
 	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	-->
+	<Router {routes}/>
 </main>
 
+<!--
 <style>
 	main {
 		text-align: center;
@@ -28,3 +47,4 @@
 		}
 	}
 </style>
+-->
