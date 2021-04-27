@@ -12,7 +12,7 @@
 - **URL**: [gti-sos/SOS2021-26](https://sos2021-26.herokuapp.com/)
 -  **APIs**:
     - [https://sos2021-26.herokuapp.com/api/v1/culturaBASE/](https://sos2021-26.herokuapp.com/api/v1/culturaBASE/) (developed by [José María Maya Cano](https://github.com/josemarimaya))
-    - [https://sos2021-26.herokuapp.com/api/v1/air-routes/](https://sos2021-26.herokuapp.com/api/v1/air-routes/) (developed by [Darío López Villegas](https://github.com/darlopvil))
+    - [https://sos2021-26.herokuapp.com/api/v1/air-routes/](https://sos2021-26.herokuapp.com/api/v1/air_routes/) (developed by [Darío López Villegas](https://github.com/darlopvil))
     - [https://sos2021-26.herokuapp.com/api/v1/hostelries/](https://sos2021-26.herokuapp.com/api/v1/hostelries/) (developed by [Mateo Serna Giraldo](https://github.com/keffren))
 
 - **F05**:

@@ -21,7 +21,9 @@
                 <li>
                     <a href = "#/hostelries">Hostelry industry</a>
                 </li>
-                <li>Air routes</li>
+                <li>
+                    <a href= "#/airRoutes"> Air routes</a>
+                </li>
             </ul>
         </li>
 
@@ -69,7 +71,7 @@
                     <a href="https://documenter.getpostman.com/view/9628248/TzJsfJT2"> Developed by </a> <a href="https://github.com/josemarimaya"><b>José María Maya Cano</b></a> 
                 </li>
                 <li>
-                    <a href="https://documenter.getpostman.com/view/14948205/TzJsfJSz">Postman doc developed by</a> <a href="https://github.com/keffren"><b>Mateo Serna Giraldo</b></a>)
+                    <a href="https://documenter.getpostman.com/view/14948205/TzJsfJSz">Postman doc developed by</a> <a href="https://github.com/keffren"><b>Mateo Serna Giraldo</b></a>
                 </li>
             </ul>
         </li>
