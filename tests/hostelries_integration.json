@@ -616,7 +616,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Catalonia/2020 -Put check",
+			"name": "/api/v1/hostelries/Cataluña/2020 -Put check",
 			"event": [
 				{
 					"listen": "test",
@@ -640,7 +640,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"district\"           :   \"Catalonia\",\r\n    \"year\"              :   \"2020\",\r\n    \"employee_staff\"    :   111111,\r\n    \"establishment_open\":   222222,\r\n    \"traveler_numer\"    :   333333\r\n}",
+					"raw": "{\r\n    \"district\"           :   \"Cataluña\",\r\n    \"year\"              :   \"2020\",\r\n    \"employee_staff\"    :   111111,\r\n    \"establishment_open\":   222222,\r\n    \"traveler_numer\"    :   333333\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -648,7 +648,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Catalonia/2020",
+					"raw": "{{heroku}}/api/v1/hostelries/Cataluña/2020",
 					"host": [
 						"{{heroku}}"
 					],
@@ -656,7 +656,7 @@
 						"api",
 						"v1",
 						"hostelries",
-						"Catalonia",
+						"Cataluña",
 						"2020"
 					]
 				}
@@ -664,7 +664,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Catalonia/2020 -400 check",
+			"name": "/api/v1/hostelries/Cataluña/2020 -400 check",
 			"event": [
 				{
 					"listen": "test",
@@ -687,7 +687,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"district\"           :   \"Catalonia\",\r\n    \"year\"              :   \"2020\",\r\n    \"employee_staff\"    :   111111,\r\n    \"establishment_open\":   222222,\r\n    \"traveler_numer\"    :   333333,\r\n    \"test:400\"          :   44444\r\n}",
+					"raw": "{\r\n    \"district\"           :   \"Cataluña\",\r\n    \"year\"              :   \"2020\",\r\n    \"employee_staff\"    :   111111,\r\n    \"establishment_open\":   222222,\r\n    \"traveler_numer\"    :   333333,\r\n    \"test:400\"          :   44444\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -695,7 +695,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Catalonia/2020",
+					"raw": "{{heroku}}/api/v1/hostelries/Cataluña/2020",
 					"host": [
 						"{{heroku}}"
 					],
@@ -703,7 +703,7 @@
 						"api",
 						"v1",
 						"hostelries",
-						"Catalonia",
+						"Cataluña",
 						"2020"
 					]
 				}
@@ -711,7 +711,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Catalonia/2020 -409 check",
+			"name": "/api/v1/hostelries/Cataluña/2020 -409 check",
 			"event": [
 				{
 					"listen": "test",
@@ -734,7 +734,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"district\"           :   \"Catalonia\",\r\n    \"year\"              :   \"2021\",\r\n    \"employee_staff\"    :   111111,\r\n    \"establishment_open\":   222222,\r\n    \"traveler_numer\"    :   333333\r\n}",
+					"raw": "{\r\n    \"district\"           :   \"Cataluña\",\r\n    \"year\"              :   \"2021\",\r\n    \"employee_staff\"    :   111111,\r\n    \"establishment_open\":   222222,\r\n    \"traveler_numer\"    :   333333\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -742,7 +742,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Catalonia/2020",
+					"raw": "{{heroku}}/api/v1/hostelries/Cataluña/2020",
 					"host": [
 						"{{heroku}}"
 					],
@@ -750,7 +750,7 @@
 						"api",
 						"v1",
 						"hostelries",
-						"Catalonia",
+						"Cataluña",
 						"2020"
 					]
 				}
@@ -758,7 +758,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Catalonia/2020 -not allowed",
+			"name": "/api/v1/hostelries/Cataluña/2020 -not allowed",
 			"event": [
 				{
 					"listen": "test",
@@ -784,7 +784,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Catalonia/2020",
+					"raw": "{{heroku}}/api/v1/hostelries/Cataluña/2020",
 					"host": [
 						"{{heroku}}"
 					],
@@ -792,7 +792,7 @@
 						"api",
 						"v1",
 						"hostelries",
-						"Catalonia",
+						"Cataluña",
 						"2020"
 					]
 				}
