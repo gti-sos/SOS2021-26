@@ -5,8 +5,10 @@
 
 	import Home from './Home.svelte';
 	import CulturaBASE from './culturaBASEAPI/CulturaBASE.svelte';
+	import CulturaBASEDistrict from './culturaBASEAPI/EditCulturaBase.svelte';
 	import Hostelries from '../hostelriesAPI/Hostelries.svelte';
 	import AirRoutes from '../airRoutesAPI/AirRoutes.svelte';
+
 
 	import NotFound from './NotFound.svelte';
 
@@ -19,6 +21,7 @@
 		'/': Home,
 		'/hostelries': Hostelries,
 		'/culturaBASE': CulturaBASE,
+		'/culturaBASE/:district': CulturaBASEDistrict,
 		'/airRoutes': AirRoutes,
 		'*': NotFound
 	};

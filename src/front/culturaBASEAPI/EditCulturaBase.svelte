@@ -50,7 +50,7 @@
 		
         console.log("Updating tourism..." + JSON.stringify(params.district));
 		
-        const res = await fetch("/api/v1/culturaBASE/" + params,district + "/" + params.year, {
+        const res = await fetch("/api/v1/culturaBASE/" + params.district + "/" + params.year, {
             method: "PUT",
             body: JSON.stringify({
                 province: params.district,
@@ -63,7 +63,7 @@
                 "Content-Type": "application/json"
             }
         }).then(function (res) {
-            getTourism();
+            getCulturaBase();
 			if(res.ok){	
 				successMessage = res.status + ": " + res.statusText + ". Dato actualizado con éxito";
 				console.log("OK!" + successMessage);

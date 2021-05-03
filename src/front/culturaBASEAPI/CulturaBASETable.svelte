@@ -96,7 +96,7 @@
             {#each r_culturaBASE as r_cb}
                 <tr>
                     <!--Estamos haciendo la llamada a los atributos de cultura base y los estamos ordenando por filas-->
-                    <!--<td><a href="#/cb/{r_cb.district}"></a>{r_cb.district}</td>-->
+                    <td><a href="#/culturaBASE/{r_cb.district}">{r_cb.district}</a></td>
                     <td>{r_cb.district}</td>
                     <td>{r_cb.year}</td>
                     <td>{r_cb.fundraising}</td>
