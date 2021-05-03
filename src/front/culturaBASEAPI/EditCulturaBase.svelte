@@ -55,7 +55,7 @@
         const res = await fetch("/api/v1/culturaBASE/" + params.district + "/" +params.year, {
             method: "PUT",
             body: JSON.stringify({
-                province: params.district,
+                district: params.district,
                 year: params.year,
                 fundraising: updatedFundraising,
 				spectator: updatedSpectator,
