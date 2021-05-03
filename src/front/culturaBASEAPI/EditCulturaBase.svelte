@@ -7,7 +7,7 @@
         pop
     } from "svelte-spa-router";
 
-    import Table from "sveltestrap/src/Table.svelte";
+    //import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
 
     export let params = {};
@@ -24,33 +24,35 @@
 
     async function getCulturaBase(){
         console.log("Fetching Cultura...");
-        const res = await fetch("/api/v1/culturaBASE/"+ params.district + "/" + params.year);
+        const res = await fetch("/api/v1/culturaBASE/"+ params.district);
+
+        //const res = await fetch("/api/v1/culturaBASE/"+ params.district + "/" + params.year);
 
         if(res.ok){
             console.log("Okey: ");
             const json = await res.json();
-            cultura = json;
+            culturaBASE = json;
             //Suponemos que a tanto district como year le llegan directamente los parametros de busqueda porque son clave
             updatedDistrict = params.district;
-            updatedYear = params.year;
+            updatedYear = culturaBASE.year;
             //Dado que los demás atributos no son de busqueda creamos el cultura como objeto json para invocarlos
             //El parseFloat como hicimos anteriormente para que se lea correctamente el formato json los datos que le metemos
-            updatedFundraising = parseFloat(cultura.fundraising);
-            updatedSpectator = parseFloat(cultura.spectator);
-            updatedSpendingPerView = parseFloat(cultura.spending_per_view);
-            console.log("Hemos recivido los datos de culturaBASE");
+            updatedFundraising = parseFloat(culturaBASE.fundraising);
+            updatedSpectator = parseFloat(culturaBASE.spectator);
+            updatedSpendingPerView = parseFloat(culturaBASE.spending_per_view);
+            console.log("Hemos recibido los datos de culturaBASE");
 
 
         }else if(res.status == 404){
-            window.alert("El dato "+params.district + ""+params.year+" no existe");
+            window.alert("El dato "+params.district + " " + params.year + " no existe");
         }
     }
 
     async function updateCulturaBase() {
 		
         console.log("Updating tourism..." + JSON.stringify(params.district));
-		
-        const res = await fetch("/api/v1/culturaBASE/" + params.district + "/" + params.year, {
+		//const res = await fetch("/api/v1/culturaBASE/" + params.district + "/" + params.year
+        const res = await fetch("/api/v1/culturaBASE/" + params.district, {
             method: "PUT",
             body: JSON.stringify({
                 province: params.district,
@@ -64,24 +66,24 @@
             }
         }).then(function (res) {
             getCulturaBase();
-			if(res.ok){	
+			/*if(res.ok){	
 				successMessage = res.status + ": " + res.statusText + ". Dato actualizado con éxito";
 				console.log("OK!" + successMessage);
 
 			}else if(res.status == 400){
 				window.alert("Los datos que se intentan insertar no son válidos");
-			} 
+			} */
         });
     }
 
 </script>
 
 <main>
-    <h2>Editar info: <strong> {params.district}{params.year}</strong></h2>
+    <h2>Editar info: <strong> {params.district}<!--{params.year}--></strong></h2>
     {#await culturaBASE}
         Loading data...
-    {:then culturaBase} 
-        <Table bordered>
+    {:then culturaBASE} 
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Comunidad</th>
@@ -104,7 +106,7 @@
                     </tr>
               
             </tbody>
-        </Table>>
+        </table>
     {/await}
     {#if successMessage}
         <p style="color: green">{successMessage}</p>
