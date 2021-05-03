@@ -34,7 +34,7 @@
             culturaBASE = json;
             //Suponemos que a tanto district como year le llegan directamente los parametros de busqueda porque son clave
             updatedDistrict = params.district;
-            updatedYear = culturaBASE.year;
+            updatedYear = params.year;
             //Dado que los demás atributos no son de busqueda creamos el cultura como objeto json para invocarlos
             //El parseFloat como hicimos anteriormente para que se lea correctamente el formato json los datos que le metemos
             updatedFundraising = parseFloat(culturaBASE.fundraising);
