@@ -18,7 +18,7 @@
 		and the value is the route object.
 	*/
 	const routes = {
-		'/': Home,
+		'/info': Home,
 		'/hostelries': Hostelries,
 		'/culturaBASE': CulturaBASE,
 		'/culturaBASE/:district': CulturaBASEDistrict,
