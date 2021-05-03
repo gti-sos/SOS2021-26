@@ -5,8 +5,8 @@
 
 	import Home from './Home.svelte';
 	import CulturaBASE from './culturaBASEAPI/CulturaBASE.svelte';
-	import Hostelries from './hostelriesAPI/Hostelries.svelte';
-	import AirRoutes from './airRoutesAPI/AirRoutes.svelte';
+	import Hostelries from '../hostelriesAPI/Hostelries.svelte';
+	import AirRoutes from '../airRoutesAPI/AirRoutes.svelte';
 
 	import NotFound from './NotFound.svelte';
 

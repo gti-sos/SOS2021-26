@@ -1,0 +1,138 @@
+<!--Los nombres de los ficheros svelte SIEMPRE empiezan en mayúscula porque sino no te los lee el desgraciado de svelte-->
+<script>
+    import{
+        onMount
+    }from "svelte";
+
+    //import Table from "sveltestrap/src/Table.svelte";
+    import Button from "sveltestrap/src/Button.svelte";
+
+    let r_culturaBASE = []
+    let newCB = {district: "",
+    year: "",
+    fundraising: "",
+    spectator: "",
+    spending_per_view: ""
+    }
+
+    let exitoMsg = "";
+
+
+    async function getCulturaBASEResource(){
+        console.log("--CulturaBASEAPI: \n Estamos buscando los recursos pertinentes");
+        const res = await fetch("api/v1/culturaBASE");
+
+        if(res.ok){
+            console.log("--CulturaBASEAPI: \n Éxito");
+            const json = await res.json();
+            r_culturaBASE = json;
+            console.log(`--CulturaBASEAPI: \n Hemos recibido ${r_culturaBASE} `);
+        }else{
+            console.log("--CulturaBASEAPI: \n Error buscando los recursos");
+        }
+    }
+
+    async function insertCulturaBASE() {
+	  	exitoMsg ="";
+        console.log("Inserting new data..." + JSON.stringify(newCB));
+ 
+        const res = await fetch("/api/v1/culturaBASE", {
+            method: "POST",
+            body: JSON.stringify(newCB),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (res) {
+            getCulturaBASEResource();
+			if(res.ok){
+				newCB = {district: "",
+                    year: "",
+                    fundraising: "",
+                    spectator: "",
+                    spending_per_view: ""
+                    };
+				exitoMsg = res.status + ": " + res.statusText + ". Dato insertado con éxito";
+			}
+			else if (res.status == 400) {
+           		window.alert("ERROR: Debe completar todos los campos");
+				
+			}
+			else if (res.status == 409) {
+				window.alert("ERROR: el dato " + newCB.district+ " " + newCB.year + " ya existe.");
+				
+			}
+        });
+    }
+
+    async function deleteCultura(district, year) {
+        const res = await fetch("api/v1/culturaBASE" + district +"/" + year, {
+            method: "DELETE"
+        }).then(function (res) {
+            getCulturaBASEResource();
+			exitoMsg = res.status + ": " + res.statusText + ". Dato eliminado con éxito";
+        });
+    }   
+	async function deleteAllCultura() {
+        const res = await fetch("api/v1/culturaBASE", {
+            method: "DELETE"
+        }).then(function (res) {
+            getCulturaBASEResource();
+			exitoMsg = res.status + ": " + res.statusText + ". Datos eliminados con éxito";
+        });
+    }
+	async function loadInitialData() {
+        const res = await fetch("api/v1/culturaBASE", {
+            method: "GET"
+        }).then(function (res) {
+            getCulturaBASEResource();
+			exitoMsg = res.status + ": " + res.statusText + ". Datos reiniciados con éxito";
+        });
+    }
+
+
+    onMount(getCulturaBASEResource);
+</script>
+
+<svelte:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</svelte:head>
+
+<main>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Comunidad</th>
+                <th>Año</th>
+                <th>Recaudación total (contada por millones)</th>
+                <th>Espectadores (contados por millones)</th>
+                <th>Gasto por espectador(contado por millones)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each r_culturaBASE as r_cb}
+                <tr>
+                    <!--Estamos haciendo la llamada a los atributos de cultura base y los estamos ordenando por filas-->
+                    <!--<td><a href="#/cb/{r_cb.district}"></a>{r_cb.district}</td>-->
+                    <td>{r_cb.year}</td>
+                    <td>{r_cb.fundraising}</td>
+                    <td>{r_cb.spectator}</td>
+                    <td>{r_cb.spending_per_view}</td>
+                    <td><Button outline color = "danger" on:click="{deleteCultura(r_cb.district, r_cb.year)}">Eliminar</Button></td>
+                </tr>
+            {/each}
+        </tbody>
+    </table>
+    <h3>Añdimos nuevo dato</h3>
+    <table class="table table-striped">
+        <tr>
+                    
+            <td>Provincia<input bind:value="{newCB.district}"></td>
+            <td>Año<input bind:value="{newCB.year}"></td>
+            <td>Recaudacion<input bind:value="{newCB.fundraising}"></td>
+            <td>Espectadores<input bind:value="{newCB.spectator}"></td>
+            <td>Gasto<input bind:value="{newCB.spending_per_view}"></td>
+            <td><Button outline color = "primary" on:click="{insertCulturaBASE()}">Añadir</Button></td>
+        </tr>
+    </table>
+</main>
+

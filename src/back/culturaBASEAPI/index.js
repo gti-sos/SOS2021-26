@@ -164,7 +164,7 @@ module.exports.httpCRUD = (app, db) =>{
         
         db.find({district : urlDistrict}, (err,resources) =>{
             if(err){
-                console.error(`--CB:\n  ERROR : accessing DB in GET(../hostelries/${urlDistrict})`);
+                console.error(`--CB:\n  ERROR : accessing DB in GET(../culturaBASE/${urlDistrict})`);
                 res.sendStatus(500);
             }else{
                 if(Object.keys(resources).length > 0){

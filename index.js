@@ -37,7 +37,7 @@ airRoutesAPI.httpCRUD(app,dbAir_Routes);
 /*#################################################    Resource: culturaBASE    ################################################################*/
 
 //Import API
-var culturaBASEAPI = require('./culturaBASEAPI');
+var culturaBASEAPI = require('./src/back/culturaBASEAPI');
 
 culturaBASEAPI.loadDB(app, dbCulturaBASE);
 
