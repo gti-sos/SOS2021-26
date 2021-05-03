@@ -19,9 +19,10 @@
 	*/
 	const routes = {
 		'/info': Home,
+		'/': Home,
 		'/hostelries': Hostelries,
 		'/culturaBASE': CulturaBASE,
-		'/culturaBASE/:district': CulturaBASEDistrict,
+		'/culturaBASE/:district/:year': CulturaBASEDistrict,
 		'/airRoutes': AirRoutes,
 		'*': NotFound
 	};

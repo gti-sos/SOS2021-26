@@ -52,7 +52,7 @@
 		
         console.log("Updating tourism..." + JSON.stringify(params.district));
 		//const res = await fetch("/api/v1/culturaBASE/" + params.district + "/" + params.year
-        const res = await fetch("/api/v1/culturaBASE/" + params.district, {
+        const res = await fetch("/api/v1/culturaBASE/" + params.district + "/" +params.year, {
             method: "PUT",
             body: JSON.stringify({
                 province: params.district,

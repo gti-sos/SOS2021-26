@@ -89,15 +89,15 @@
                 <th>Recaudación total (contada por millones)</th>
                 <th>Espectadores (contados por millones)</th>
                 <th>Gasto por espectador(contado por millones)</th>
-                <td><Button outline color = "danger" on:click="{deleteAllCultura}">Eliminar</Button></td>
+                <td><Button outline color = "danger" on:click="{deleteAllCultura}">Eliminarlo todo</Button></td>
             </tr>
         </thead>
         <tbody>
             {#each r_culturaBASE as r_cb}
                 <tr>
                     <!--Estamos haciendo la llamada a los atributos de cultura base y los estamos ordenando por filas-->
-                    <td><a href="#/culturaBASE/{r_cb.district}">{r_cb.district}</a></td>
-                    <td>{r_cb.district}</td>
+                    <td><a href="#/culturaBASE/{r_cb.district}/{r_cb.year}">{r_cb.district}</a></td>
+                    <!--<td>{r_cb.district}</td>-->
                     <td>{r_cb.year}</td>
                     <td>{r_cb.fundraising}</td>
                     <td>{r_cb.spectator}</td>
