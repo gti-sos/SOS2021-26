@@ -64,7 +64,7 @@
         });
     }
 	async function loadInitialData() {
-        const res = await fetch("api/v1/culturaBASE", {
+        const res = await fetch("api/v1/culturaBASE/loadInitialData", {
             method: "GET"
         }).then(function (res) {
             getCulturaBASEResource();
@@ -107,7 +107,7 @@
             {/each}
         </tbody>
     </table>
-    <h3>Añdimos nuevo dato</h3>
+    <h3>Añadimos nuevo dato</h3>
     <table class="table table-striped">
         <tr>
                     
@@ -120,5 +120,6 @@
             <!--<td><button type="button" class="btn btn-outline-primary" function = "onclick:{insertCulturaBASE}"></button></td>-->
         </tr>
     </table>
+    <Button on:click={loadInitialData}>Añadir los casos base</Button>
 </main>
 
