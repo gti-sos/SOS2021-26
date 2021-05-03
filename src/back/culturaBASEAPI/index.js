@@ -1,7 +1,12 @@
-var BASE_CULTURABASE_API_PATH = "/api/v1/culturaBASE";
-
-module.exports.loadDB = (app, db) =>{
+module.exports = function(app){
+    var BASE_CULTURABASE_API_PATH = "/api/v1/culturaBASE";
     let initialData = require ('./initialData.js');
+
+    var Datastore = require('nedb');
+    const db = new Datastore();
+
+
+    //####################################################    Load JSON into DB
     app.get(BASE_CULTURABASE_API_PATH+ "/loadInitialData", (req,res)=>{
         db.remove({}, {multi:true});
 
@@ -16,13 +21,9 @@ module.exports.loadDB = (app, db) =>{
 
         })
     });
-};
 
-
-module.exports.httpCRUD = (app, db) =>{
-
+    //####################################################  HTTP CRUD
     //GET
-
     app.get(BASE_CULTURABASE_API_PATH, (req,res) => {
 
         var dbquery = {};
@@ -164,7 +165,7 @@ module.exports.httpCRUD = (app, db) =>{
         
         db.find({district : urlDistrict}, (err,resources) =>{
             if(err){
-                console.error(`--CB:\n  ERROR : accessing DB in GET(../culturaBASE/${urlDistrict})`);
+                console.error(`--CB:\n  ERROR : accessing DB in GET(../hostelries/${urlDistrict})`);
                 res.sendStatus(500);
             }else{
                 if(Object.keys(resources).length > 0){

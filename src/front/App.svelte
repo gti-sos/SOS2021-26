@@ -4,12 +4,16 @@
 	import Router from 'svelte-spa-router';
 
 	import Home from './Home.svelte';
+
+	//Imports of CulturaBASE
 	import CulturaBASE from './culturaBASEAPI/CulturaBASE.svelte';
 	import CulturaBASEDistrict from './culturaBASEAPI/EditCulturaBase.svelte';
-	import Hostelries from '../hostelriesAPI/Hostelries.svelte';
-	import AirRoutes from '../airRoutesAPI/AirRoutes.svelte';
 
+	//Imports of Hostelries
+	import Hostelries from './hostelriesAPI/Hostelries.svelte';
+	import EditHostelryResource from './hostelriesAPI/editHostelryR.svelte';
 
+	import AirRoutes from './airRoutesAPI/AirRoutes.svelte';
 	import NotFound from './NotFound.svelte';
 
 
@@ -20,19 +24,21 @@
 	const routes = {
 		'/info': Home,
 		'/': Home,
+
+		//Hostelries API
 		'/hostelries': Hostelries,
+		'/hostelries/:district/:year': EditHostelryResource, 
+		//CulturaBAse API
 		'/culturaBASE': CulturaBASE,
 		'/culturaBASE/:district/:year': CulturaBASEDistrict,
+		//AirRoutes API
 		'/airRoutes': AirRoutes,
+		
 		'*': NotFound
 	};
 </script>
 
 <main>
-	<!--
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-	-->
 	<Router {routes}/>
 </main>
 
