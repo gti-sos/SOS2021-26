@@ -78,6 +78,10 @@
 
 </script>
 
+<svelte:head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</svelte:head>
+
 <main>
     <h2>Editar info: <strong> {params.district}<!--{params.year}--></strong></h2>
     {#await culturaBASE}
