@@ -50,7 +50,7 @@
 
     async function updateCulturaBase() {
 		
-        console.log("Updating tourism..." + JSON.stringify(params.district));
+        console.log("Actualizando el cine..." + JSON.stringify(params.district));
 		//const res = await fetch("/api/v1/culturaBASE/" + params.district + "/" + params.year
         const res = await fetch("/api/v1/culturaBASE/" + params.district + "/" +params.year, {
             method: "PUT",
@@ -66,13 +66,13 @@
             }
         }).then(function (res) {
             getCulturaBase();
-			/*if(res.ok){	
-				successMessage = res.status + ": " + res.statusText + ". Dato actualizado con éxito";
+			if(res.ok){	
+				successMessage = res.status + ": " + res.statusText + ". Dato actualizado con éxito, somos unos máquinas chavalada";
 				console.log("OK!" + successMessage);
 
 			}else if(res.status == 400){
 				window.alert("Los datos que se intentan insertar no son válidos");
-			} */
+			}
         });
     }
 
@@ -83,7 +83,7 @@
 </svelte:head>
 
 <main>
-    <h2>Editar info: <strong> {params.district}<!--{params.year}--></strong></h2>
+    <h2 style="text-align:center;">Editar info: <strong> {params.district}<!--{params.year}--></strong></h2>
     {#await culturaBASE}
         Loading data...
     {:then culturaBASE} 

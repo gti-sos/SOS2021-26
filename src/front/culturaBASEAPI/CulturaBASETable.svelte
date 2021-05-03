@@ -107,19 +107,22 @@
             {/each}
         </tbody>
     </table>
-    <h3>Añadimos nuevo dato</h3>
+    <h3 style="text-align: center;">Añadimos nuevo dato</h3>
     <table class="table table-striped">
         <tr>
                     
-            <td>Provincia<input bind:value="{newCB.district}"></td>
-            <td>Año<input bind:value="{newCB.year}"></td>
-            <td>Recaudacion<input bind:value="{newCB.fundraising}"></td>
-            <td>Espectadores<input bind:value="{newCB.spectator}"></td>
-            <td>Gasto<input bind:value="{newCB.spending_per_view}"></td>
-            <td> <Button on:click={insertCulturaBASE}>Añadir la cosa</Button></td>
+            <td>Provincia: <input bind:value="{newCB.district}"></td>
+            <td>Año: <input bind:value="{newCB.year}"></td>
+            <td>Recaudacion: <input bind:value="{newCB.fundraising}"></td>
+            <td>Espectadores: <input bind:value="{newCB.spectator}"></td>
+            <td>Gasto medio por espectador: <input bind:value="{newCB.spending_per_view}"></td>
+            <td> <Button outline color = "success" on:click={insertCulturaBASE}>Añadir la cosa</Button></td>
             <!--<td><button type="button" class="btn btn-outline-primary" function = "onclick:{insertCulturaBASE}"></button></td>-->
         </tr>
     </table>
+    {#if exitoMsg}
+        <p style="color: green">{exitoMsg}</p>
+    {/if}
     <Button on:click={loadInitialData}>Añadir los casos base</Button>
 </main>
 
