@@ -6,6 +6,10 @@
 
     //import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
+    //nueva importacion para agrupacion de formulario
+    import FormGroup from "sveltestrap/src/Button.svelte";
+    import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
+	import Input from "sveltestrap/src/Input.svelte";
 
     let r_culturaBASE = []
     let newCB = {district: "",
@@ -16,8 +20,58 @@
     }
     let exitoMsg = "";
 
+    //variables de paginacion
+
+    let numeroRecursos = 5;//recursos que tenemos da datos iniciales
+    let offset = 0;
+    let currentPage = 1;
+    let plusData = true;
+
+
+    //Inicializamos variables de busqueda
+
+    let campo1 = "";
+    let campo2 = "";
+    let valor1 = "";
+    let valor2 = "";
 
     async function getCulturaBASEResource(){
+        console.log("Buscando recursos de culturaBASE...")
+
+        const res = await fetch("/api/v1/culturaBASE?offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
+        const resNext = await fetch("/api/v1/culturaBASE?offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
+
+        if(res.ok && resNext.ok){
+            console.log("Todo okey");
+            //pasamos los valores de busqueda y los parametros a formato json
+            //como res y resNext son constantes que están sujetas a busqueda se hace así la transformacion con wl await
+            const json = await res.json();//res.json() es a raíz de la transformcion de una const en otra de tipo json
+            const jsonNext = await resNext.json();
+            r_culturaBASE = json;
+
+            //condicionante para ver si hemos llegado al ultimo valor de los recursos iniciales o no
+            if(jsonNext.length == 0){
+                plusData = false;
+            }else{
+                plusData = true;
+            }
+            console.log("Hemos recibido" + r_culturaBASE.length + " datos de culturaBASE");
+        }else{
+            console.log("ERROR");
+        }
+
+    }
+
+    //funcion para el incremento del offset con un parametro valor que le pasamos nosotros
+    function incrementOffset(valor){
+        offset += valor;
+        currentPage += valor;
+        getCulturaBASEResource();
+    }
+
+
+
+    /*async function getCulturaBASEResource(){
         console.log("--CulturaBASEAPI: \n Estamos buscando los recursos pertinentes");
         const res = await fetch("api/v1/culturaBASE");
 
@@ -29,7 +83,7 @@
         }else{
             console.log("--CulturaBASEAPI: \n Error buscando los recursos");
         }
-    }
+    }*/
 
     async function insertCulturaBASE() {
 	  
@@ -72,6 +126,51 @@
         });
     }
 
+    //Para la funcion de busqueda tenemos que meterle los valores que queramos en la función para buscarlos
+    async function search(campo1, campo2, valor1, valor2){
+        //damos por sentado que hay que dejar implementado el offset
+        offset = 0;
+        currentPage = 1;
+        //variable booleana para ver si le hemos metido valores de más
+        plusData = false;
+        //mensaje de exito ya inicializado anteriormente
+        exitoMsg = "";
+        console.log("Buscando los datos: " + campo1+ " " + valor1+ ", " + campo2 + " "+ valor2);
+        //la url de la que vamos a sacar la informacion y con la que vamos a trabajar para añadirle los campos de busqueda
+        //ello es como lo que hacemos en el backend con los get de busqueda en node pero añadiéndolos de manera directa
+        var url = "api/v1/culturaBASE";
+
+        //los condicionantes van a ser que ninguno de los campos esten vacíos, y que si no lo están impriman la url de busqueda
+        if(campo1 != "" & campo2 != "" & valor1 != "" & valor2 != ""){
+            url = url + "?"+ campo1 + "="+ valor1 + "&" + campo2 + "=" + valor2;
+        }else if(campo1 != "" & campo2 != "" & valor1 != ""){
+            url = url + "?"+ campo1 + "="+ valor1;
+        }else if(campo1 != "" & campo2 != "" & valor2 != ""){
+            url = url + "?"+ campo2 + "=" + valor2;
+        }
+
+        //imprimimos en consola el resultado que sale de la url
+        console.log(url);
+
+        //se hace la busqueda asincrona de la url a ver si es correcta
+        const res = await fetch(url);
+
+        if(res.ok){
+            console.log("La busqueda es correcta, el resultado: ");
+            const json = await res.json();
+            //pasamos el formato de la base de datos a json para trabajar con sus parámetros
+            r_culturaBASE = json;
+            console.log("Hemos encontrado " + r_culturaBASE.length + " datos de culturaBASE");
+            //mensaje que le enseñamos al usuario
+            exitoMsg = res.status + ": "+ res.statusText + ". Búsqueda realizada con éxito. " + r_culturaBASE.length + " elementos encontrados.";
+        }else{
+            //alerta emergente cuando un usuario se equivoca haciendo la busqueda
+            window.alert("Error: Te has equivocado a la hora de poner los datos para la búsqueda máquina, prueba de nuevo");
+            //error que aparece en consola
+            console.log("ERROR A LA HORA DE HACER LA BUSQUEDA");
+        }
+    }
+
 
     onMount(getCulturaBASEResource);
 </script>
@@ -81,6 +180,50 @@
 </svelte:head>
 
 <main>
+    <FormGroup>
+        <table class="table table-striped">
+            <tr>
+                <td>
+                    <Input  type="select" name="inputCampo" id="inputCampo" bind:value="{campo1}">
+                        <option disabled selected></option>
+						<option value="district">Comunidad</option>
+						<option value="year">Año</option>
+						<option value="fundraising">Recaudacion</option>
+						<option value="spectators">Espectadores</option>
+						<option value="spending-per-view">Gasto por espectador</option>
+                    </Input>
+                </td>
+
+                <td>
+                    <Input type="text"  name="inputValor" id="inputValor" bind:value="{valor1}"></Input>
+                
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <Input type="select" name="inputCampo" id="inputCampo" bind:value="{campo2}">
+                        <option disabled selected></option>
+						<option value="district">Comunidad</option>
+						<option value="year">Año</option>
+						<option value="fundraising">Recaudacion</option>
+						<option value="spectators">Espectadores</option>
+						<option value="spending-per-view">Gasto por espectador</option>
+                    </Input>
+                </td>
+                <td>
+                    <Input type="text"  name="inputValor" id="inputValor" bind:value="{valor2}"></Input>
+                
+                </td>
+            </tr>
+
+        </table>
+    
+    </FormGroup>
+
+
+    <Button style="margin bottom: 2%;" color= "primary" on:click="{search(campo1, valor1, campo2, valor2)}" class="button-search"> Búsqueda de elementos</Button>
     <table class="table table-striped">
         <thead>
             <tr>
