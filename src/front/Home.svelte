@@ -4,9 +4,9 @@
         <li>
             <b> Equipo 26</b>
             <ul>
-                <li><a href = "https://github.com/josemarimaya" > Jose María Maya Cano </a></li>
-                <li><a href = " https://github.com/keffren " > Mateo Serna Giraldo </a></li>
-                <li><a href = " https://github.com/darlopvil " > Darío López Villegas </a></li>
+                <li><a href = "https://github.com/josemarimaya" > Jose María Maya Cano - culturaBASE</a></li>
+                <li><a href = " https://github.com/keffren " > Mateo Serna Giraldo - hostelries</a></li>
+                <li><a href = " https://github.com/darlopvil " > Darío López Villegas - air_routes </a></li>
             </ul>
         </li><br>
 
