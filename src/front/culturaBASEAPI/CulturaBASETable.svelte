@@ -127,7 +127,7 @@
     }
 
     //Para la funcion de busqueda tenemos que meterle los valores que queramos en la función para buscarlos
-    async function search(campo1, campo2, valor1, valor2){
+    async function search(campo1, valor1, campo2, valor2){
         //damos por sentado que hay que dejar implementado el offset
         offset = 0;
         currentPage = 1;
@@ -180,8 +180,8 @@
 </svelte:head>
 
 <main>
-    <FormGroup>
-        <table class="table table-striped">
+    
+        <table class="table center table-striped">
             <tr>
                 <td>
                     <Input  type="select" name="inputCampo" id="inputCampo" bind:value="{campo1}">
@@ -199,31 +199,34 @@
                 
                 </td>
 
-            </tr>
+            
 
-            <tr>
+            
                 <td>
                     <Input type="select" name="inputCampo" id="inputCampo" bind:value="{campo2}">
-                        <option disabled selected></option>
-						<option value="district">Comunidad</option>
-						<option value="year">Año</option>
-						<option value="fundraising">Recaudacion</option>
-						<option value="spectators">Espectadores</option>
-						<option value="spending-per-view">Gasto por espectador</option>
+                            <option disabled selected></option>
+                            <option value="district">Comunidad</option>
+                            <option value="year">Año</option>
+                            <option value="fundraising">Recaudacion</option>
+                            <option value="spectators">Espectadores</option>
+                            <option value="spending-per-view">Gasto por espectador</option>
                     </Input>
                 </td>
                 <td>
                     <Input type="text"  name="inputValor" id="inputValor" bind:value="{valor2}"></Input>
-                
+                    
+                </td>
+                <td>
+                    <Button style="align:center;" color= "primary" on:click="{search(campo1, valor1, campo2, valor2)}" class="button-search"> Búsqueda de elementos</Button>
                 </td>
             </tr>
-
+           
         </table>
     
-    </FormGroup>
+    
 
 
-    <Button style="margin bottom: 2%;" color= "primary" on:click="{search(campo1, valor1, campo2, valor2)}" class="button-search"> Búsqueda de elementos</Button>
+    
     <table class="table table-striped">
         <thead>
             <tr>
