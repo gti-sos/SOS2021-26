@@ -14,6 +14,55 @@
         "traveler_numer"    :   19869536
     },
     {
+        "district"           :   "Andalucia",
+        "year"              :   "2018",
+        "employee_staff"    :   420815,
+        "establishment_open":   29555,
+        "traveler_numer"    :   18838408
+    },
+    {
+        "district"           :   "Aragon",
+        "year"              :   "2020",
+        "employee_staff"    :   24389,
+        "establishment_open":   6111,
+        "traveler_numer"    :   1244078
+    },
+    {
+        "district"           :   "Aragon",
+        "year"              :   "2019",
+        "employee_staff"    :   43622,
+        "establishment_open":   9202,
+        "traveler_numer"    :   2970900
+    },
+    {
+        "district"           :   "Aragon",
+        "year"              :   "2018",
+        "employee_staff"    :   42236,
+        "establishment_open":   9038,
+        "traveler_numer"    :   2912229
+    },
+    {
+        "district"           :   "Canarias",
+        "year"              :   "2020",
+        "employee_staff"    :   239474,
+        "establishment_open":   3233,
+        "traveler_numer"    :   3178381
+    },
+    {
+        "district"           :   "Canarias",
+        "year"              :   "2019",
+        "employee_staff"    :   574223,
+        "establishment_open":   6493,
+        "traveler_numer"    :   9774578
+    },
+    {
+        "district"           :   "Canarias",
+        "year"              :   "2018",
+        "employee_staff"    :   568579,
+        "establishment_open":   6420,
+        "traveler_numer"    :   9743579
+    },
+    {
         "district"           :   "Cataluña",
         "year"              :   "2020",
         "employee_staff"    :   147190,
@@ -33,5 +82,26 @@
         "employee_staff"    :   400203,
         "establishment_open":   27213,
         "traveler_numer"    :   20045332
+    },
+    {
+        "district"           :   "Madrid",
+        "year"              :   "2020",
+        "employee_staff"    :   70703,
+        "establishment_open":   8427,
+        "traveler_numer"    :   3578807
+    },
+    {
+        "district"           :   "Madrid",
+        "year"              :   "2019",
+        "employee_staff"    :   176825,
+        "establishment_open":   14120,
+        "traveler_numer"    :   12684312
+    },
+    {
+        "district"           :   "Madrid",
+        "year"              :   "2018",
+        "employee_staff"    :   168971,
+        "establishment_open":   13015,
+        "traveler_numer"    :   12436260
     }
 ]

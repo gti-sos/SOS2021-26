@@ -23,7 +23,7 @@
 
     //PAGINACIÓN & BÚSQUEDA
     //Paginación
-    let numRecursos = 2;     //   == limit 
+    let numRecursos = 5;     //   == limit 
     let offset = 0;
     let currentPage = 1;
     let existsMoreData = true;
@@ -69,7 +69,7 @@
         //Impl pag en back-end:        .../conleccion?limit = x & offset= 0
 
         const res = await fetch(BASE_HOSTELRIES_API_PATH + "?offset=" + offset*numRecursos + "&limit=" + numRecursos);
-        const resNext = await fetch(BASE_HOSTELRIES_API_PATH + "?offset=" + (offset+1)*numRecursos + "&limit=" + numRecursos)
+        const resNext = await fetch(BASE_HOSTELRIES_API_PATH + "?offset=" + (offset+1)*numRecursos + "&limit=" + numRecursos);
         
         if(res.ok && resNext.ok){
             const json = await res.json();
