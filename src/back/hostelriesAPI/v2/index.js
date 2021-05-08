@@ -52,6 +52,8 @@ module.exports = function(app){
 
         var reqQuery = {};   //Json to save search and paginating params
         var temporalSearch = false;
+        var paginacion = false;
+
 
         //Paginating
         //  - offset: a partir de que núm. de elementos quiero que los mande
@@ -62,10 +64,12 @@ module.exports = function(app){
         if (req.query.offset) {
             offset = parseInt(req.query.offset);
             delete req.query.offset;
+            paginacion = true;
         }
         if (req.query.limit) {
             limit = parseInt(req.query.limit);
             delete req.query.limit;
+            paginacion = true;
         }
 
         //Search = filter
@@ -86,9 +90,9 @@ module.exports = function(app){
         }
         //Magia 1
 
-        //console.log(reqQuery);
+        console.log(req.query);
         
-        if(Object.keys(reqQuery).length == 0){
+        if(Object.keys(reqQuery).length == 0 && !paginacion){
             db.find({}, (err, resources) => {
                 if(err){
                     console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
@@ -128,6 +132,8 @@ module.exports = function(app){
                     }                
                 }
             })
+
+            paginacion = false;
         }
         
     });
