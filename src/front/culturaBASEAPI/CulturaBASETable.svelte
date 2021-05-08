@@ -58,7 +58,7 @@
             }else{
                 plusData = true;
             }
-            console.log("Hemos recibido" + r_culturaBASE.length + " datos de culturaBASE");
+            console.log("Hemos recibido " + r_culturaBASE.length + " datos de culturaBASE");
         }else{
             console.log("ERROR");
         }
@@ -100,6 +100,15 @@
             }
         }).then(function (res) {
             getCulturaBASEResource();
+            if(res.ok){
+                exitoMsg = res.status + ": " + res.statusText + ". Dato insertado con exito";
+            }else if(res.status==400){
+                window.alert("Los campos no están rellenos");
+                exitoMsg = res.status + ": " + res.statusText + ". No has metido los campos bien";
+            }else if (res.status==409){
+                window.alert("El recurso ya existe");
+                exitoMsg = res.status + ": " + res.statusText + ". El recurso ya existe";
+            }
         });
     }
 
@@ -164,7 +173,8 @@
             //pasamos el formato de la base de datos a json para trabajar con sus parámetros
             r_culturaBASE = json;
             if(r_culturaBASE.length==0){
-                exitoMsg = "Error 404 not found";
+                exitoMsg = "404 Not Found";
+                window.alert("Not found");
             }else{
                 console.log("Hemos encontrado " + r_culturaBASE.length + " datos de culturaBASE");
             //mensaje que le enseñamos al usuario
