@@ -57,17 +57,17 @@ module.exports = function(app){
 
         if(req.query.from && req.query.to){
             temporalSearch = true;
-            reqQuery["from"] = (req.query.from);
-            reqQuery["to"] = (req.query.to);
+            dbquery["from"] = (req.query.from);
+            dbquery["to"] = (req.query.to);
         }else{
             temporalSearch = false;
         } 
 
-        console.log(req.query);
+        /*console.log(req.query);
         if(Object.keys(dbquery).length == 0){
             db.find({}, (err, resources) => {
                 if(err){
-                    console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                    console.error('Error al acceder a culturaBASEAPI');
                     res.sendStatus(500);
                 }else{
 
@@ -83,14 +83,14 @@ module.exports = function(app){
             
         }else if(temporalSearch){
             
-            if(reqQuery.from < reqQuery.to){
+            if(dbquery.from < dbquery.to){
                 //console.log(reqQuery.from);
-                db.find({$and: [{year : {$gte:reqQuery.from}},{year : {$lte:reqQuery.to}}]},
+                db.find({$and: [{year : {$gte:dbquery.from}},{year : {$lte:dbquery.to}}]},
                 //db.find({year : {$gt: reqQuery.from}},
                 //db.find({year : {$lte: reqQuery.from}},
                     (err,resources) =>{
                         if(err){
-                            console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                            console.error('Error al meter las cosas de CBAPI');
                             res.sendStatus(500);
                         }else{
                             var resourcesToSend = resources.map( (r) =>{
@@ -127,9 +127,9 @@ module.exports = function(app){
                     }                
                 }
             })
-        }
+        }*/
         //find the data to send
-        /*db.find(dbquery).sort({district:1, year: -1}).skip(offset).limit(limit).exec((err, resources) => {
+        db.find(dbquery).sort({district:1, year: -1}).skip(offset).limit(limit).exec((err, resources) => {
             if(err){
                 console.error('No has hecho algo bien mirmano');
                 res.sendStatus(500);
@@ -141,7 +141,7 @@ module.exports = function(app){
                 });
                 res.status(200).json(resourcesToSend);
             }
-        })*/
+        })
     });
 
     //POST

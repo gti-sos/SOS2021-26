@@ -159,8 +159,8 @@
             url = url + "?"+ campo1 + "="+ valor1;
         }else if(campo1 != "" & campo2 != "" & valor2 != ""){
             url = url + "?"+ campo2 + "=" + valor2;
-        }else if(campo_1 != "" && campo_2 != "" && valor_c_1 != "" && valor_c_2 != "" && campo_1 == campo_2 && campo_1 == "year"){
-            url += "?from="+valor_c_1+"&to="+valor_c_2;
+        }else if(campo1 != "" && campo2 != "" && valor1 != "" && valor2 != "" && campo1 == campo2 && campo1 == "year"){
+            url += "?from=" + valor1 +"&to="+ valor2;
         }
 
         //imprimimos en consola el resultado que sale de la url
