@@ -193,8 +193,8 @@
 						<option value="district">Comunidad</option>
 						<option value="year">Año</option>
 						<option value="fundraising">Recaudacion</option>
-						<option value="spectators">Espectadores</option>
-						<option value="spending-per-view">Gasto por espectador</option>
+						<option value="spectator">Espectadores</option>
+						<option value="spending_per_view">Gasto por espectador</option>
                     </Input>
                 </td>
 
@@ -212,8 +212,8 @@
                             <option value="district">Comunidad</option>
                             <option value="year">Año</option>
                             <option value="fundraising">Recaudacion</option>
-                            <option value="spectators">Espectadores</option>
-                            <option value="spending-per-view">Gasto por espectador</option>
+                            <option value="spectator">Espectadores</option>
+                            <option value="spending_per_view">Gasto por espectador</option>
                     </Input>
                 </td>
                 <td>
