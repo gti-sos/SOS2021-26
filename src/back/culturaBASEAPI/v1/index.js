@@ -32,7 +32,7 @@ module.exports = function(app){
         //offset es el numero minimo de valores que hay que poner y limit el numero maximo de valores que hay que meter
         //Un ejemplo es localhost:1607/api/v1/culturaBASE/?limit=3&offset=0
         let limit = Number.MAX_SAFE_INTEGER;
-
+        var temporalSearch = false;
         //Paginación
 
         if(req.query.offset){
@@ -44,6 +44,8 @@ module.exports = function(app){
             //delete req.query.limit;
         }
 
+
+
         //Busqueda, las querys les pasamos el valor que a priori va a ser un string
 
         if(req.query.district) dbquery["district"] = req.query.district;
@@ -53,10 +55,81 @@ module.exports = function(app){
         if(req.query.spectator) dbquery["spectator"] = parseFloat(req.query.spectator);
         if(req.query.spending_per_view) dbquery["spending_per_view"] = parseFloat(req.query.spending_per_view);
 
-        console.log(req.query);
+        if(req.query.from && req.query.to){
+            temporalSearch = true;
+            reqQuery["from"] = (req.query.from);
+            reqQuery["to"] = (req.query.to);
+        }else{
+            temporalSearch = false;
+        } 
 
+        console.log(req.query);
+        if(Object.keys(dbquery).length == 0){
+            db.find({}, (err, resources) => {
+                if(err){
+                    console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                    res.sendStatus(500);
+                }else{
+
+                    var resourcesToSend = resources.map( (r) =>{
+                        delete r._id;   //   ==   delete r["_id"];
+                        return r;
+                    });
+                    res
+                    .status(200)
+                    .json(resourcesToSend);
+                }
+            });
+            
+        }else if(temporalSearch){
+            
+            if(reqQuery.from < reqQuery.to){
+                //console.log(reqQuery.from);
+                db.find({$and: [{year : {$gte:reqQuery.from}},{year : {$lte:reqQuery.to}}]},
+                //db.find({year : {$gt: reqQuery.from}},
+                //db.find({year : {$lte: reqQuery.from}},
+                    (err,resources) =>{
+                        if(err){
+                            console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                            res.sendStatus(500);
+                        }else{
+                            var resourcesToSend = resources.map( (r) =>{
+                                delete r._id;   //   ==   delete r["_id"];
+                                return r;
+                            });
+                            res
+                            .status(200)
+                            .json(resourcesToSend);
+                        }
+                    }
+                )
+            }
+            
+        }else{
+            db.find(dbquery).sort({district:1,year:-1}).skip(offset).limit(limit).exec((err,resources) => {
+                if(err){
+                    console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                    res.sendStatus(500);
+                }else{
+                    //res.send(JSON.stringify(resources,null,2));
+                    if(Object.keys(resources).length == 0){
+                        res
+                        .status(404)
+                        .json({ message: `The resource doesn't exist! <404: Not Found>`});
+                    }else{
+                        var resourcesToSend = resources.map( (r) =>{
+                            delete r._id;   //   ==   delete r["_id"];
+                            return r;
+                        });
+                        res
+                        .status(200)
+                        .json(resourcesToSend);
+                    }                
+                }
+            })
+        }
         //find the data to send
-        db.find(dbquery).sort({district:1, year: -1}).skip(offset).limit(limit).exec((err, resources) => {
+        /*db.find(dbquery).sort({district:1, year: -1}).skip(offset).limit(limit).exec((err, resources) => {
             if(err){
                 console.error('No has hecho algo bien mirmano');
                 res.sendStatus(500);
@@ -68,7 +141,7 @@ module.exports = function(app){
                 });
                 res.status(200).json(resourcesToSend);
             }
-        })
+        })*/
     });
 
     //POST

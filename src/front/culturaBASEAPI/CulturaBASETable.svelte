@@ -159,6 +159,8 @@
             url = url + "?"+ campo1 + "="+ valor1;
         }else if(campo1 != "" & campo2 != "" & valor2 != ""){
             url = url + "?"+ campo2 + "=" + valor2;
+        }else if(campo_1 != "" && campo_2 != "" && valor_c_1 != "" && valor_c_2 != "" && campo_1 == campo_2 && campo_1 == "year"){
+            url += "?from="+valor_c_1+"&to="+valor_c_2;
         }
 
         //imprimimos en consola el resultado que sale de la url
@@ -182,7 +184,8 @@
             }
             
         }else if(res.status == 404){
-            exitoMsg = res.status + ": "+ res.statusText + ". Búsqueda realizada con éxito. " + r_culturaBASE.length + " elementos encontrados.";
+            r_culturaBASE = [];
+            exitoMsg = res.status + ": "+ res.statusText + ". No encontramos parámetros coincidentes ";
         } else{
             //alerta emergente cuando un usuario se equivoca haciendo la busqueda
             window.alert("Error: Te has equivocado a la hora de poner los datos para la búsqueda máquina o no hemos encontrado na, prueba de nuevo");
