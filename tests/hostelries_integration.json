@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "b806987e-2e12-4dae-9055-6020fb6522d8",
-		"name": "Hostelries API DB sample from SOS-2021-26",
+		"_postman_id": "5b090039-c6b5-4bdb-b2a8-b94cbb92d346",
+		"name": "Hostelries API DB sample from SOS-2021-26 Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -29,13 +29,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v2/hostelries",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries"
 					]
 				}
@@ -49,8 +49,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 201\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Response time is less than 200ms\", function () {\r",
@@ -65,13 +65,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/loadInitialData",
+					"raw": "{{heroku}}/api/v2/hostelries/loadInitialData",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries",
 						"loadInitialData"
 					]
@@ -93,7 +93,8 @@
 							"pm.test(\"Array > 0\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.length).to.greaterThan(0);\r",
-							"});"
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -103,13 +104,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v2/hostelries",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries"
 					]
 				}
@@ -140,13 +141,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries?district=Andalucia&year=2020",
+					"raw": "{{heroku}}/api/v2/hostelries?district=Andalucia&year=2020",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries"
 					],
 					"query": [
@@ -157,49 +158,6 @@
 						{
 							"key": "year",
 							"value": "2020"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/api/v1/hostelries -Paginating  ?limit=1",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Array length is 1\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(1);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries?limit=1",
-					"host": [
-						"{{heroku}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"hostelries"
-					],
-					"query": [
-						{
-							"key": "limit",
-							"value": "1"
 						}
 					]
 				}
@@ -238,13 +196,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v2/hostelries",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries"
 					]
 				}
@@ -283,13 +241,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v2/hostelries",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries"
 					]
 				}
@@ -328,13 +286,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v2/hostelries",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries"
 					]
 				}
@@ -365,13 +323,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Andalucia/2020",
+					"raw": "{{heroku}}/api/v2/hostelries/Andalucia/2020",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries",
 						"Andalucia",
 						"2020"
@@ -404,13 +362,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Zaragoza/2020",
+					"raw": "{{heroku}}/api/v2/hostelries/Zaragoza/2020",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries",
 						"Zaragoza",
 						"2020"
@@ -420,7 +378,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries -Check Zaragoza/2020",
+			"name": "/api/v2/hostelries -Check Zaragoza/2020",
 			"event": [
 				{
 					"listen": "test",
@@ -442,13 +400,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Zaragoza/2020",
+					"raw": "{{heroku}}/api/v2/hostelries/Zaragoza/2020",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries",
 						"Zaragoza",
 						"2020"
@@ -458,7 +416,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Andalucia -Check",
+			"name": "/api/v2/hostelries/Andalucia -Check",
 			"event": [
 				{
 					"listen": "test",
@@ -480,13 +438,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Andalucia",
+					"raw": "{{heroku}}/api/v2/hostelries/Andalucia",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries",
 						"Andalucia"
 					]
@@ -495,7 +453,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Andalucia -Check not found",
+			"name": "/api/v2/hostelries/Andalucia -Check not found",
 			"event": [
 				{
 					"listen": "test",
@@ -518,13 +476,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Andalucia",
+					"raw": "{{heroku}}/api/v2/hostelries/Andalucia",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries",
 						"Andalucia"
 					]
@@ -533,7 +491,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries -Put not allowed",
+			"name": "/api/v2/hostelries -Put not allowed",
 			"event": [
 				{
 					"listen": "test",
@@ -560,13 +518,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v2/hostelries",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries"
 					]
 				}
@@ -574,7 +532,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Cataluña/2020 -Put check",
+			"name": "/api/v2/hostelries/Cataluña/2020 -Put check",
 			"event": [
 				{
 					"listen": "test",
@@ -606,13 +564,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Cataluña/2020",
+					"raw": "{{heroku}}/api/v2/hostelries/Cataluña/2020",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries",
 						"Cataluña",
 						"2020"
@@ -622,7 +580,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Cataluña/2020 -400 check",
+			"name": "/api/v2/hostelries/Cataluña/2020 -400 check",
 			"event": [
 				{
 					"listen": "test",
@@ -645,7 +603,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"district\"           :   \"Cataluña\",\r\n    \"year\"              :   \"2020\",\r\n    \"employee_staff\"    :   111111,\r\n    \"establishment_open\":   222222,\r\n    \"traveler_numer\"    :   333333,\r\n    \"test:400\"          :   44444\r\n}",
+					"raw": "{\r\n    \"district\"           :   \"Catalonia\",\r\n    \"year\"              :   \"2020\",\r\n    \"employee_staff\"    :   111111,\r\n    \"establishment_open\":   222222,\r\n    \"traveler_numer\"    :   333333,\r\n    \"test:400\"          :   44444\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -653,13 +611,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Cataluña/2020",
+					"raw": "{{heroku}}/api/v2/hostelries/Cataluña/2020",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries",
 						"Cataluña",
 						"2020"
@@ -669,7 +627,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Cataluña/2020 -409 check",
+			"name": "/api/v2/hostelries/Cataluña/2020 -409 check",
 			"event": [
 				{
 					"listen": "test",
@@ -692,7 +650,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"district\"           :   \"Cataluña\",\r\n    \"year\"              :   \"2021\",\r\n    \"employee_staff\"    :   111111,\r\n    \"establishment_open\":   222222,\r\n    \"traveler_numer\"    :   333333\r\n}",
+					"raw": "{\r\n    \"district\"           :   \"Catalonia\",\r\n    \"year\"              :   \"2021\",\r\n    \"employee_staff\"    :   111111,\r\n    \"establishment_open\":   222222,\r\n    \"traveler_numer\"    :   333333\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -700,13 +658,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Cataluña/2020",
+					"raw": "{{heroku}}/api/v2/hostelries/Cataluña/2020",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries",
 						"Cataluña",
 						"2020"
@@ -716,7 +674,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Cataluña/2020 -not allowed",
+			"name": "/api/v2/hostelries/Cataluña/2020 -not allowed",
 			"event": [
 				{
 					"listen": "test",
@@ -742,13 +700,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries/Cataluña/2020",
+					"raw": "{{heroku}}/api/v2/hostelries/Cataluña/2020",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries",
 						"Cataluña",
 						"2020"
@@ -758,7 +716,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries -Check delete",
+			"name": "/api/v2/hostelries -Check delete",
 			"event": [
 				{
 					"listen": "test",
@@ -780,13 +738,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v2/hostelries",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries"
 					]
 				}
@@ -794,7 +752,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries -Check 0",
+			"name": "/api/v2/hostelries -Check 0",
 			"event": [
 				{
 					"listen": "test",
@@ -817,13 +775,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{heroku}}/api/v1/hostelries",
+					"raw": "{{heroku}}/api/v2/hostelries",
 					"host": [
 						"{{heroku}}"
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"hostelries"
 					]
 				}
