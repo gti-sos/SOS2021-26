@@ -109,7 +109,10 @@
 
         //Impl búsqueda en  back-end : ..../coleccion?campo_1 = xx & campo_2 = yyy
 
-        if(campo_1 != "" && campo_2 != "" && valor_c_1 != "" && valor_c_2 != ""){
+        if(campo_1 != "" && campo_2 != "" && valor_c_1 != "" && valor_c_2 != "" && campo_1 == campo_2 && campo_1 == "year"){
+            url += "?from="+valor_c_1+"&to="+valor_c_2;
+        
+        }else if(campo_1 != "" && campo_2 != "" && valor_c_1 != "" && valor_c_2 != ""){
             url += "?"+campo_1+"="+valor_c_1+"&"+campo_2+"="+valor_c_2;
 
         }else if(campo_1 == "" && campo_2!="" && valor_c_2!=""){

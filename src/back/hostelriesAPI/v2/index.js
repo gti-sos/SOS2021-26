@@ -28,6 +28,7 @@ module.exports = function(app){
     });
 
     //####################################################    Requests of ../hostelries
+
     //GET
     app.get(BASE_HOSTELRIES_API_PATH, (req,res) => {
         /*
@@ -50,6 +51,7 @@ module.exports = function(app){
         })*/
 
         var reqQuery = {};   //Json to save search and paginating params
+        var temporalSearch = false;
 
         //Paginating
         //  - offset: a partir de que núm. de elementos quiero que los mande
@@ -82,9 +84,9 @@ module.exports = function(app){
         if(req.query.traveler_numer){
             reqQuery["traveler_numer"] = parseInt(req.query.traveler_numer);
         }
+        //Magia 1
 
         //console.log(reqQuery);
-
         
         if(Object.keys(reqQuery).length == 0){
             db.find({}, (err, resources) => {
@@ -101,7 +103,9 @@ module.exports = function(app){
                     .status(200)
                     .json(resourcesToSend);
                 }
-            })
+            });
+            
+        //Magia 2          
         }else{
             db.find(reqQuery).sort({district:1,year:-1}).skip(offset).limit(limit).exec((err,resources) => {
                 if(err){
