@@ -84,21 +84,48 @@ module.exports = function(app){
         }
 
         //console.log(reqQuery);
-        db.find(reqQuery).sort({district:1,year:-1}).skip(offset).limit(limit).exec((err,resources) => {
-            if(err){
-                console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
-                res.sendStatus(500);
-            }else{
-                //res.send(JSON.stringify(resources,null,2));
-                var resourcesToSend = resources.map( (r) =>{
-                    delete r._id;   //   ==   delete r["_id"];
-                    return r;
-                });
-                res
-                .status(200)
-                .json(resourcesToSend);
-            }
-        })
+
+        
+        if(Object.keys(reqQuery).length == 0){
+            db.find({}, (err, resources) => {
+                if(err){
+                    console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                    res.sendStatus(500);
+                }else{
+
+                    var resourcesToSend = resources.map( (r) =>{
+                        delete r._id;   //   ==   delete r["_id"];
+                        return r;
+                    });
+                    res
+                    .status(200)
+                    .json(resourcesToSend);
+                }
+            })
+        }else{
+            db.find(reqQuery).sort({district:1,year:-1}).skip(offset).limit(limit).exec((err,resources) => {
+                if(err){
+                    console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                    res.sendStatus(500);
+                }else{
+                    //res.send(JSON.stringify(resources,null,2));
+                    if(Object.keys(resources).length == 0){
+                        res
+                        .status(404)
+                        .json({ message: `The resource exists! <404: Not Found>`});
+                    }else{
+                        var resourcesToSend = resources.map( (r) =>{
+                            delete r._id;   //   ==   delete r["_id"];
+                            return r;
+                        });
+                        res
+                        .status(200)
+                        .json(resourcesToSend);
+                    }                
+                }
+            })
+        }
+        
     });
 
     //POST
