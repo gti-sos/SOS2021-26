@@ -41,8 +41,8 @@
     async function getCulturaBASEResource(){
         console.log("Buscando recursos de culturaBASE...")
 
-        const res = await fetch(BASE_HOSTELRIES_API_PATH + "?offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
-        const resNext = await fetch(BASE_HOSTELRIES_API_PATH + "?offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
+        const res = await fetch("/api/v1/culturaBASE"+ "?offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
+        const resNext = await fetch("/api/v1/culturaBASE"+ "?offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
 
         if(res.ok && resNext.ok){
             console.log("Todo okey");
@@ -104,7 +104,7 @@
     }
 
     async function deleteCultura(district, year) {
-        const res = await fetch(BASE_HOSTELRIES_API_PATH + district +"/" + year, {
+        const res = await fetch("/api/v1/culturaBASE" + district +"/" + year, {
             method: "DELETE"
         }).then(function (res)  {
             getCulturaBASEResource();
@@ -113,7 +113,7 @@
     }   
     
 	async function deleteAllCultura() {
-        const res = await fetch(BASE_HOSTELRIES_API_PATH, {
+        const res = await fetch("/api/v1/culturaBASE", {
             method: "DELETE"
         }).then(function (res) {
             getCulturaBASEResource();
@@ -121,7 +121,7 @@
         });
     }
 	async function loadInitialData() {
-        const res = await fetch(BASE_HOSTELRIES_API_PATH + "loadInitialData", {
+        const res = await fetch("/api/v1/culturaBASE" + "/loadInitialData", {
             method: "GET"
         }).then(function (res) {
             getCulturaBASEResource();
