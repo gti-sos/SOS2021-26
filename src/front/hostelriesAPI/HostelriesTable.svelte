@@ -16,7 +16,7 @@
     //import { Table } from 'sveltestrap/src';
     //import { Table } from 'sveltestrap';
 
-    const BASE_HOSTELRIES_API_PATH = "/api/v1/hostelries";
+    const BASE_HOSTELRIES_API_PATH = "/api/v2/hostelries";
     let outputMsg = "";
 
     let r_hostelries = []
@@ -130,7 +130,8 @@
             console.log("--HostelriesAPI:\n  FrontEnd -> Found: "+Object.keys(r_hostelries).length +" resources");
             outputMsg = "Búsqueda realizada con éxito : " + Object.keys(r_hostelries).length + " recursos encontrados <" + res.status + ": " + res.statusText + ">";
         }else{
-            window.alert("ERROR: Compruebe que los valores están correctamente para la búsqueda");
+            //window.alert("ERROR: Compruebe que los valores están correctamente para la búsqueda");
+            outputMsg = ("El recurso no existe! <" + res.status + ":"+res.statusText+">");
 			console.log("--HostelriesAPI:\n  FrontEnd ->ERROR de Búsqueda");
         }
 
