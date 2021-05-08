@@ -112,7 +112,7 @@ module.exports = function(app){
                     if(Object.keys(resources).length == 0){
                         res
                         .status(404)
-                        .json({ message: `The resource exists! <404: Not Found>`});
+                        .json({ message: `The resource doesn't exist! <404: Not Found>`});
                     }else{
                         var resourcesToSend = resources.map( (r) =>{
                             delete r._id;   //   ==   delete r["_id"];
