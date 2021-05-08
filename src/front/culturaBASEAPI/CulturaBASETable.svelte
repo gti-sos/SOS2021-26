@@ -163,10 +163,17 @@
             const json = await res.json();
             //pasamos el formato de la base de datos a json para trabajar con sus parámetros
             r_culturaBASE = json;
-            console.log("Hemos encontrado " + r_culturaBASE.length + " datos de culturaBASE");
+            if(r_culturaBASE.length==0){
+                exitoMsg = "Error 404 not found";
+            }else{
+                console.log("Hemos encontrado " + r_culturaBASE.length + " datos de culturaBASE");
             //mensaje que le enseñamos al usuario
+                exitoMsg = res.status + ": "+ res.statusText + ". Búsqueda realizada con éxito. " + r_culturaBASE.length + " elementos encontrados.";
+            }
+            
+        }else if(res.status == 404){
             exitoMsg = res.status + ": "+ res.statusText + ". Búsqueda realizada con éxito. " + r_culturaBASE.length + " elementos encontrados.";
-        }else{
+        } else{
             //alerta emergente cuando un usuario se equivoca haciendo la busqueda
             window.alert("Error: Te has equivocado a la hora de poner los datos para la búsqueda máquina o no hemos encontrado na, prueba de nuevo");
             //error que aparece en consola
