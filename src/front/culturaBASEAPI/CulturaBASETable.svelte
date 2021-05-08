@@ -19,10 +19,11 @@
     spending_per_view: ""
     }
     let exitoMsg = "";
+    //let errorMsg = "";
 
     //variables de paginacion
 
-    let numeroRecursos = 5;//recursos que tenemos da datos iniciales
+    let numeroRecursos = 10;//recursos que tenemos por página, y que a su vez son los datos iniciales
     let offset = 0;
     let currentPage = 1;
     let plusData = true;
@@ -165,8 +166,9 @@
             exitoMsg = res.status + ": "+ res.statusText + ". Búsqueda realizada con éxito. " + r_culturaBASE.length + " elementos encontrados.";
         }else{
             //alerta emergente cuando un usuario se equivoca haciendo la busqueda
-            window.alert("Error: Te has equivocado a la hora de poner los datos para la búsqueda máquina, prueba de nuevo");
+            window.alert("Error: Te has equivocado a la hora de poner los datos para la búsqueda máquina o no hemos encontrado na, prueba de nuevo");
             //error que aparece en consola
+            //errorMsg = res.status + ": "+ res.statusText + ". Busqueda realizada con errores o en el vacío" 
             console.log("ERROR A LA HORA DE HACER LA BUSQUEDA");
         }
     }
@@ -230,11 +232,11 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Comunidad</th>
-                <th>Año</th>
-                <th>Recaudación total (contada por millones)</th>
-                <th>Espectadores (contados por millones)</th>
-                <th>Gasto por espectador(contado por millones)</th>
+                <th style="text-align: center;">Comunidad</th>
+                <th style="text-align: center;">Año</th>
+                <th style="text-align: center;">Recaudación total (contada por millones)</th>
+                <th style="text-align: center;">Espectadores (contados por millones)</th>
+                <th style="text-align: center;">Gasto por espectador(contado por millones)</th>
                 <td><Button outline color = "danger" on:click="{deleteAllCultura}">Eliminarlo todo</Button></td>
             </tr>
         </thead>
@@ -242,12 +244,12 @@
             {#each r_culturaBASE as r_cb}
                 <tr>
                     <!--Estamos haciendo la llamada a los atributos de cultura base y los estamos ordenando por filas-->
-                    <td><a href="#/culturaBASE/{r_cb.district}/{r_cb.year}">{r_cb.district}</a></td>
+                    <td style="text-align: center;"><a href="#/culturaBASE/{r_cb.district}/{r_cb.year}">{r_cb.district}</a></td>
                     <!--<td>{r_cb.district}</td>-->
-                    <td>{r_cb.year}</td>
-                    <td>{r_cb.fundraising}</td>
-                    <td>{r_cb.spectator}</td>
-                    <td>{r_cb.spending_per_view}</td>
+                    <td style="text-align: center;">{r_cb.year}</td>
+                    <td style="text-align: center;">{r_cb.fundraising}</td>
+                    <td style="text-align: center;">{r_cb.spectator}</td>
+                    <td style="text-align: center;">{r_cb.spending_per_view}</td>
                    <td><Button outline color = "danger" on:click="{deleteCultura(r_cb.district, r_cb.year)}">Eliminar</Button></td>
                 </tr>
             {/each}
@@ -266,9 +268,40 @@
             <!--<td><button type="button" class="btn btn-outline-primary" function = "onclick:{insertCulturaBASE}"></button></td>-->
         </tr>
     </table>
+
+    <Pagination arialabel="Número de páginas">
+        <!-- If we are in the first page-->
+        <PaginationItem class="{currentPage === 1 ? 'disabled' : ''}">
+            <PaginationLink previous href="#/culturaBASE" on:click="{() => incrementOffset(-1)}" />
+        </PaginationItem>
+          
+        <!-- If we are not in the first page-->
+        {#if currentPage != 1}
+        <PaginationItem>
+            <PaginationLink href="#/culturaBASE" on:click="{() => incrementOffset(-1)}" >{currentPage - 1}</PaginationLink>
+        </PaginationItem>
+        {/if}
+
+        <PaginationItem active>
+            <PaginationLink href="#/culturaBASE" >{currentPage}</PaginationLink>
+        </PaginationItem>
+  
+        <!-- If there are more elements-->
+        {#if plusData}
+        <PaginationItem >
+            <PaginationLink href="#/culturaBASE" on:click="{() => incrementOffset(1)}">{currentPage + 1}</PaginationLink>
+        </PaginationItem>
+        {/if}
+  
+        <PaginationItem class="{plusData ? '' : 'disabled'}">
+            <PaginationLink next href="#/culturaBASE" on:click="{() => incrementOffset(1)}"/>
+        </PaginationItem>
+    </Pagination>
     {#if exitoMsg}
         <p style="color: green">{exitoMsg}</p>
     {/if}
+
+
     <Button on:click={loadInitialData}>Añadir los casos base</Button>
 </main>
 
