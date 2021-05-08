@@ -109,7 +109,7 @@
 
         //Impl búsqueda en  back-end : ..../coleccion?campo_1 = xx & campo_2 = yyy
 
-        if((campo_1 != "" && campo_2 != "") || (valor_c_1 != "" && valor_c_2 != "")){
+        if(campo_1 != "" && campo_2 != "" && valor_c_1 != "" && valor_c_2 != ""){
             url += "?"+campo_1+"="+valor_c_1+"&"+campo_2+"="+valor_c_2;
 
         }else if(campo_1 == "" && campo_2!="" && valor_c_2!=""){
@@ -128,7 +128,7 @@
             r_hostelries = json;
 
             console.log("--HostelriesAPI:\n  FrontEnd -> Found: "+Object.keys(r_hostelries).length +" resources");
-            outputMsg = res.status + ": " + res.statusText + ". Búsqueda realizada con éxito. " + Object.keys(r_hostelries).length + " recursos encontrados.";
+            outputMsg = "Búsqueda realizada con éxito : " + Object.keys(r_hostelries).length + " recursos encontrados <" + res.status + ": " + res.statusText + ">";
         }else{
             window.alert("ERROR: Compruebe que los valores están correctamente para la búsqueda");
 			console.log("--HostelriesAPI:\n  FrontEnd ->ERROR de Búsqueda");
@@ -144,7 +144,7 @@
 
         if(res.ok){
             getHostelryResource();
-            outputMsg = res.status + ": " + res.statusText + " => Recursos cargados con éxito";
+            outputMsg = "Recursos cargados con éxito <"+ res.status + ": " + res.statusText + ">" ;
         }else{
             window.alert("ERROR: no se pudo cargar los datos!")
         }
@@ -171,8 +171,18 @@
                     )
                     .then( (res) => {
                         getHostelryResource();
-                        outputMsg = res.status + ": " + res.statusText + " => Recurso insertado con éxito";
 
+                        if(res.ok){
+                            outputMsg =  "Recurso insertado con éxito: <" + res.status + ": " + res.statusText + ">";
+                        
+                        }else if(res.status == 400){
+                            //Bad Request
+                            window.alert("ERROR: Compruebe que esten correctamente introducidos los campos de búsqueda.");
+
+                        }else if(res.status == 409){
+                            //Conflict
+                            window.alert("ERROR: El recurso "+ newResource.district+"/"+newResource.year+" ya existe.");
+                        }
                     })
     }
 
@@ -185,9 +195,11 @@
                             }
         
                         ).then((res) => {
-                            getHostelryResource();
-                            outputMsg = res.status + ": " + res.statusText + " => Recurso eliminado con éxito";
 
+                            getHostelryResource();
+                            outputMsg = "Recurso eliminado con éxito <"+ res.status + ": " + res.statusText + ">" ;
+
+                            //EN caso que fallase sería por un 404 pero al estar en front end no puede succeder.
                         })
     }
 
@@ -196,7 +208,7 @@
             method: "DELETE"
         }).then(function (res) {
             getHostelryResource();
-			outputMsg = res.status + ": " + res.statusText + " => Recursos eliminados con éxito";
+			outputMsg = "Recursos eliminados con éxito <"+ res.status + ": " + res.statusText + ">";
         });
     }
 
