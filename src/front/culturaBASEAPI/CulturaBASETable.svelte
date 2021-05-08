@@ -41,8 +41,8 @@
     async function getCulturaBASEResource(){
         console.log("Buscando recursos de culturaBASE...")
 
-        const res = await fetch(BASE_HOSTELRIES_API_PATH + "?offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
-        const resNext = await fetch(BASE_HOSTELRIES_API_PATH + "?offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
+        const res = await fetch("/api/v1/culturaBASE"+ "?offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
+        const resNext = await fetch("/api/v1/culturaBASE"+ "?offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
 
         if(res.ok && resNext.ok){
             console.log("Todo okey");
@@ -58,7 +58,7 @@
             }else{
                 plusData = true;
             }
-            console.log("Hemos recibido" + r_culturaBASE.length + " datos de culturaBASE");
+            console.log("Hemos recibido " + r_culturaBASE.length + " datos de culturaBASE");
         }else{
             console.log("ERROR");
         }
@@ -100,11 +100,20 @@
             }
         }).then(function (res) {
             getCulturaBASEResource();
+            if(res.ok){
+                exitoMsg = res.status + ": " + res.statusText + ". Dato insertado con exito";
+            }else if(res.status==400){
+                window.alert("Los campos no están rellenos");
+                exitoMsg = res.status + ": " + res.statusText + ". No has metido los campos bien";
+            }else if (res.status==409){
+                window.alert("El recurso ya existe");
+                exitoMsg = res.status + ": " + res.statusText + ". El recurso ya existe";
+            }
         });
     }
 
     async function deleteCultura(district, year) {
-        const res = await fetch(BASE_HOSTELRIES_API_PATH + district +"/" + year, {
+        const res = await fetch("/api/v1/culturaBASE" + district +"/" + year, {
             method: "DELETE"
         }).then(function (res)  {
             getCulturaBASEResource();
@@ -113,7 +122,7 @@
     }   
     
 	async function deleteAllCultura() {
-        const res = await fetch(BASE_HOSTELRIES_API_PATH, {
+        const res = await fetch("/api/v1/culturaBASE", {
             method: "DELETE"
         }).then(function (res) {
             getCulturaBASEResource();
@@ -121,7 +130,7 @@
         });
     }
 	async function loadInitialData() {
-        const res = await fetch(BASE_HOSTELRIES_API_PATH + "loadInitialData", {
+        const res = await fetch("/api/v1/culturaBASE" + "/loadInitialData", {
             method: "GET"
         }).then(function (res) {
             getCulturaBASEResource();
@@ -163,10 +172,18 @@
             const json = await res.json();
             //pasamos el formato de la base de datos a json para trabajar con sus parámetros
             r_culturaBASE = json;
-            console.log("Hemos encontrado " + r_culturaBASE.length + " datos de culturaBASE");
+            if(r_culturaBASE.length==0){
+                exitoMsg = "404 Not Found";
+                window.alert("Not found");
+            }else{
+                console.log("Hemos encontrado " + r_culturaBASE.length + " datos de culturaBASE");
             //mensaje que le enseñamos al usuario
+                exitoMsg = res.status + ": "+ res.statusText + ". Búsqueda realizada con éxito. " + r_culturaBASE.length + " elementos encontrados.";
+            }
+            
+        }else if(res.status == 404){
             exitoMsg = res.status + ": "+ res.statusText + ". Búsqueda realizada con éxito. " + r_culturaBASE.length + " elementos encontrados.";
-        }else{
+        } else{
             //alerta emergente cuando un usuario se equivoca haciendo la busqueda
             window.alert("Error: Te has equivocado a la hora de poner los datos para la búsqueda máquina o no hemos encontrado na, prueba de nuevo");
             //error que aparece en consola
@@ -193,8 +210,8 @@
 						<option value="district">Comunidad</option>
 						<option value="year">Año</option>
 						<option value="fundraising">Recaudacion</option>
-						<option value="spectators">Espectadores</option>
-						<option value="spending-per-view">Gasto por espectador</option>
+						<option value="spectator">Espectadores</option>
+						<option value="spending_per_view">Gasto por espectador</option>
                     </Input>
                 </td>
 
@@ -212,8 +229,8 @@
                             <option value="district">Comunidad</option>
                             <option value="year">Año</option>
                             <option value="fundraising">Recaudacion</option>
-                            <option value="spectators">Espectadores</option>
-                            <option value="spending-per-view">Gasto por espectador</option>
+                            <option value="spectator">Espectadores</option>
+                            <option value="spending_per_view">Gasto por espectador</option>
                     </Input>
                 </td>
                 <td>
