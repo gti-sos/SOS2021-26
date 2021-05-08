@@ -103,7 +103,7 @@
 
         var url = BASE_HOSTELRIES_API_PATH;
         
-        console.log("--HostelriesAPI:\n  FrontEnd -> Searching: " + campo_1 + "="+ valor_c_1 + " || " + campo_2 + "=" + valor_c_2);
+        console.log("--HostelriesAPI:\n  FrontEnd -> Searching: " + campo_1 + "="+ valor_c_1 + " & " + campo_2 + "=" + valor_c_2);
         console.log("campo1:"+campo_1+ " = "+valor_c_1);
         console.log("campo2:"+campo_2+ " = "+valor_c_2);
 

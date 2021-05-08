@@ -19,7 +19,7 @@ app.use("/", express.static(path.join(__dirname + "/public")));
 //####################################### BACK-END 
 
 //Hostelry API
-const hostelryBackAPI = require('./src/back/hostelriesAPI/index');
+const hostelryBackAPI = require('./src/back/hostelriesAPI/v2/index');
 hostelryBackAPI(app);
 
 //CulturaBASE API
