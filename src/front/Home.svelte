@@ -41,7 +41,7 @@
             <b>APIs:</b>
             <ul>
                 <li>
-                    <a href="https://sos2021-26.herokuapp.com/api/v1/culturaBASE/">https://sos2021-26.herokuapp.com/api/v1/culturaBASE/</a> 
+                    <a href="https://sos2021-26.herokuapp.com/api/v2/culturaBASE/">https://sos2021-26.herokuapp.com/api/v2/culturaBASE/</a> 
                     (desarrollado por <a href="https://github.com/josemarimaya">José María Maya Cano</a>)
                 </li>
                 <li>
@@ -71,7 +71,7 @@
                 </li>
 
                 <li>
-                    <a href="https://documenter.getpostman.com/view/9628248/TzJsfJT2"> Ddesarrollado por </a> <a href="https://github.com/josemarimaya"><b>José María Maya Cano</b></a> 
+                    <a href="https://documenter.getpostman.com/view/9628248/TzRRE9Fe"> Ddesarrollado por </a> <a href="https://github.com/josemarimaya"><b>José María Maya Cano</b></a> 
                 </li>
                 <li>
                     <a href="https://documenter.getpostman.com/view/14948205/TzJsfJSz"> Desarrollado por </a> <a href="https://github.com/keffren"><b>Mateo Serna Giraldo</b></a>

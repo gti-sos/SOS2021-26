@@ -184,7 +184,7 @@
             r_culturaBASE = json;
             if(r_culturaBASE.length==0){
                 exitoMsg = "404 Not Found";
-                window.alert("Not found");
+                window.alert("El recurso que está buscando no existe.");
             }else{
                 console.log("Hemos encontrado " + r_culturaBASE.length + " datos de culturaBASE");
             //mensaje que le enseñamos al usuario
