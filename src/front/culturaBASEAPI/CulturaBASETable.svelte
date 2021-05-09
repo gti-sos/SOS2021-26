@@ -12,7 +12,7 @@
     import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
 	import Input from "sveltestrap/src/Input.svelte";
     
-    var BASE_HOSTELRIES_API_PATH = "/api/v1/culturaBASE";
+    var BASE_CULTURABASE_API_PATH = "/api/v1/culturaBASE";
     let r_culturaBASE = []
     let newCB = {district: "",
     year: "",
@@ -41,8 +41,8 @@
     async function getCulturaBASEResource(){
         console.log("Buscando recursos de culturaBASE...")
 
-        const res = await fetch("/api/v1/culturaBASE"+ "?offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
-        const resNext = await fetch("/api/v1/culturaBASE"+ "?offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
+        const res = await fetch(BASE_CULTURABASE_API_PATH+ "?offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
+        const resNext = await fetch(BASE_CULTURABASE_API_PATH+ "?offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
 
         if(res.ok && resNext.ok){
             console.log("Todo okey");
@@ -92,7 +92,7 @@
 	  
         console.log("Inserting new data..." + JSON.stringify(newCB));
  
-        const res = await fetch("/api/v1/culturaBASE", {
+        const res = await fetch(BASE_CULTURABASE_API_PATH, {
             method: "POST",
             body: JSON.stringify(newCB),
             headers: {
@@ -113,7 +113,7 @@
     }
 
     async function deleteCultura(district, year) {
-        const res = await fetch("/api/v1/culturaBASE" + district +"/" + year, {
+        const res = await fetch(BASE_CULTURABASE_API_PATH + district +"/" + year, {
             method: "DELETE"
         }).then(function (res)  {
             getCulturaBASEResource();
@@ -122,7 +122,7 @@
     }   
     
 	async function deleteAllCultura() {
-        const res = await fetch("/api/v1/culturaBASE", {
+        const res = await fetch(BASE_CULTURABASE_API_PATH, {
             method: "DELETE"
         }).then(function (res) {
             getCulturaBASEResource();
@@ -130,7 +130,7 @@
         });
     }
 	async function loadInitialData() {
-        const res = await fetch("/api/v1/culturaBASE" + "/loadInitialData", {
+        const res = await fetch(BASE_CULTURABASE_API_PATH + "/loadInitialData", {
             method: "GET"
         }).then(function (res) {
             getCulturaBASEResource();
@@ -150,7 +150,7 @@
         console.log("Buscando los datos: " + campo1+ " " + valor1+ ", " + campo2 + " "+ valor2);
         //la url de la que vamos a sacar la informacion y con la que vamos a trabajar para añadirle los campos de busqueda
         //ello es como lo que hacemos en el backend con los get de busqueda en node pero añadiéndolos de manera directa
-        var url = "api/v1/culturaBASE";
+        var url = BASE_CULTURABASE_API_PATH;
 
         //los condicionantes van a ser que ninguno de los campos esten vacíos, y que si no lo están impriman la url de busqueda
         if(campo1 != "" & campo2 != "" & valor1 != "" & valor2 != ""){
