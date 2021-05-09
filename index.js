@@ -25,7 +25,9 @@ hostelryBackAPI(app);
 //CulturaBASE API
 
 const culturaBASEBackAPI = require('./src/back/culturaBASEAPI/v1/index');
+const culturaBASEBackAPI2 = require('./src/back/culturaBASEAPI/v2/index');
 culturaBASEBackAPI(app);
+culturaBASEBackAPI2(app);
 
 //####################################### FRONT-END
 

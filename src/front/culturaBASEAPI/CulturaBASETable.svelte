@@ -12,7 +12,7 @@
     import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
 	import Input from "sveltestrap/src/Input.svelte";
     
-    var BASE_CULTURABASE_API_PATH = "/api/v1/culturaBASE";
+    var BASE_CULTURABASE_API_PATH = "/api/v2/culturaBASE";
     let r_culturaBASE = []
     let newCB = {district: "",
     year: "",
@@ -165,9 +165,9 @@
             url = url + "/?from=" + valor1 +"&to="+ valor2;
         }else if(campo1 != "" & campo2 != "" & valor1 != "" & valor2 != ""){
             url = url + "?"+ campo1 + "="+ valor1 + "&" + campo2 + "=" + valor2;
-        }else if(campo1 != "" & campo2 == "" & valor1 != ""){
+        }else if(campo1 != "" & valor2 == "" & valor1 != ""){
             url = url + "?"+ campo1 + "="+ valor1;
-        }else if(campo1 != "" & campo2 != "" & valor2 != ""){
+        }else if(valor1 == "" & campo2 != "" & valor2 != ""){
             url = url + "?"+ campo2 + "=" + valor2;
         }
 

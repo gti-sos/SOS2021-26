@@ -1,5 +1,5 @@
 module.exports = function(app){
-    var BASE_CULTURABASE_API_PATH = "/api/v2/culturaBASE";
+    var BASE_CULTURABASE_API_PATH2 = "/api/v2/culturaBASE";
     let initialData = require ('./initialData.js');
 
     var Datastore = require('nedb');
@@ -7,7 +7,7 @@ module.exports = function(app){
 
 
     //####################################################    Load JSON into DB
-    app.get(BASE_CULTURABASE_API_PATH+ "/loadInitialData", (req,res)=>{
+    app.get(BASE_CULTURABASE_API_PATH2+ "/loadInitialData", (req,res)=>{
         db.remove({}, {multi:true});
 
         db.insert(initialData.JsonInitialData, (err,dataAdded)=>{
@@ -21,19 +21,17 @@ module.exports = function(app){
 
         })
     });
-
+    
     //####################################################  HTTP CRUD
     //GET
-    app.get(BASE_CULTURABASE_API_PATH, (req,res) => {
+    app.get(BASE_CULTURABASE_API_PATH2, (req,res) => {
 
         var dbquery = {};
         let offset = 0;
-        //let limit = 1000;
-        //offset es el numero minimo de valores que hay que poner y limit el numero maximo de valores que hay que meter
-        //Un ejemplo es localhost:1607/api/v1/culturaBASE/?limit=3&offset=0
+      
         let limit = Number.MAX_SAFE_INTEGER;
         var temporalSearch = false;
-        //Paginación
+        
 
         if(req.query.offset){
             offset = parseInt(req.query.offset);
@@ -63,78 +61,11 @@ module.exports = function(app){
             temporalSearch = false;
         } 
 
-        /*console.log(req.query);
-        if(Object.keys(dbquery).length == 0){
-            db.find({}, (err, resources) => {
-                if(err){
-                    console.error('Error al acceder a culturaBASEAPI');
-                    res.sendStatus(500);
-                }else{
-
-                    var resourcesToSend = resources.map( (r) =>{
-                        delete r._id;   //   ==   delete r["_id"];
-                        return r;
-                    });
-                    res
-                    .status(200)
-                    .json(resourcesToSend);
-                }
-            });
-            
-        }else if(temporalSearch){
-            
-            if(dbquery.from < dbquery.to){
-                //console.log(reqQuery.from);
-                db.find({$and: [{year : {$gte:dbquery.from}},{year : {$lte:dbquery.to}}]},
-                //db.find({year : {$gt: reqQuery.from}},
-                //db.find({year : {$lte: reqQuery.from}},
-                    (err,resources) =>{
-                        if(err){
-                            console.error('Error al meter las cosas de CBAPI');
-                            res.sendStatus(500);
-                        }else{
-                            var resourcesToSend = resources.map( (r) =>{
-                                delete r._id;   //   ==   delete r["_id"];
-                                return r;
-                            });
-                            res
-                            .status(200)
-                            .json(resourcesToSend);
-                        }
-                    }
-                )
-            }
-            
-        }else{
-            db.find(dbquery).sort({district:1,year:-1}).skip(offset).limit(limit).exec((err,resources) => {
-                if(err){
-                    console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
-                    res.sendStatus(500);
-                }else{
-                    //res.send(JSON.stringify(resources,null,2));
-                    if(Object.keys(resources).length == 0){
-                        res
-                        .status(404)
-                        .json({ message: `The resource doesn't exist! <404: Not Found>`});
-                    }else{
-                        var resourcesToSend = resources.map( (r) =>{
-                            delete r._id;   //   ==   delete r["_id"];
-                            return r;
-                        });
-                        res
-                        .status(200)
-                        .json(resourcesToSend);
-                    }                
-                }
-            })
-        }*/
+        
         //find the data to send
         if(temporalSearch){
             if(dbquery.from < dbquery.to){
-                //console.log(reqQuery.from);
                 db.find({$and: [{year : {$gte:dbquery.from}},{year : {$lte:dbquery.to}}]},
-                //db.find({year : {$gt: reqQuery.from}},
-                //db.find({year : {$lte: reqQuery.from}},
                     (err,resources) =>{
                         if(err){
                             console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
@@ -171,7 +102,7 @@ module.exports = function(app){
 
     //POST
 
-    app.post(BASE_CULTURABASE_API_PATH, (req,res)=>{
+    app.post(BASE_CULTURABASE_API_PATH2, (req,res)=>{
         var newData = req.body;
         var district = req.body.district;
         var year = req.body.year; //lo tenemos pasado como string el valor, sino deberíamos usar un parseInt
@@ -209,14 +140,14 @@ module.exports = function(app){
     });
 
     //PUT que no funciona salta el error 405
-    app.put(BASE_CULTURABASE_API_PATH, (req,res)=>{
+    app.put(BASE_CULTURABASE_API_PATH2, (req,res)=>{
         console.error("No has metido el método correctamente mirmano");
         res.sendStatus(405);
     })
 
     //PUT bueno, recordad usar el formato JSON con el body a la hora de actualizarlo
 
-    app.put(BASE_CULTURABASE_API_PATH + "/:urlDistrict/:urlYear", (req,res)=>{
+    app.put(BASE_CULTURABASE_API_PATH2 + "/:urlDistrict/:urlYear", (req,res)=>{
         var {urlDistrict} = req.params;
         var{urlYear}=req.params;
 
@@ -244,7 +175,7 @@ module.exports = function(app){
 
     //DELETE
 
-    app.delete(BASE_CULTURABASE_API_PATH, (req,res)=>{
+    app.delete(BASE_CULTURABASE_API_PATH2, (req,res)=>{
         db.remove({}, {multi:true}, (err, numRemoved)=>{
             if(err){
                 console.error(`--culturaBASE:\n  ERROR : <${err}>`)
@@ -257,7 +188,7 @@ module.exports = function(app){
 
     //Request por recurso
 
-    app.get(BASE_CULTURABASE_API_PATH + "/:urlDistrict", (req,res) => {
+    app.get(BASE_CULTURABASE_API_PATH2 + "/:urlDistrict", (req,res) => {
 
         var {urlDistrict} = req.params;        // == var urlDistrict = req.params.urlDistrict
         
@@ -283,7 +214,7 @@ module.exports = function(app){
         })
     });
 
-    app.get(BASE_CULTURABASE_API_PATH + "/:urlDistrict/:urlYear", (req,res) => {
+    app.get(BASE_CULTURABASE_API_PATH2 + "/:urlDistrict/:urlYear", (req,res) => {
 
         var {urlDistrict} = req.params;        // == var urlDistrict = req.params.urlDistrict
         var {urlYear} = req.params;
@@ -310,12 +241,12 @@ module.exports = function(app){
         })
     });
 
-    app.post(BASE_CULTURABASE_API_PATH + "/:urlDistrict/:urlYear", (req,res) => {
+    app.post(BASE_CULTURABASE_API_PATH2 + "/:urlDistrict/:urlYear", (req,res) => {
         console.error('--CB:\n  ERROR : Method not allowed');
         res.sendStatus(405);
     });
 
-    app.delete(BASE_CULTURABASE_API_PATH + "/:urlDistrict", (req,res) => {
+    app.delete(BASE_CULTURABASE_API_PATH2 + "/:urlDistrict", (req,res) => {
         var {urlDistrict} = req.params;
 
         db.remove({district: urlDistrict}, { multi: true }, (err, numRemoved) => {
@@ -336,7 +267,7 @@ module.exports = function(app){
         });
     });
 
-    app.delete(BASE_CULTURABASE_API_PATH + "/:urlDistrict/:urlYear", (req,res) => {
+    app.delete(BASE_CULTURABASE_API_PATH2 + "/:urlDistrict/:urlYear", (req,res) => {
         var {urlDistrict} = req.params;
         var {urlYear} = req.params;
 
