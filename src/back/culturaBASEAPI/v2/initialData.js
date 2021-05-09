@@ -66,7 +66,36 @@ var culturabaseData = [
         "fundraising": 8.5,
         "spectator": 1.6,
         "spending_per_view": 5.5
+    },
+    {
+        "district": "Canarias",
+        "year": "2018",
+        "fundraising": 25.0,
+        "spectator": 4.5,
+        "spending_per_view": 5.6
+    },
+    {
+        "district": "Canarias",
+        "year": "2019",
+        "fundraising": 26.1,
+        "spectator": 4.7,
+        "spending_per_view": 5.6
+    },
+    {
+        "district": "Galicia",
+        "year": "2018",
+        "fundraising": 22.9,
+        "spectator": 3.9,
+        "spending_per_view": 5.9
+    },
+    {
+        "district": "Galicia",
+        "year": "2019",
+        "fundraising": 24.1,
+        "spectator": 4.2,
+        "spending_per_view": 5.7
     }
+    
 ];
 
 module.exports.JsonInitialData = culturabaseData;
