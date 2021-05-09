@@ -129,19 +129,44 @@ module.exports = function(app){
             })
         }*/
         //find the data to send
-        db.find(dbquery).sort({district:1, year: -1}).skip(offset).limit(limit).exec((err, resources) => {
-            if(err){
-                console.error('No has hecho algo bien mirmano');
-                res.sendStatus(500);
-            }else{
-                //res.send(JSON.stringify(resources,null,2));
-                var resourcesToSend = resources.map( (cb) =>{
-                    delete cb._id;   //   Borramos el campo _id autogenerado por nedb;
-                    return cb;
-                });
-                res.status(200).json(resourcesToSend);
+        if(temporalSearch){
+            if(dbquery.from < dbquery.to){
+                //console.log(reqQuery.from);
+                db.find({$and: [{year : {$gte:dbquery.from}},{year : {$lte:dbquery.to}}]},
+                //db.find({year : {$gt: reqQuery.from}},
+                //db.find({year : {$lte: reqQuery.from}},
+                    (err,resources) =>{
+                        if(err){
+                            console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                            res.sendStatus(500);
+                        }else{
+                            var resourcesToSend = resources.map( (r) =>{
+                                delete r._id;   //   ==   delete r["_id"];
+                                return r;
+                            });
+                            res
+                            .status(200)
+                            .json(resourcesToSend);
+                        }
+                    }
+                )
             }
-        })
+        }else{
+            db.find(dbquery).sort({district:1, year: -1}).skip(offset).limit(limit).exec((err, resources) => {
+                if(err){
+                    console.error('No has hecho algo bien mirmano');
+                    res.sendStatus(500);
+                }else{
+                    //res.send(JSON.stringify(resources,null,2));
+                    var resourcesToSend = resources.map( (cb) =>{
+                        delete cb._id;   //   Borramos el campo _id autogenerado por nedb;
+                        return cb;
+                    });
+                    res.status(200).json(resourcesToSend);
+                }
+            })
+        }
+        
     });
 
     //POST

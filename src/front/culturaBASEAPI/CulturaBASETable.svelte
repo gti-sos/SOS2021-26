@@ -113,7 +113,7 @@
     }
 
     async function deleteCultura(district, year) {
-        const res = await fetch(BASE_CULTURABASE_API_PATH + district +"/" + year, {
+        const res = await fetch(BASE_CULTURABASE_API_PATH + "/"+  district +"/" + year, {
             method: "DELETE"
         }).then(function (res)  {
             getCulturaBASEResource();
@@ -153,14 +153,22 @@
         var url = BASE_CULTURABASE_API_PATH;
 
         //los condicionantes van a ser que ninguno de los campos esten vacíos, y que si no lo están impriman la url de busqueda
-        if(campo1 != "" & campo2 != "" & valor1 != "" & valor2 != ""){
+        /*if(campo1 != "" & campo2 != "" & valor1 != "" & valor2 != ""){
             url = url + "?"+ campo1 + "="+ valor1 + "&" + campo2 + "=" + valor2;
-        }else if(campo1 != "" & campo2 != "" & valor1 != ""){
+        }else if(campo1 != "" & campo2 == "" & valor1 != ""){
             url = url + "?"+ campo1 + "="+ valor1;
         }else if(campo1 != "" & campo2 != "" & valor2 != ""){
             url = url + "?"+ campo2 + "=" + valor2;
-        }else if(campo1 != "" && campo2 != "" && valor1 != "" && valor2 != "" && campo1 == campo2 && campo1 == "year"){
-            url += "?from=" + valor1 +"&to="+ valor2;
+        }*/
+
+        if(campo1 != "" && campo2 != "" && valor1 != "" && valor2 != "" && campo2 == "year" && campo1 == "year"){
+            url = url + "/?from=" + valor1 +"&to="+ valor2;
+        }else if(campo1 != "" & campo2 != "" & valor1 != "" & valor2 != ""){
+            url = url + "?"+ campo1 + "="+ valor1 + "&" + campo2 + "=" + valor2;
+        }else if(campo1 != "" & campo2 == "" & valor1 != ""){
+            url = url + "?"+ campo1 + "="+ valor1;
+        }else if(campo1 != "" & campo2 != "" & valor2 != ""){
+            url = url + "?"+ campo2 + "=" + valor2;
         }
 
         //imprimimos en consola el resultado que sale de la url
