@@ -43,6 +43,7 @@
             console.log("Hemos recibido los datos de culturaBASE");
 
 
+            
         }else if(res.status == 404){
             window.alert("El dato "+params.district + " " + params.year + " no existe");
         }
