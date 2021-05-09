@@ -24,7 +24,7 @@
 
     async function getCulturaBase(){
         console.log("Fetching Cultura...");
-        const res = await fetch("/api/v1/culturaBASE/"+ params.district);
+        const res = await fetch("/api/v2/culturaBASE/"+ params.district);
 
         //const res = await fetch("/api/v1/culturaBASE/"+ params.district + "/" + params.year);
 
@@ -52,7 +52,7 @@
 		
         console.log("Actualizando el cine..." + JSON.stringify(params.district));
 		//const res = await fetch("/api/v1/culturaBASE/" + params.district + "/" + params.year
-        const res = await fetch("/api/v1/culturaBASE/" + params.district + "/" +params.year, {
+        const res = await fetch("/api/v2/culturaBASE/" + params.district + "/" +params.year, {
             method: "PUT",
             body: JSON.stringify({
                 district: params.district,
