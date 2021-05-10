@@ -184,11 +184,11 @@
             r_culturaBASE = json;
             if(r_culturaBASE.length==0){
                 exitoMsg = "404 Not Found";
-                window.alert("El recurso que está buscando "+ valor1 + valor2 +  " no existe.");
+                window.alert("El recurso que está buscando "+ valor1 + " " + valor2 +  " no existe.");
             } else if(campo1 ==  "" & campo2 == "" || valor1 == "" & valor2 == ""){
                 r_culturaBASE = [];
                 exitoMsg = "404 Not Found";
-                window.alert("El recurso que está buscando "+ valor1 + valor2 + " no existe");
+                window.alert("El recurso que está buscando "+ valor1 + " " + valor2 + " no existe");
             }else{
                 console.log("Hemos encontrado " + r_culturaBASE.length + " datos de culturaBASE");
             //mensaje que le enseñamos al usuario
