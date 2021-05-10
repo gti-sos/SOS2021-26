@@ -176,10 +176,6 @@
 
         //se hace la busqueda asincrona de la url a ver si es correcta
         const res = await fetch(url);
-
-        /*const res = await fetch(url+ "?offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
-        const resNext = await fetch(url+ "?offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);*/
-
         if(res.ok){
             console.log("La busqueda es correcta, el resultado: ");
             const json = await res.json();
@@ -208,7 +204,34 @@
             //errorMsg = res.status + ": "+ res.statusText + ". Busqueda realizada con errores o en el vacío" 
             console.log("ERROR A LA HORA DE HACER LA BUSQUEDA");
         }
-    }
+
+        /*const res = await fetch(url+ "&offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
+        const resNext = await fetch(url+ "&offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
+
+        if(res.ok&&resNext.ok){
+            console.log("La busqueda es correcta, el resultado: ");
+            const json = await res.json();
+            const jsonNext = await resNext.json();
+            r_culturaBASE = json;
+
+            if(jsonNext.length == 0){
+                plusData = false;
+            }else{
+                plusData = true;
+            }
+            console.log("Hemos encontrado " + r_culturaBASE.length + " datos de culturaBASE");
+            
+            exitoMsg = res.status + ": "+ res.statusText + ". Búsqueda realizada con éxito. " + r_culturaBASE.length + " elementos encontrados.";
+            
+        }else if(res.status == 404){
+            //r_culturaBASE = [];
+            exitoMsg = res.status + ": "+ res.statusText + ". No encontramos parámetros coincidentes ";
+        } else{
+            window.alert("Error: Te has equivocado a la hora de poner los datos para la búsqueda máquina o no hemos encontrado na, prueba de nuevo");
+            console.log("ERROR A LA HORA DE HACER LA BUSQUEDA");
+        }
+        
+    }*/
 
 
     onMount(getCulturaBASEResource);
