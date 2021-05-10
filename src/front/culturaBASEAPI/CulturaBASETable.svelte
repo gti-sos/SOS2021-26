@@ -206,8 +206,48 @@
             console.log("ERROR A LA HORA DE HACER LA BUSQUEDA");
         }
 
-        //const res = await fetch(url+ "&offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
-        /*const resNext = await fetch(url+ "&offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
+        /*const res = await fetch(url,{
+            method: "GET",
+            body: JSON.stringify({
+                district: params.district,
+                year: params.year,
+                fundraising: params.fundraising,
+				spectator: params.spectator,
+				spending_per_view: params.spending_per_view
+            })
+        }).then(function(res){
+            getCulturaBASEResource();
+            if(res.ok){
+                console.log("La busqueda es correcta, el resultado: ");
+                const json = res.json();
+                //pasamos el formato de la base de datos a json para trabajar con sus parámetros
+                r_culturaBASE = json;
+                if(r_culturaBASE.length==0){
+                exitoMsg = "404 Not Found";
+                window.alert("El recurso que está buscando no existe.");
+                } else if(campo1 ==  "" & campo2 == "" || valor1 == "" & valor2 == ""){
+                    r_culturaBASE = [];
+                    exitoMsg = "404 Not Found";
+                    window.alert("El recurso que está buscando no existe.");
+                }else{
+                    console.log("Hemos encontrado " + r_culturaBASE.length + " datos de culturaBASE");
+                //mensaje que le enseñamos al usuario
+                    exitoMsg = res.status + ": "+ res.statusText + ". Búsqueda realizada con éxito. " + r_culturaBASE.length + " elementos encontrados.";
+                }
+            }else if(res.status == 404){
+                r_culturaBASE = [];
+                exitoMsg = res.status + ": "+ res.statusText + ". No encontramos parámetros coincidentes ";
+            } else{
+                //alerta emergente cuando un usuario se equivoca haciendo la busqueda
+                window.alert("Error: Te has equivocado a la hora de poner los datos para la búsqueda máquina o no hemos encontrado na, prueba de nuevo");
+                //error que aparece en consola
+                //errorMsg = res.status + ": "+ res.statusText + ". Busqueda realizada con errores o en el vacío" 
+                console.log("ERROR A LA HORA DE HACER LA BUSQUEDA");
+            }
+        });*/
+
+        /*const res = await fetch(url+ "&offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
+        const resNext = await fetch(url+ "&offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
 
         if(res.ok&&resNext.ok){
             console.log("La busqueda es correcta, el resultado: ");
@@ -215,7 +255,13 @@
             const jsonNext = await resNext.json();
             r_culturaBASE = json;
 
-            if(jsonNext.length == 0){
+            if(Object.keys(r_culturaBASE).length == 0){
+                plusData = false;
+                exitoMsg = "Resultado de la búsqueda: " + " Recurso no encontrado.";
+            }else if(Object.keys(r_culturaBASE).length > 0 && Object.keys(r_culturaBASE).length <= 10){
+                outputMsg = "";
+                console.log("--CBAPI:\n  FrontEnd -> Found: "+ r_culturaBASE.length +" resources");
+                exitoMsg = "resultado de la búsqueda: " + r_culturaBASE.length + " recursos encontrados <" + res.status + ": " + res.statusText + ">";
                 plusData = false;
             }else{
                 plusData = true;
@@ -225,7 +271,7 @@
             exitoMsg = res.status + ": "+ res.statusText + ". Búsqueda realizada con éxito. " + r_culturaBASE.length + " elementos encontrados.";
             
         }else if(res.status == 404){
-            //r_culturaBASE = [];
+            r_culturaBASE = [];
             exitoMsg = res.status + ": "+ res.statusText + ". No encontramos parámetros coincidentes ";
         } else{
             window.alert("Error: Te has equivocado a la hora de poner los datos para la búsqueda máquina o no hemos encontrado na, prueba de nuevo");
