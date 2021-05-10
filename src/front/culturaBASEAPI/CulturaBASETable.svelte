@@ -177,12 +177,19 @@
         //se hace la busqueda asincrona de la url a ver si es correcta
         const res = await fetch(url);
 
+        /*const res = await fetch(url+ "?offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
+        const resNext = await fetch(url+ "?offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);*/
+
         if(res.ok){
             console.log("La busqueda es correcta, el resultado: ");
             const json = await res.json();
             //pasamos el formato de la base de datos a json para trabajar con sus parámetros
             r_culturaBASE = json;
             if(r_culturaBASE.length==0){
+                exitoMsg = "404 Not Found";
+                window.alert("El recurso que está buscando no existe.");
+            } else if(campo1 ==  "" & campo2 == "" || valor1 == "" & valor2 == ""){
+                r_culturaBASE = [];
                 exitoMsg = "404 Not Found";
                 window.alert("El recurso que está buscando no existe.");
             }else{
