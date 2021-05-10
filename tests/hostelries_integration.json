@@ -1,12 +1,12 @@
 {
 	"info": {
 		"_postman_id": "5b090039-c6b5-4bdb-b2a8-b94cbb92d346",
-		"name": "Hostelries API DB sample from SOS-2021-26 Copy",
+		"name": "Hostelries API DB V2 sample from SOS-2021-26 Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "/api/v1/hostelries -Check 0",
+			"name": "/api/v2/hostelries -Check 0",
 			"event": [
 				{
 					"listen": "test",
@@ -43,7 +43,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/loadInitialData",
+			"name": "/api/v2/hostelries/loadInitialData",
 			"event": [
 				{
 					"listen": "test",
@@ -53,8 +53,8 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response time is less than 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"pm.test(\"Response time is less than 250ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(250);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -80,7 +80,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries -Check >0 & not empty",
+			"name": "/api/v2/hostelries -Check >0 & not empty",
 			"event": [
 				{
 					"listen": "test",
@@ -118,7 +118,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries -Search ?district =",
+			"name": "/api/v2/hostelries -Search ?district =",
 			"event": [
 				{
 					"listen": "test",
@@ -165,7 +165,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries - Post check",
+			"name": "/api/v2/hostelries - Post check",
 			"event": [
 				{
 					"listen": "test",
@@ -210,7 +210,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries - Post 400 check",
+			"name": "/api/v2/hostelries - Post 400 check",
 			"event": [
 				{
 					"listen": "test",
@@ -255,7 +255,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries - Post 409 check",
+			"name": "/api/v2/hostelries - Post 409 check",
 			"event": [
 				{
 					"listen": "test",
@@ -300,7 +300,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Andalucia/2020 -Check params find",
+			"name": "/api/v2/hostelries/Andalucia/2020 -Check params find",
 			"event": [
 				{
 					"listen": "test",
@@ -339,7 +339,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/hostelries/Zaragoza/2020 -Check delete",
+			"name": "/api/v2/hostelries/Zaragoza/2020 -Check delete",
 			"event": [
 				{
 					"listen": "test",
