@@ -23,7 +23,7 @@
 
     //PAGINACIÓN & BÚSQUEDA
     //Paginación
-    let numRecursos = 5;     //   == limit 
+    let numRecursos = 10;     //   == limit 
     let offset = 0;
     let currentPage = 1;
     let existsMoreData = true;
@@ -122,10 +122,11 @@
             url += "?" + campo_1 + "=" + valor_c_1;
         }
         
+        /*
         console.log("--HostelriesAPI:\n  FrontEnd -> Url search created:\n"+"          "+url);
         
         const res = await fetch(url);
-
+        
         if(res.ok){
             const json = await res.json();
             r_hostelries = json;
@@ -141,8 +142,40 @@
             window.alert("ERROR: Compruebe que los valores están correctamente para la búsqueda");
             //outputMsg = ("El recurso no existe! <" + res.status + ":"+res.statusText+">");
 			console.log("--HostelriesAPI:\n  FrontEnd ->ERROR de Búsqueda");
-        }
+        } 
+        */
 
+        //APLICAR PAGINACIÓN A LA BÚSQUEDA
+        console.log("--HostelriesAPI:\n  FrontEnd -> Url search created without pagination:\n"+"          "+url);
+
+        const res = await fetch(url + "?offset=" + offset*numRecursos + "&limit=" + numRecursos);
+        const resNext = await fetch(url + "?offset=" + (offset+1)*numRecursos + "&limit=" + numRecursos);
+        
+        if(res.ok && resNext.ok){
+            const json = await res.json();
+            const jsonNext = await resNext.json();
+
+            r_hostelries = json;
+
+            if(Object.keys(r_hostelries).length == 0){
+                existsMoreData = false;
+            }else{
+                existsMoreData = true;
+            }
+
+            console.log("--HostelriesAPI:\n  FrontEnd -> Found: "+Object.keys(r_hostelries).length +" resources");
+            outputMsg = "resultado de la búsqueda: " + Object.keys(r_hostelries).length + " recursos encontrados <" + res.status + ": " + res.statusText + ">";
+
+        }else if(res.status == 404){
+            r_hostelries = [];
+            console.log("--HostelriesAPI:\n  FrontEnd -> Not found!");
+            outputMsg = "Resultado de la búsqueda: " + Object.keys(r_hostelries).length + " recursos encontrados.";
+        }
+        else{
+            window.alert("ERROR: Compruebe que los valores están correctamente para la búsqueda");
+            //outputMsg = ("El recurso no existe! <" + res.status + ":"+res.statusText+">");
+			console.log("--HostelriesAPI:\n  FrontEnd ->ERROR de Búsqueda");
+        }        
     }
 
     async function loadDB(){

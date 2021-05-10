@@ -51,25 +51,23 @@ module.exports = function(app){
         })*/
 
         var reqQuery = {};   //Json to save search and paginating params
-        var temporalSearch = false;
-        var paginacion = false;
-
+        var temporalSearch = false;     //Centinela para detectar búsqueda temporal
 
         //Paginating
         //  - offset: a partir de que núm. de elementos quiero que los mande
         //  - limit: núm. de recursos de la página que quiero que mande
         let offset = 0;
         let limit = Number.MAX_SAFE_INTEGER;
+
+        //console.log(req.query);
 		
         if (req.query.offset) {
             offset = parseInt(req.query.offset);
             delete req.query.offset;
-            paginacion = true;
         }
         if (req.query.limit) {
             limit = parseInt(req.query.limit);
             delete req.query.limit;
-            paginacion = true;
         }
 
         //Search = filter
@@ -88,39 +86,58 @@ module.exports = function(app){
         if(req.query.traveler_numer){
             reqQuery["traveler_numer"] = parseInt(req.query.traveler_numer);
         }
-        //Magia 1
 
-        console.log(req.query);
-        
-        if(Object.keys(reqQuery).length == 0 && !paginacion){
-            db.find({}, (err, resources) => {
-                if(err){
-                    console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
-                    res.sendStatus(500);
-                }else{
+        if(req.query.from && req.query.to){
+            temporalSearch = true;
+            reqQuery["from"] = (req.query.from);
+            reqQuery["to"] = (req.query.to);
+        }
 
-                    var resourcesToSend = resources.map( (r) =>{
-                        delete r._id;   //   ==   delete r["_id"];
-                        return r;
-                    });
-                    res
-                    .status(200)
-                    .json(resourcesToSend);
-                }
-            });
-            
-        //Magia 2          
-        }else{
-            db.find(reqQuery).sort({district:1,year:-1}).skip(offset).limit(limit).exec((err,resources) => {
-                if(err){
-                    console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
-                    res.sendStatus(500);
-                }else{
-                    //res.send(JSON.stringify(resources,null,2));
-                    if(Object.keys(resources).length == 0){
-                        res
-                        .status(404)
-                        .json({ message: `The resource doesn't exist! <404: Not Found>`});
+        //console.log(req.query);
+
+        if(temporalSearch){
+            if(reqQuery.from < reqQuery.to){
+                //console.log(reqQuery.from);
+                db.find({$and: [{year : {$gte:reqQuery.from}},{year : {$lte:reqQuery.to}}]})
+                //db.find({year : {$gt: reqQuery.from}},
+                //db.find({year : {$lte: reqQuery.from}},
+                    .sort({district:1,year:-1}).skip(offset).limit(limit).exec((err,resources) => {
+                        if(err){
+                            console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                            res.sendStatus(500);
+                        }else{
+                            var resourcesToSend = resources.map( (r) =>{
+                                delete r._id;   //   ==   delete r["_id"];
+                                return r;
+                            });
+                            res
+                            .status(200)
+                            .json(resourcesToSend);
+                        }
+                    })
+                
+            }else if(reqQuery.from > reqQuery.to){
+                db.find({$and: [{year : {$lte:reqQuery.from}},{year : {$gte:reqQuery.to}}]})
+                    .sort({district:1,year:-1}).skip(offset).limit(limit).exec((err,resources) => {
+                        if(err){
+                            console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                            res.sendStatus(500);
+                        }else{
+                            var resourcesToSend = resources.map( (r) =>{
+                                delete r._id;   //   ==   delete r["_id"];
+                                return r;
+                            });
+                            res
+                            .status(200)
+                            .json(resourcesToSend);
+                        }
+                    })
+            }else{
+                db.find({year : reqQuery.from})
+                .sort({district:1,year:-1}).skip(offset).limit(limit).exec((err,resources) => {
+                    if(err){
+                        console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                        res.sendStatus(500);
                     }else{
                         var resourcesToSend = resources.map( (r) =>{
                             delete r._id;   //   ==   delete r["_id"];
@@ -129,13 +146,28 @@ module.exports = function(app){
                         res
                         .status(200)
                         .json(resourcesToSend);
-                    }                
+                    }
+                })
+            }
+            temporalSearch = false;   
+        }else{
+            db.find(reqQuery).sort({district:1,year:-1}).skip(offset).limit(limit).exec((err,resources) => {
+                if(err){
+                    console.error('--HostelriesAPI:\n  ERROR : accessing DB in GET(../hostelries)');
+                    res.sendStatus(500);
+                }else{
+                    //res.send(JSON.stringify(resources,null,2));
+                    
+                    var resourcesToSend = resources.map( (r) =>{
+                        delete r._id;   //   ==   delete r["_id"];
+                        return r;
+                    });
+                    res
+                    .status(200)
+                    .json(resourcesToSend);                
                 }
             })
-
-            paginacion = false;
-        }
-        
+        }       
     });
 
     //POST
