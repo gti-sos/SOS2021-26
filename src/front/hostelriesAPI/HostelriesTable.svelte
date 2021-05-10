@@ -105,6 +105,7 @@
         //existsMoreData = false;
 
         var url = BASE_HOSTELRIES_API_PATH;
+        var urlAux = "";
         
         console.log("--HostelriesAPI:\n  FrontEnd -> Searching: " + campo_1 + "="+ valor_c_1 + " & " + campo_2 + "=" + valor_c_2);
         console.log("campo1:"+campo_1+ " = "+valor_c_1);
@@ -114,21 +115,28 @@
 
         if(campo_1 != "" && campo_2 != "" && valor_c_1 != "" && valor_c_2 != "" && campo_1 == campo_2 && campo_1 == "year"){
             url += "?from="+valor_c_1+"&to="+valor_c_2;
-            url += "&offset=";
+            urlAux += "&offset=";
         
+        }else if(campo_1 == campo_2 && campo_1 != "year" && campo_1 != ""){
+
+            //ERROR FATAL!!! No más casos por favor.
+            window.alert("ERROR: No se puede hacer búsqueda de dos campos iguales a no ser que sea temporal!");
+			console.log("--HostelriesAPI:\n  FrontEnd ->ERROR de Búsqueda");
+
         }else if(campo_1 != "" && campo_2 != "" && valor_c_1 != "" && valor_c_2 != ""){
             url += "?"+campo_1+"="+valor_c_1+"&"+campo_2+"="+valor_c_2;
-            url += "&offset=";
+            urlAux += "&offset=";
 
         }else if(campo_1 == "" && campo_2!="" && valor_c_2!=""){
             url += "?" + campo_2 + "=" + valor_c_2;
-            url += "&offset=";
+            urlAux += "&offset=";
 
         }else if(campo_1 != "" && valor_c_1 != "" && campo_2 == ""){
             url += "?" + campo_1 + "=" + valor_c_1;
-            url += "&offset=";
+            urlAux += "&offset=";
+
         }else{
-            url += "?offset=";
+            urlAux += "?offset=";
         }
         
         /*
@@ -155,9 +163,9 @@
         */
 
         //APLICAR PAGINACIÓN A LA BÚSQUEDA
-        console.log("url:         "+url + offset*numRecursos + "&limit=" + numRecursos)
-        const res = await fetch(url +  offset*numRecursos + "&limit=" + numRecursos);
-        const resNext = await fetch(url + (offset+1)*numRecursos + "&limit=" + numRecursos);
+        console.log("url:         "+url + urlAux + offset*numRecursos + "&limit=" + numRecursos)
+        const res = await fetch(url + urlAux + offset*numRecursos + "&limit=" + numRecursos);
+        const resNext = await fetch(url + urlAux + (offset+1)*numRecursos + "&limit=" + numRecursos);
         
         if(res.ok && resNext.ok){
             const json = await res.json();
@@ -169,15 +177,20 @@
                 outputMsg = "";
                 outputMsg_E = "Resultado de la búsqueda: " + " Recurso no encontrado.";
                 existsMoreData = false;
-            }else if(Object.keys(r_hostelries).length > 0 && Object.keys(r_hostelries).length <= 10){
+            }
+            
+            else if(Object.keys(r_hostelries).length > 0 && Object.keys(r_hostelries).length <= 10){
                 outputMsg = "";
                 console.log("--HostelriesAPI:\n  FrontEnd -> Found: "+Object.keys(r_hostelries).length +" resources");
-                outputMsg = "resultado de la búsqueda: " + Object.keys(r_hostelries).length + " recursos encontrados <" + res.status + ": " + res.statusText + ">";
+                outputMsg = "Resultado de la búsqueda: " + Object.keys(r_hostelries).length + " recursos encontrados <" + res.status + ": " + res.statusText + ">";
                 existsMoreData = false;
-            }else{
+            
+            }
+            
+            else{
                 existsMoreData = true;
                 console.log("--HostelriesAPI:\n  FrontEnd -> Found: "+Object.keys(r_hostelries).length +" resources");
-                outputMsg = "resultado de la búsqueda: " + Object.keys(r_hostelries).length + " recursos encontrados <" + res.status + ": " + res.statusText + ">";
+                outputMsg = "Resultado de la búsqueda: " + Object.keys(r_hostelries).length + " recursos encontrados <" + res.status + ": " + res.statusText + ">";
             }
 
         }else if(res.status == 404){
