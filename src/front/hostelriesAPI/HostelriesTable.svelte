@@ -175,7 +175,8 @@
 
             if(Object.keys(r_hostelries).length == 0){
                 outputMsg = "";
-                outputMsg_E = "Resultado de la búsqueda: " + " Recurso no encontrado.";
+
+                outputMsg_E = "Resultado de la búsqueda con < " + valor_c_1+", "+valor_c_2+ ">: no existe.";
                 existsMoreData = false;
             }
             
