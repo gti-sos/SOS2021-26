@@ -18,6 +18,7 @@
 
     const BASE_HOSTELRIES_API_PATH = "/api/v2/hostelries";
     let outputMsg = "";
+    let outputMsg_E = "";
 
     let r_hostelries = []
 
@@ -88,6 +89,8 @@
         }else{
             console.log("--HostelriesAPI:\n  FrontEnd -> GET Error");
         }
+
+        outputMsg_E = "";   //Resetear el mensaje error para que no salga en casos de acierto.
     }
 
     function incrementOffset(param){
@@ -99,7 +102,7 @@
     async function searchData(campo_1,valor_c_1,campo_2,valor_c_2){
         offset = 0;
         currentPage = 1;
-        existsMoreData = false;
+        //existsMoreData = false;
 
         var url = BASE_HOSTELRIES_API_PATH;
         
@@ -111,15 +114,21 @@
 
         if(campo_1 != "" && campo_2 != "" && valor_c_1 != "" && valor_c_2 != "" && campo_1 == campo_2 && campo_1 == "year"){
             url += "?from="+valor_c_1+"&to="+valor_c_2;
+            url += "&offset=";
         
         }else if(campo_1 != "" && campo_2 != "" && valor_c_1 != "" && valor_c_2 != ""){
             url += "?"+campo_1+"="+valor_c_1+"&"+campo_2+"="+valor_c_2;
+            url += "&offset=";
 
         }else if(campo_1 == "" && campo_2!="" && valor_c_2!=""){
             url += "?" + campo_2 + "=" + valor_c_2;
+            url += "&offset=";
 
         }else if(campo_1 != "" && valor_c_1 != "" && campo_2 == ""){
             url += "?" + campo_1 + "=" + valor_c_1;
+            url += "&offset=";
+        }else{
+            url += "?offset=";
         }
         
         /*
@@ -146,10 +155,9 @@
         */
 
         //APLICAR PAGINACIÓN A LA BÚSQUEDA
-        console.log("--HostelriesAPI:\n  FrontEnd -> Url search created without pagination:\n"+"          "+url);
-
-        const res = await fetch(url + "&offset=" + offset*numRecursos + "&limit=" + numRecursos);
-        const resNext = await fetch(url + "&offset=" + (offset+1)*numRecursos + "&limit=" + numRecursos);
+        console.log("url:         "+url + offset*numRecursos + "&limit=" + numRecursos)
+        const res = await fetch(url +  offset*numRecursos + "&limit=" + numRecursos);
+        const resNext = await fetch(url + (offset+1)*numRecursos + "&limit=" + numRecursos);
         
         if(res.ok && resNext.ok){
             const json = await res.json();
@@ -158,18 +166,24 @@
             r_hostelries = json;
 
             if(Object.keys(r_hostelries).length == 0){
+                outputMsg = "";
+                outputMsg_E = "Resultado de la búsqueda: " + " Recurso no encontrado.";
+                existsMoreData = false;
+            }else if(Object.keys(r_hostelries).length > 0 && Object.keys(r_hostelries).length <= 10){
+                outputMsg = "";
+                console.log("--HostelriesAPI:\n  FrontEnd -> Found: "+Object.keys(r_hostelries).length +" resources");
+                outputMsg = "resultado de la búsqueda: " + Object.keys(r_hostelries).length + " recursos encontrados <" + res.status + ": " + res.statusText + ">";
                 existsMoreData = false;
             }else{
                 existsMoreData = true;
+                console.log("--HostelriesAPI:\n  FrontEnd -> Found: "+Object.keys(r_hostelries).length +" resources");
+                outputMsg = "resultado de la búsqueda: " + Object.keys(r_hostelries).length + " recursos encontrados <" + res.status + ": " + res.statusText + ">";
             }
-
-            console.log("--HostelriesAPI:\n  FrontEnd -> Found: "+Object.keys(r_hostelries).length +" resources");
-            outputMsg = "resultado de la búsqueda: " + Object.keys(r_hostelries).length + " recursos encontrados <" + res.status + ": " + res.statusText + ">";
 
         }else if(res.status == 404){
             r_hostelries = [];
             console.log("--HostelriesAPI:\n  FrontEnd -> Not found!");
-            outputMsg = "Resultado de la búsqueda: " + Object.keys(r_hostelries).length + " recursos encontrados.";
+            outputMsg_E = "Resultado de la búsqueda: " + " Recurso no encontrado.";
         }
         else{
             window.alert("ERROR: Compruebe que los valores están correctamente para la búsqueda");
@@ -201,6 +215,9 @@
 
     async function insertResource(){
         console.log("--HostelriesAPI:\n  FrontEnd -> Inserting resource..");
+        newResource.year = newResource.year.toString();     //Mediante input recibimos el year en int para evitar string en ese campo,
+                                                            //por ello se le hace un casting a string ya que en json está en String.
+        //console.log(newResource);
 
         const res = await fetch(BASE_HOSTELRIES_API_PATH,
                         {
@@ -340,7 +357,7 @@
         <h3> Añadir nuevo recurso:</h3>
             <tr>
                 <td><strong>Provincia:</strong> <input bind:value="{newResource.district}"></td>
-                <td><strong>Año:</strong> <input  bind:value="{newResource.year}"></td>
+                <td><strong>Año:</strong> <input type="number" bind:value="{newResource.year}"></td>
                 <td><strong>Personal contratado:</strong> <input type="number" bind:value="{newResource.employee_staff}"></td>
                 <td><strong>Establecimientos abiertos:</strong> <input type="number" bind:value="{newResource.establishment_open}"></td>
                 <td><strong>Turistas:</strong> <input type="number" bind:value="{newResource.traveler_numer}"></td>
@@ -386,6 +403,9 @@
     {/await}
     {#if outputMsg}
         <p style="color: green">{outputMsg}</p>
+    {/if}
+    {#if outputMsg_E}
+        <p style="color: red">{outputMsg_E}</p>
     {/if}
 
 </main>
