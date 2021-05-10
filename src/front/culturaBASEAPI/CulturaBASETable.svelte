@@ -205,8 +205,8 @@
             console.log("ERROR A LA HORA DE HACER LA BUSQUEDA");
         }
 
-        /*const res = await fetch(url+ "&offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
-        const resNext = await fetch(url+ "&offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
+        //const res = await fetch(url+ "&offset="+ numeroRecursos * offset + "&limit=" + numeroRecursos);
+        /*const resNext = await fetch(url+ "&offset="+ numeroRecursos * (offset+1) + "&limit=" + numeroRecursos);
 
         if(res.ok&&resNext.ok){
             console.log("La busqueda es correcta, el resultado: ");
@@ -229,9 +229,9 @@
         } else{
             window.alert("Error: Te has equivocado a la hora de poner los datos para la búsqueda máquina o no hemos encontrado na, prueba de nuevo");
             console.log("ERROR A LA HORA DE HACER LA BUSQUEDA");
-        }
+        }*/
         
-    }*/
+    }
 
 
     onMount(getCulturaBASEResource);
@@ -320,10 +320,10 @@
         <tr>
                     
             <td>Provincia: <input bind:value="{newCB.district}"></td>
-            <td>Año: <input bind:value="{newCB.year}"></td>
-            <td>Recaudacion: <input bind:value="{newCB.fundraising}"></td>
-            <td>Espectadores: <input bind:value="{newCB.spectator}"></td>
-            <td>Gasto medio por espectador: <input bind:value="{newCB.spending_per_view}"></td>
+            <td>Año: <input type="number" bind:value="{newCB.year}"></td>
+            <td>Recaudacion: <input type="number"bind:value="{newCB.fundraising}"></td>
+            <td>Espectadores: <input type="number"bind:value="{newCB.spectator}"></td>
+            <td>Gasto medio por espectador: <input type="number" bind:value="{newCB.spending_per_view}"></td>
             <td> <Button outline color = "success" on:click={insertCulturaBASE}>Añadir la cosa</Button></td>
             <!--<td><button type="button" class="btn btn-outline-primary" function = "onclick:{insertCulturaBASE}"></button></td>-->
         </tr>
