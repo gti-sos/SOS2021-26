@@ -791,12 +791,8 @@
 	],
 	"variable": [
 		{
-			"key": "HOST",
-			"value": "localhost"
-		},
-		{
-			"key": "PORT",
-			"value": "1607"
+			"key": "heroku",
+			"value": "sos2021-26.herokuapp.com"
 		}
 	]
 }
