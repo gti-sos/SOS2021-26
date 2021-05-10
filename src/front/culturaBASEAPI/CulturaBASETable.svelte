@@ -320,7 +320,7 @@
         <tr>
                     
             <td>Provincia: <input bind:value="{newCB.district}"></td>
-            <td>Año: <input type="number" bind:value="{newCB.year}"></td>
+            <td>Año: <input bind:value="{newCB.year}"></td>
             <td>Recaudacion: <input type="number"bind:value="{newCB.fundraising}"></td>
             <td>Espectadores: <input type="number"bind:value="{newCB.spectator}"></td>
             <td>Gasto medio por espectador: <input type="number" bind:value="{newCB.spending_per_view}"></td>
