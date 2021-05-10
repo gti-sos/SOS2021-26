@@ -791,24 +791,12 @@
 	],
 	"variable": [
 		{
-			"key": "1607",
-			"value": "PORT"
-		},
-		{
-			"key": "PORT",
-			"value": "1607"
-		},
-		{
-			"key": "localhost",
-			"value": "HOST"
-		},
-		{
 			"key": "HOST",
 			"value": "localhost"
 		},
 		{
-			"key": "heroku",
-			"value": "sos2021-26.herokuapp.com"
+			"key": "PORT",
+			"value": "1607"
 		}
 	]
 }
