@@ -148,8 +148,8 @@
         //APLICAR PAGINACIÓN A LA BÚSQUEDA
         console.log("--HostelriesAPI:\n  FrontEnd -> Url search created without pagination:\n"+"          "+url);
 
-        const res = await fetch(url + "?offset=" + offset*numRecursos + "&limit=" + numRecursos);
-        const resNext = await fetch(url + "?offset=" + (offset+1)*numRecursos + "&limit=" + numRecursos);
+        const res = await fetch(url + "&offset=" + offset*numRecursos + "&limit=" + numRecursos);
+        const resNext = await fetch(url + "&offset=" + (offset+1)*numRecursos + "&limit=" + numRecursos);
         
         if(res.ok && resNext.ok){
             const json = await res.json();
