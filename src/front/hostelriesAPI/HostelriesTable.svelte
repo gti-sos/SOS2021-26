@@ -353,13 +353,19 @@
             {#each r_hostelries as r}
                 <tr>
                     <td>
-                        <a href="#/hostelries/{r.district}/{r.year}">{r.district}</a>
+                        <!--<a href="#/hostelries/{r.district}/{r.year}">{r.district}</a>-->
+                        {r.district}
                     </td>
                     <td>{r.year}</td>
                     <td>{r.employee_staff}</td>
                     <td>{r.establishment_open}</td>
                     <td>{r.traveler_numer}</td>
-                    <td><Button outline color="danger" on:click="{deleteResource(r.district,r.year)}">Eliminar</Button></td>
+                    <td>
+                        <Button outline color="danger" on:click="{deleteResource(r.district,r.year)}">Eliminar</Button>
+                        <a href="#/hostelries/{r.district}/{r.year}">
+                            <Button outline color="info">Editar</Button>
+                        </a>
+                    </td>
                 </tr>
             {/each}
         </tbody>
