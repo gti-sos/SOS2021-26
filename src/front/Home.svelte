@@ -74,7 +74,7 @@
                     <a href="https://documenter.getpostman.com/view/9628248/TzRRE9Fe"> Ddesarrollado por </a> <a href="https://github.com/josemarimaya"><b>José María Maya Cano</b></a> 
                 </li>
                 <li>
-                    <a href="https://documenter.getpostman.com/view/14948205/TzJsfJSz"> Desarrollado por </a> <a href="https://github.com/keffren"><b>Mateo Serna Giraldo</b></a>
+                    <a href="https://documenter.getpostman.com/view/14948205/TzRU9Rje"> Desarrollado por </a> <a href="https://github.com/keffren"><b>Mateo Serna Giraldo</b></a>
                 </li>
             </ul>
         </li>
