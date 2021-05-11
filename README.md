@@ -23,4 +23,6 @@
 
     + [Postman Documentation Portal by ](https://documenter.getpostman.com/view/14948205/TzRU9Rje) [Mateo Serna Giraldo](https://github.com/keffren)
 
-    + [Postman Documentation Portal by ](https://documenter.getpostman.com/view/9628248/TzRRE9Fe) [José María Maya Cano](https://github.com/josemarimaya)
+    + [Postman Documentation V2 Portal by ](https://documenter.getpostman.com/view/9628248/TzRRE9Fe) [José María Maya Cano](https://github.com/josemarimaya)
+    
+    + [Postman Documentation V1 Portal by ](https://documenter.getpostman.com/view/9628248/TzJsfJT2) [José María Maya Cano](https://github.com/josemarimaya)
