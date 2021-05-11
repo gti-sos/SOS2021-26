@@ -291,6 +291,7 @@
 </svelte:head>
 
 <main>
+    <Button style="align: center;" on:click={getCulturaBASEResource}>Menu principal</Button>
     
         <table class="table center table-striped">
             <tr>
