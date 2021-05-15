@@ -8,6 +8,7 @@
 	//Imports of CulturaBASE
 	import CulturaBASE from './culturaBASEAPI/CulturaBASE.svelte';
 	import CulturaBASEDistrict from './culturaBASEAPI/EditCulturaBase.svelte';
+	import GraphCB from './culturaBASEAPI/MyGraph.svelte';
 
 	//Imports of Hostelries
 	import Hostelries from './hostelriesAPI/Hostelries.svelte';
@@ -31,6 +32,7 @@
 		//CulturaBAse API
 		'/culturaBASE': CulturaBASE,
 		'/culturaBASE/:district/:year': CulturaBASEDistrict,
+		'/culturaBASE/graph': GraphCB,
 		//AirRoutes API
 		'/airRoutes': AirRoutes,
 		
