@@ -291,8 +291,12 @@
 </svelte:head>
 
 <main>
-    <Button style="align: center;" on:click={getCulturaBASEResource}>Menu principal</Button>
-    <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/graph'"> Ir a la gráfica de la industria Cinematográfica </button><br>
+    <div>
+        <Button style="align: center;" on:click={getCulturaBASEResource}>Menu principal</Button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/graph'"> Ir a la gráfica de la industria Cinematográfica </button><br>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='#/info'"> Volver </button><br>
+    </div>
+    
     
         <table class="table center table-striped">
             <tr>

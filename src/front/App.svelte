@@ -9,6 +9,7 @@
 	import CulturaBASE from './culturaBASEAPI/CulturaBASE.svelte';
 	import CulturaBASEDistrict from './culturaBASEAPI/EditCulturaBase.svelte';
 	import GraphCB from './culturaBASEAPI/MyGraph.svelte';
+	import DataGraph from './DataGraph.svelte';
 
 	//Imports of Hostelries
 	import Hostelries from './hostelriesAPI/Hostelries.svelte';
@@ -25,7 +26,7 @@
 	const routes = {
 		'/info': Home,
 		'/': Home,
-
+		'/datagraph': DataGraph,
 		//Hostelries API
 		'/hostelries': Hostelries,
 		'/hostelries/:district/:year': EditHostelryResource, 

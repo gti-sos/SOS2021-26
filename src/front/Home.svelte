@@ -24,6 +24,10 @@
                 <li>
                     <a href= "#/airRoutes"> Vuelos comerciales</a>
                 </li>
+
+                <li>
+                    <a href="#/datagraph"> Grafica con todos los datos</a>
+                </li>
             </ul>
         </li><br>
 
@@ -71,7 +75,11 @@
                 </li>
 
                 <li>
-                    <a href="https://documenter.getpostman.com/view/9628248/TzRRE9Fe"> Ddesarrollado por </a> <a href="https://github.com/josemarimaya"><b>José María Maya Cano</b></a> 
+                    <a href="https://documenter.getpostman.com/view/9628248/TzJsfJT2"> V1 Desarrollado por </a> <a href="https://github.com/josemarimaya"><b>José María Maya Cano</b></a> 
+                </li>
+
+                <li>
+                    <a href="https://documenter.getpostman.com/view/9628248/TzRRE9Fe">V2 Desarrollado por </a> <a href="https://github.com/josemarimaya"><b>José María Maya Cano</b></a> 
                 </li>
                 
                 <li>

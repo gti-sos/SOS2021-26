@@ -1,43 +1,95 @@
 <script type="text/javascript">
-    /*import {
-        onMount
-    } from "svelte";
- 
-    let data = [];
-    async function getData(){
-        console.log("Fetching data...");
-        const res = await fetch("/data");
-        if(res.ok){
-            console.log("Ok.");
-            const json = await res.json();
-            data = json;
-            console.log(`We have received ${data.length} data points.`);
-        }else{
-            console.log("Error!");
-        }
-    } 
-    
-    onMount(getData);*/
+import { children } from "svelte/internal";
+
+
+
+        /*async function loadGraph3() {
+            let CBData = [];
+            let DataGraph = [];
+            const resData = await fetch("/api/v2/culturaBASE");
+            CBData = await resData.json();
+            CBData.forEach((x) => {
+                DataGraph.push({name: x.district + " " + x.year, data: [parseInt(x.fundraising), parseInt(x.spectator), parseInt(x.spending_per_view)], pointPlacement: 'on'})
+            });
+
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Cultura Base'
+                },
+                
+                xAxis: {
+                    categories: ['Beneficio', 'Espectadores', 'Gasto por espectador']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Escalado por millones, exceptuando gasto por espectador'
+                    }
+                },
+                tooltip: {
+                    shared: true,
+                    valueSuffix: ' units'
+                },
+                credits: {
+                    enabled: false
+                },
+                series: DataGraph
+            });
+
+        }*/
+
 
     async function loadGraph2() {
         let CBData = [];
+        let HData = [];
         let DataGraph = [];
         const resData = await fetch("/api/v2/culturaBASE");
+        const resData2 = await fetch("/api/v2/hostelries");
         CBData = await resData.json();
+        HData = await resData2.json();
         CBData.forEach((x) => {
-            DataGraph.push({name: x.district + " " + x.year, data: [parseInt(x.fundraising), parseInt(x.spectator), parseInt(x.spending_per_view)], pointPlacement: 'on'})
+            HData.forEach((y) =>{
+
+                if(x.district == y.district && x.year == y.year){
+                    DataGraph.push({name: x.district, data: [
+                        {name: "CulturaBase", data: [
+                            {name: "Beneficio", value: parseInt(x.fundraising)},
+                            {name: "Espectadores", value: parseInt(x.spectator)},
+                            {name: "Gasto por espectador", value: parseInt(x.spending_per_view)}
+                        ]}, 
+
+                        {name: "Hostelries", data: [
+                            {name: "Empleados", value: parseInt(y.employee_staff)},
+                            {name: "Establecimientos", value: parseInt(y.establishment_open)},
+                            {name: "Viajeros", value: parseInt(y.traveler_numer)}
+                        ]}
+                        
+                    ]});
+                }
+                /*DataGraph.push({name: x.district + " " + x.year, data: [parseInt(x.fundraising), parseInt(x.spectator), parseInt(x.spending_per_view),
+                parseInt(y.employee_staff), parseInt(y.establishment_open), parseInt(y.traveler_numer)], pointPlacement: 'on'})*/
+            })
+            
         });
+
+        /*CBData.forEach((x) => {
+            DataGraph.push({name: x.district + " " + x.year, data: [parseInt(x.fundraising), parseInt(x.spectator), parseInt(x.spending_per_view)], pointPlacement: 'on'})
+        });*/
+
+        console.log(JSON.stringify(DataGraph));
 
         Highcharts.chart('container', {
             chart: {
                 type: 'line'
             },
             title: {
-                text: 'Cultura Base'
+                text: 'Cultura Base y Hostelries'
             },
             
             xAxis: {
-                categories: ['Beneficio', 'Espectadores', 'Gasto por espectador']
+                categories: ['Beneficio', 'Espectadores', 'Gasto por espectador', 'Empleados', 'Establecimientos', 'Viajeros']
             },
             yAxis: {
                 title: {
@@ -66,7 +118,7 @@
             },
 
             subtitle: {
-                text: 'Fuente: culturaBASE' 
+                text: 'Fuente: culturaBASE & INE' 
             },
 
             yAxis: {
@@ -124,7 +176,6 @@
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <!--<script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}" ></script>-->
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph2}" ></script>
 
 </svelte:head>
@@ -133,10 +184,10 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-           Este gráfico representa la evolución del sector cinematográfico desde 2018 hasta 2019
+           Este gráfico representa la evolución del sector cinematográfico  y del sector hostelero
            dividido por comunidad autónoma
         </p>
     </figure>
     
-    <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE'" style="width: 25%; margin-bottom: 5%;"> Volver a database</button><br>
+    <button type="button" class="btn btn-secondary" onclick="window.location.href='#/info'" style="width: 25%; margin-bottom: 5%;"> Volver a database</button><br>
 </main>
