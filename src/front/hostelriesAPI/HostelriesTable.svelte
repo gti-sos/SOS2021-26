@@ -298,9 +298,12 @@
         Loading data...
     {:then r_hostelries}
 
+    <!-- BOTONES -->
     <Button outline color="info" on:click={loadDB}>Cargar recursos</Button>
     <Button outline color="danger" on:click={deleteAll}>Eliminar datos</Button>
+    <Button outline color="success" onclick="window.location.href='#/hostelries/graph'">Gráfica Highcharts</Button>
     <!-- https://www.w3schools.com/html/html_tables.asp -->
+    <!-- https://sveltestrap.js.org/?path=/story/components--button -->
 
     <!-- BÚSQUEDA -->
 
