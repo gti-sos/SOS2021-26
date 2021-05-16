@@ -28,6 +28,7 @@
 		'/info': Home,
 		'/': Home,
 		'/datagraph': DataGraph,
+		
 		//Hostelries API
 		'/hostelries': Hostelries,
 		'/hostelries/:district/:year': EditHostelryResource,
