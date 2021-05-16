@@ -14,6 +14,7 @@
 	//Imports of Hostelries
 	import Hostelries from './hostelriesAPI/Hostelries.svelte';
 	import EditHostelryResource from './hostelriesAPI/editHostelryR.svelte';
+	import GraphHostelry from './hostelriesAPI/MyGraph.svelte';
 
 	import AirRoutes from './airRoutesAPI/AirRoutes.svelte';
 	import NotFound from './NotFound.svelte';
@@ -29,11 +30,14 @@
 		'/datagraph': DataGraph,
 		//Hostelries API
 		'/hostelries': Hostelries,
-		'/hostelries/:district/:year': EditHostelryResource, 
+		'/hostelries/:district/:year': EditHostelryResource,
+		'/hostelries/graph' : GraphHostelry,
+
 		//CulturaBAse API
 		'/culturaBASE': CulturaBASE,
 		'/culturaBASE/:district/:year': CulturaBASEDistrict,
 		'/culturaBASE/graph': GraphCB,
+		
 		//AirRoutes API
 		'/airRoutes': AirRoutes,
 		
