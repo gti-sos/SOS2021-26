@@ -32,11 +32,19 @@
 
         Highcharts.chart('container', {
             chart: {
-                type: 'bar'
+                type: 'column'
             },
             title: {
                 text: 'Cultura Base'
             },
+
+            /*plotOptions:{
+                bar:{
+                    dataLabels:{
+                        enabled: true
+                    }
+                }
+            },*/
             
             xAxis: {
                 categories: ['Beneficio', 'Espectadores', 'Gasto por espectador']
@@ -69,6 +77,12 @@
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph2}" ></script>
 
 </svelte:head>
+
+<style>
+    #container {
+    height: 800px;
+    }
+</style>
 
 <main>
     <figure class="highcharts-figure">

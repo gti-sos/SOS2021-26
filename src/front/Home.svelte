@@ -6,7 +6,7 @@
             <ul>
                 <li><a href = "https://github.com/josemarimaya" > Jose María Maya Cano - culturaBASE</a></li>
                 <li><a href = " https://github.com/keffren " > Mateo Serna Giraldo - hostelries</a></li>
-                <li><a href = " https://github.com/darlopvil " > Darío López Villegas - air_routes </a></li>
+                <!--<li><a href = " https://github.com/darlopvil " > Darío López Villegas - air_routes </a></li>-->
             </ul>
         </li><br>
 
@@ -21,13 +21,13 @@
                 <li>
                     <a href = "#/hostelries">Hostelería</a>
                 </li>
-                <li>
+                <!--<li>
                     <a href= "#/airRoutes"> Vuelos comerciales</a>
-                </li>
+                </li>-->
 
-                <li>
+                <!--<li>
                     <a href="#/datagraph"> Grafica con todos los datos</a>
-                </li>
+                </li>-->
             </ul>
         </li><br>
 
@@ -48,10 +48,10 @@
                     <a href="https://sos2021-26.herokuapp.com/api/v2/culturaBASE/">https://sos2021-26.herokuapp.com/api/v2/culturaBASE/</a> 
                     (desarrollado por <a href="https://github.com/josemarimaya">José María Maya Cano</a>)
                 </li>
-                <li>
+                <!--<li>
                     <a href="https://sos2021-26.herokuapp.com/api/v1/air_routes/">https://sos2021-26.herokuapp.com/api/v1/air_routes/</a> 
                     (desarrollado por <a href="https://github.com/darlopvil">Darío López Villegas</a>)
-                </li>
+                </li>-->
                 <li>
                     <a href="https://sos2021-26.herokuapp.com/api/v2/hostelries/">https://sos2021-26.herokuapp.com/api/v2/hostelries/</a> 
                     (desarrollado por <a href="https://github.com/keffren">Mateo Serna Giraldo</a>)
@@ -59,12 +59,12 @@
             </ul>
         </li><br>
 
-        <li>
+        <!--<li>
             <b>EXTRA F05:</b>
             <a href="https://sos2021-26-f05.herokuapp.com/">https://sos2021-26-f05.herokuapp.com/</a> 
             <a href="https://github.com/gti-sos/SOS2021-26-f05"> F05 Repositorio</a>
             
-        </li><br>
+        </li><br>-->
     
 
         <li>

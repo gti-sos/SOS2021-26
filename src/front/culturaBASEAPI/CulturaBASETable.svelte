@@ -292,11 +292,11 @@
 
 <main>
     <div>
-        <Button style="align: center;" on:click={getCulturaBASEResource}>Menu principal</Button>
-        <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/graph'"> Ir a la gráfica de la industria Cinematográfica </button><br>
-        <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/graph2'"> Grafica con barras </button><br>
-        <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/graph3'"> Grafica Amchart </button><br>
-        <button type="button" class="btn btn-secondary" onclick="window.location.href='#/info'"> Volver </button><br>
+        <Button color="primary"style="align:center;" on:click={getCulturaBASEResource}>Menu principal</Button>
+        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/graph'"> Ir a la gráfica de la industria Cinematográfica con line </Button>
+        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/graph2'"> Grafica con barras </Button>
+        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/graph3'"> Grafica Amchart </Button>
+        <Button type="button" color="danger" onclick="window.location.href='#/info'"> Volver </Button>
     </div>
     
     
