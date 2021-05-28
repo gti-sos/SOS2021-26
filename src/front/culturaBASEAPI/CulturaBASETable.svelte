@@ -294,6 +294,8 @@
     <div>
         <Button style="align: center;" on:click={getCulturaBASEResource}>Menu principal</Button>
         <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/graph'"> Ir a la gráfica de la industria Cinematográfica </button><br>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/graph2'"> Grafica con barras </button><br>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/graph3'"> Grafica Amchart </button><br>
         <button type="button" class="btn btn-secondary" onclick="window.location.href='#/info'"> Volver </button><br>
     </div>
     

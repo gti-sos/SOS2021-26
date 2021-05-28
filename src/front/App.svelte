@@ -9,6 +9,8 @@
 	import CulturaBASE from './culturaBASEAPI/CulturaBASE.svelte';
 	import CulturaBASEDistrict from './culturaBASEAPI/EditCulturaBase.svelte';
 	import GraphCB from './culturaBASEAPI/MyGraph.svelte';
+	import GraphCBar from  './culturaBASEAPI/MyGraphBar2.svelte';
+	import GraphCBAmChart from './culturaBASEAPI/MyGraph2AmChart.svelte';
 	import DataGraph from './DataGraph.svelte';
 
 	//Imports of Hostelries
@@ -38,6 +40,8 @@
 		'/culturaBASE': CulturaBASE,
 		'/culturaBASE/:district/:year': CulturaBASEDistrict,
 		'/culturaBASE/graph': GraphCB,
+		'/culturaBASE/graph2': GraphCBar,
+		'/culturaBASE/graph3': GraphCBAmChart,
 		
 		//AirRoutes API
 		'/airRoutes': AirRoutes,
