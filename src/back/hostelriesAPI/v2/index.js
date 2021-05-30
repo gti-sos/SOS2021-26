@@ -389,7 +389,7 @@ module.exports = function(app){
 
     //####################################################    PROXY
 
-    app.use("/proxyHeroku", function(req, res) {
+    app.use("/proxy", function(req, res) {
         console.log("   --BackEnd:  new Proxy Call");
 
         var apiServerHost = 'https://sos2021-26.herokuapp.com';
