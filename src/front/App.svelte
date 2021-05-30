@@ -11,7 +11,9 @@
 	import GraphCB from './culturaBASEAPI/MyGraph.svelte';
 	import GraphCBar from  './culturaBASEAPI/MyGraphBar2.svelte';
 	import GraphCBAmChart from './culturaBASEAPI/MyGraph2AmChart.svelte';
+	import IntegrationsCB from './culturaBASEAPI/Integrations/IntegrationsCB.svelte';
 	import DataGraph from './DataGraph.svelte';
+	import Integrations from './Integrations.svelte';
 
 	//Imports of Hostelries
 	import Hostelries from './hostelriesAPI/Hostelries.svelte';
@@ -30,6 +32,7 @@
 		'/info': Home,
 		'/': Home,
 		'/datagraph': DataGraph,
+		'/integrations': Integrations,
 		
 		//Hostelries API
 		'/hostelries': Hostelries,
@@ -42,6 +45,7 @@
 		'/culturaBASE/graph': GraphCB,
 		'/culturaBASE/graph2': GraphCBar,
 		'/culturaBASE/graph3': GraphCBAmChart,
+		'/culturaBASE/integrations': IntegrationsCB,
 		
 		//AirRoutes API
 		'/airRoutes': AirRoutes,

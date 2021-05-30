@@ -93,3 +93,12 @@
         </li>
     </ul>
 </main>
+
+<!--<style>
+    main{
+        text-align: center;
+    }
+    ul{
+        text-align: center;
+    }
+</style>-->
