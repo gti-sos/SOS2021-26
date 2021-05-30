@@ -1,7 +1,10 @@
 module.exports = function(app){
 
-    const BASE_HOSTELRIES_API_PATH = "/api/v2/hostelries";
+    //const BASE_HOSTELRIES_API_PATH = "/api/v2/hostelries";
+    const BASE_HOSTELRIES_API_PATH = "/api/v2";
+    
     let initData = require ('./initialData');
+    const request = require('request');
 
     var Datastore = require('nedb');
     const db = new Datastore();
@@ -383,5 +386,24 @@ module.exports = function(app){
             }
         );
     });
+
+
+    //####################################################    PROXY
+
+    app.use("/proxyHeroku", function(req, res) {
+        console.log("   --BackEnd:  new Proxy Call");
+
+        var apiServerHost = 'https://sos2021-26.herokuapp.com/';
+
+        console.log(`   ---BackEnd: PORXY -> apiServerHost = <${apiServerHost}>`);
+        console.log(`   ---BackEnd: PORXY -> baseUrl = <${req.baseUrl}>`);
+        console.log(`   ---BackEnd: PORXY -> url = <${req.url}>`);
+
+        var url = apiServerHost + req.url;
+
+        console.log(`piped: <${req.baseUrl}${req.url} -> ${url}>`);
+        req.pipe(request(url)).pipe(res);
+      });
+      
 
 }

@@ -2,7 +2,7 @@
 var express = require("express");
 var path = require("path");
 const { json } = require("body-parser");
-
+const cors = require("cors")
 
 //Attributes
 const PORT = (process.env.PORT || 1607);
@@ -11,7 +11,7 @@ const PORT = (process.env.PORT || 1607);
 //Start of the application
 var app = express();
 app.use(express.json());
-
+app.use(cors());
 
 //Static navigation
 app.use("/", express.static(path.join(__dirname + "/public"))); 
@@ -20,7 +20,9 @@ app.use("/", express.static(path.join(__dirname + "/public")));
 
 //Hostelry API
 const hostelryBackAPI = require('./src/back/hostelriesAPI/v2/index');
+const hostelryBackAPIV2 = require('./src/back/hostelriesAPI/v1/index');
 hostelryBackAPI(app);
+hostelryBackAPIV2(app);
 
 //CulturaBASE API
 
