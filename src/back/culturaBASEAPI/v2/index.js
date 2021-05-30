@@ -5,6 +5,8 @@ module.exports = function(app){
     var Datastore = require('nedb');
     const db = new Datastore();
 
+    const request = require("request");
+
 
     //####################################################    Load JSON into DB
     app.get(BASE_CULTURABASE_API_PATH2+ "/loadInitialData", (req,res)=>{
@@ -289,6 +291,14 @@ module.exports = function(app){
         });
     });
 
+    app.use("/integration", function(req, res) {
+        var apiServerHost = 'https://sos2021-26.herokuapp.com';
+
+        var url = apiServerHost + req.url;
+        console.log('piped: ' + req.url);
+        req.pipe(request(url)).pipe(res);
+    });
+      
 
 
 
