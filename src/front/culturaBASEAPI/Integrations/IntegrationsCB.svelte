@@ -11,8 +11,8 @@
 
 <main>
     <div id="divButtons">
-        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/integrations'"> Integraciones API 01</Button>
-        <Button type="button" color="info" onclick="window.location.href='#/hostelries/integrations'"> Integraciones API 07</Button>
+        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/integrations01'"> Integraciones API 01</Button>
+        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/integrations07'"> Integraciones API 07</Button>
     </div>
 
 </main>

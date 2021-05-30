@@ -12,6 +12,8 @@
 	import GraphCBar from  './culturaBASEAPI/MyGraphBar2.svelte';
 	import GraphCBAmChart from './culturaBASEAPI/MyGraph2AmChart.svelte';
 	import IntegrationsCB from './culturaBASEAPI/Integrations/IntegrationsCB.svelte';
+	import IntegrationsCB01 from './culturaBASEAPI/Integrations/01.svelte';
+	import IntegrationsCB07 from './culturaBASEAPI/Integrations/07.svelte';
 	import DataGraph from './DataGraph.svelte';
 	import Integrations from './Integrations.svelte';
 
@@ -46,6 +48,8 @@
 		'/culturaBASE/graph2': GraphCBar,
 		'/culturaBASE/graph3': GraphCBAmChart,
 		'/culturaBASE/integrations': IntegrationsCB,
+		'/culturaBASE/integrations01': IntegrationsCB01,
+		'/culturaBASE/integrations07': IntegrationsCB07,
 		
 		//AirRoutes API
 		'/airRoutes': AirRoutes,
