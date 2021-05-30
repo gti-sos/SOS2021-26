@@ -136,6 +136,72 @@
 
     };
 
+    async function loadGraph2() {
+		let datosConjuntos = [];   
+		let cb = [];
+		let life = [];
+		
+		const url = "https://sos2021-01-life-stats.herokuapp.com/api/v2/life-stats/";
+		const CBData = await fetch("/api/v2/culturaBASE");
+		cb = await CBData.json()
+		
+		const lifestats = await fetch(url);
+		life = await lifestats.json();
+		
+		let datos_cb = cb.map((x) => {
+            //Recordamos que los datos por espectadores y beneficio eran contados por millones
+				let res = {name: x.district + " " + x.year,value: x["fundraising"]*100000};
+				return res;
+		});
+		let lifes = life.map((l) => {
+				let res = {name: l.country, value: l.purchasing_power_index};
+				console.log(res);
+				return res;
+		});
+			
+		datosConjuntos = [{name: "Beneficio en cine",data: datos_cb},{name: "Índice de la buena vida",data: lifes}];
+		Highcharts.chart('container', {
+				chart: {
+					type: 'packedbubble',
+					height: '40%'
+				},
+				tooltip: {
+					useHTML: true,
+					pointFormat: '<b>{point.name}:</b> {point.value}'
+				},
+				plotOptions: {
+					packedbubble: {
+						minSize: '10%',
+						maxSize: '100%',
+						zMin: 0,
+						zMax: 1000,
+						layoutAlgorithm: {
+							gravitationalConstant: 0.05,
+							splitSeries: true,
+							seriesInteraction: false,
+							dragBetweenSeries: false,
+							parentNodeLimit: true
+						},
+						dataLabels: {
+							enabled: true,
+							format: '{point.name}',
+							filter: {
+								property: 'y',
+								operator: '>',
+								value: 250
+							},
+							style: {
+								color: 'black',
+								textOutline: 'none',
+								fontWeight: 'normal'
+							}
+						}
+					}
+				},
+			series: datosConjuntos
+		});
+	}
+
 
 
 </script>
@@ -145,8 +211,12 @@
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <!--<script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}" ></script>-->
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}" ></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph2}" ></script>-->
+
+    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph2}></script>>
+    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph2}></script>>
+    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph2}></script>>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph2}></script>
 
 </svelte:head>
 
@@ -175,7 +245,7 @@
 
 <style>
     #container {
-                height: 600px; 
+        height: 600px; 
     }
         
 </style>
