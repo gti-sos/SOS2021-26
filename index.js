@@ -11,7 +11,7 @@ const PORT = (process.env.PORT || 1607);
 //Start of the application
 var app = express();
 app.use(express.json());
-app.use(cors());
+//app.use(cors());
 
 //Static navigation
 app.use("/", express.static(path.join(__dirname + "/public"))); 
