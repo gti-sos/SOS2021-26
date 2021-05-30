@@ -1,7 +1,7 @@
 module.exports = function(app){
 
-    const BASE_HOSTELRIES_API_PATH = "/api/v2/hostelries";
-    //const BASE_HOSTELRIES_API_PATH = "/api/v2";
+    //const BASE_HOSTELRIES_API_PATH = "/api/v2/hostelries";
+    const BASE_HOSTELRIES_API_PATH = "/api/v2";
     
     let initData = require ('./initialData');
     const request = require('request');
@@ -393,7 +393,7 @@ module.exports = function(app){
     app.use("/proxyHeroku", function(req, res) {
         console.log("   --BackEnd:  new Proxy Call");
 
-        var apiServerHost = 'https://sos2021-26.herokuapp.com/';
+        var apiServerHost = 'https://sos2021-26.herokuapp.com';
 
         console.log(`   ---BackEnd: PORXY -> apiServerHost = <${apiServerHost}>`);
         console.log(`   ---BackEnd: PORXY -> baseUrl = <${req.baseUrl}>`);
