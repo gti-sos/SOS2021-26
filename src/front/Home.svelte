@@ -70,9 +70,9 @@
         <li>
             <b>Documentación POSTMAN :</b>
             <ul>
-                <li>
+                <!--<li>
                     <a href="https://documenter.getpostman.com/view/14944672/TzJsgynF"> Desarrollado por <a href="https://github.com/darlopvil"> <b>Darío López Villegas</b></a></a>   
-                </li>
+                </li>-->
 
                 <li>
                     <a href="https://documenter.getpostman.com/view/9628248/TzJsfJT2"> V1 Desarrollado por </a> <a href="https://github.com/josemarimaya"><b>José María Maya Cano</b></a> 

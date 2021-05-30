@@ -14,6 +14,8 @@
 	import IntegrationsCB from './culturaBASEAPI/Integrations/IntegrationsCB.svelte';
 	import IntegrationsCB01 from './culturaBASEAPI/Integrations/01.svelte';
 	import IntegrationsCB07 from './culturaBASEAPI/Integrations/07.svelte';
+	import IntegrationsE1 from './culturaBASEAPI/Integrations/Externa1.svelte';
+	import IntegrationsE2 from './culturaBASEAPI/Integrations/Externa2.svelte';
 	import DataGraph from './DataGraph.svelte';
 	import Integrations from './Integrations.svelte';
 
@@ -33,7 +35,7 @@
 	const routes = {
 		'/info': Home,
 		'/': Home,
-		'/datagraph': DataGraph,
+		'/analytics': DataGraph,
 		'/integrations': Integrations,
 		
 		//Hostelries API
@@ -50,6 +52,9 @@
 		'/culturaBASE/integrations': IntegrationsCB,
 		'/culturaBASE/integrations01': IntegrationsCB01,
 		'/culturaBASE/integrations07': IntegrationsCB07,
+		'/culturaBASE/Externa1': IntegrationsE1,
+		'/culturaBASE/Externa2': IntegrationsE2,
+
 		
 		//AirRoutes API
 		'/airRoutes': AirRoutes,
