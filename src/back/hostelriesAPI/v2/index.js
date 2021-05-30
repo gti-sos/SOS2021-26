@@ -1,7 +1,7 @@
 module.exports = function(app){
 
-    //const BASE_HOSTELRIES_API_PATH = "/api/v2/hostelries";
-    const BASE_HOSTELRIES_API_PATH = "/api/v2";
+    const BASE_HOSTELRIES_API_PATH = "/api/v2/hostelries";
+    //const BASE_HOSTELRIES_API_PATH = "/api/v2";
     
     let initData = require ('./initialData');
     const request = require('request');

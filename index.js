@@ -2,7 +2,7 @@
 var express = require("express");
 var path = require("path");
 const { json } = require("body-parser");
-const cors = require("cors")
+//const cors = require("cors")
 
 //Attributes
 const PORT = (process.env.PORT || 1607);
