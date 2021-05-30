@@ -16,7 +16,7 @@
         HostelryData = await res_HostelryData.json();
 
 
-        for(var i = 2017; i <= 2020; i++){
+        for(var i = 2018; i <= 2019; i++){
             let espectadores = 0.0;
             let turistas = 0;
 
@@ -68,7 +68,7 @@
 
         Highcharts.chart('container', {
             chart: {
-                type: 'line'
+                type: 'column'
             },
             title: {
                 text: 'Cultura Base'

@@ -22,26 +22,71 @@
 
         const CBData = await fetch("/api/v2/culturaBASE");
         MyData = await CBData.json();
-        let campos = ["Beneficio", "Espectador", "Gasto por espectador", "Desempleo joven", "Desempleo general", "Variante ocupacional"];
+        let campos = ["Beneficio", "Espectador", "Gasto por espectador", "Calidad de vida", "Poder económico", "Seguridad personal"];
         let valores = [];
         let valor = {};
 
+
         MyData.forEach((c)=>{
-            
-            valor = {
-                name: c.year,
-                data: [c.fundraising, c.spectator, c.spending_per_view, 0, 0, 0]
+                if(c.year>2017 && c.year<2020){
+                    valor = {
+                        name: [c.year, c.district],
+                        data: [c.fundraising, c.spectator, c.spending_per_view,0,0,0]
+                    }
+                }
+            valores.push(valor);
+        })
+        externalApi.forEach( (l)=>{
+            if(l.date <2020 && l.date>2017){
+                valor = {
+                    name: [l.date, l.country],
+                    data: [0,0,0,l.quality_life_index, l.purchasing_power_index, l.safety_index]
+                }      
             }
-            
             valores.push(valor);
         })
 
-        externalApi.forEach( (l)=>{
-            valor = {
-                name: l.date,
-                data: [0,0,0,l.quality_life_index, l.purchasing_power_index, l.safety_index]
+        /*MyData.forEach((c)=>{
+            externalApi.forEach((l)=>{
+                if(c.year== l.date){
+                    valor ={
+                        name: [c.year],
+                        data: [c.fundraising, c.spectator, c.spending_per_view,
+                        l.quality_life_index, l.purchasing_power_index, l.safety_index]
+                    }
+                    valores.push(valor);
+                }
+            })
+        })*/
+
+        /*for(var i = 2017; i<=2020; i++){
+            MyData.forEach((c)=>{
+                if(c.year==i){
+                    valor = {
+                        name: [c.year],
+                        data: [c.fundraising, c.spectator, c.spending_per_view,0,0,0]
+                    }
+                }
+                
+                
+                valores.push(valor);
+            })
+
+            externalApi.forEach( (l)=>{
+            if(l.date == i){
+                valor = {
+                    name: [l.date],
+                    data: [0,0,0,l.quality_life_index, l.purchasing_power_index, l.safety_index]
+                }
             }
+            
+
+            valores.push(valor);
         })
+        }*/
+       
+
+        
 
         Highcharts.chart('container', {
             chart: {
@@ -107,9 +152,30 @@
 
 <main>
     <figure class="highcharts-figure">
+    {#await  externalApi}
+    Loading renewable sources...
+    {:then  apiExterna}
+    <figure class="highcharts-figure">
         <div id="container"></div>
+        <p>   </p>
+        <p class="highcharts-description">
+           
+        </p>
+        
 
-    </figure>
+    </figure>	    
+
+   
+    {/await}      	
+
+  </figure>
     
-    <button type="button" class="btn btn-secondary" onclick="window.location.href='#'" style="width: 100%; margin-bottom: 5%;"> Volver a database</button><br>
+  <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/integrations'" style="width: 100%; margin-bottom: 5%;"> Patrás</button><br>
 </main>
+
+<style>
+    #container {
+                height: 600px; 
+    }
+        
+</style>

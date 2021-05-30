@@ -27,6 +27,19 @@
         let valor = {};
 
         MyData.forEach((c)=>{
+            externalApi.forEach((p)=>{
+                if(c.district.toLowerCase()== p.autonomous_community){
+                    valor ={
+                        name: [c.district, c.year],
+                        data: [c.fundraising, c.spectator, c.spending_per_view,
+                        p.youth_unemployment_rate, p.unemployment_rate, p.occupation_variation/500]
+                    }
+                    valores.push(valor);
+                }
+            })
+        })
+
+        /*MyData.forEach((c)=>{
             valor = {
                 name: c.district,
                 data: [c.fundraising, c.spectator, c.spending_per_view, 0, 0, 0]
@@ -42,7 +55,7 @@
                 data: [0,0,0,p.youth_unemployment_rate, p.unemployment_rate, p.occupation_variation/500]
             }
             valores.push(valor);
-        });
+        });*/
 
         console.log(MyData);
         
@@ -117,5 +130,5 @@
 
     </figure>
     
-    <button type="button" class="btn btn-secondary" onclick="window.location.href='#'" style="width: 100%; margin-bottom: 5%;"> Volver a database</button><br>
+    <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/integrations'" style="width: 100%; margin-bottom: 5%;"> Patrás</button><br>
 </main>
