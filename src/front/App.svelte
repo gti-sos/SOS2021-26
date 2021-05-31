@@ -30,6 +30,7 @@
 
 
 	import DataGraph from './DataGraph.svelte';
+	import About from './About.svelte';
 	import Integrations from './Integrations.svelte';
 	import AirRoutes from './airRoutesAPI/AirRoutes.svelte';
 	import NotFound from './NotFound.svelte';
@@ -44,6 +45,7 @@
 		'/': Home,
 		'/analytics': DataGraph,
 		'/integrations': Integrations,
+		'/about': About,
 		
 		//Hostelries API
 		'/hostelries': Hostelries,

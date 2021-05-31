@@ -91,6 +91,7 @@
 		<div id="container"></div>
 	</figure>
 	
-	<Button outline color="secondary" on:click="{pop}"> Volver</Button>
+	<Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/integrations'" style="margin-left: 35%; 
+  margin-bottom: 5%; align-self: center; width: 25%; "> Patrás</Button>
 
 </main>

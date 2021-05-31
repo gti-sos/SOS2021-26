@@ -35,7 +35,7 @@
         am4core.ready(function() {
             
             // Themes begin
-           am4core.useTheme(am4themes_dataviz);
+            am4core.useTheme(am4themes_dataviz);
             am4core.useTheme(am4themes_animated);
             // Themes end
             // Create chart instance
