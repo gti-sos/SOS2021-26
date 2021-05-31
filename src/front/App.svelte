@@ -16,8 +16,7 @@
 	import IntegrationsCB07 from './culturaBASEAPI/Integrations/07.svelte';
 	import IntegrationsE1 from './culturaBASEAPI/Integrations/Externa1.svelte';
 	import IntegrationsE2 from './culturaBASEAPI/Integrations/Externa2.svelte';
-	import DataGraph from './DataGraph.svelte';
-	import Integrations from './Integrations.svelte';
+	
 
 	//Imports of Hostelries
 	import Hostelries from './hostelriesAPI/Hostelries.svelte';
@@ -25,7 +24,13 @@
 	import GraphHostelry from './hostelriesAPI/MyGraph.svelte';
 	import GraphHostelryV2 from './hostelriesAPI/MyGraphV2.svelte';
 	import IntegrationsHome from './hostelriesAPI/Integrations/Home.svelte';
+	//--Integraciones
+	import API07Integration from './hostelriesAPI/Integrations/API07.svelte';
+	import API30Integration from './hostelriesAPI/Integrations/API30.svelte';
 
+
+	import DataGraph from './DataGraph.svelte';
+	import Integrations from './Integrations.svelte';
 	import AirRoutes from './airRoutesAPI/AirRoutes.svelte';
 	import NotFound from './NotFound.svelte';
 
@@ -42,10 +47,12 @@
 		
 		//Hostelries API
 		'/hostelries': Hostelries,
-		'/hostelries/:district/:year': EditHostelryResource,
 		'/hostelries/graph' : GraphHostelry,
 		'/hostelries/graphV2' : GraphHostelryV2,
 		'/hostelries/integrations' : IntegrationsHome,
+		'/hostelries/integrations/I_API_07' : API07Integration,
+		'/hostelries/integrations/I_API_30' : API30Integration,
+		'/hostelries/:district/:year': EditHostelryResource,
 
 		//CulturaBAse API
 		'/culturaBASE': CulturaBASE,
