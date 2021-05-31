@@ -59,7 +59,7 @@
             pieSeries.labels.template.disabled = true;
             pieSeries.ticks.template.disabled = true;
             //
-            var pieSeries2 = chart.series.push(new am4charts.PieSeries());
+            /*var pieSeries2 = chart.series.push(new am4charts.PieSeries());
             pieSeries2.dataFields.value = "spectator";
             pieSeries2.dataFields.category = "district";
             pieSeries2.slices.template.stroke = am4core.color("#fff");
@@ -77,7 +77,7 @@
             // This creates initial animation
             pieSeries.hiddenState.properties.opacity = 1;
             pieSeries.hiddenState.properties.endAngle = -90;
-            pieSeries.hiddenState.properties.startAngle = -90;
+            pieSeries.hiddenState.properties.startAngle = -90;*/
         });
 
     }
@@ -101,7 +101,7 @@
 <main>
 
     <div id="chartdiv"></div>
-    <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE'" style="width: 25%; margin-bottom: 5%; margin-left: 25%;"> Volver a database</button><br>
+    <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE'" style="width: 25%; margin-bottom: 5%; margin-left: 37%;"> Volver a database</button><br>
 
     
 </main>
