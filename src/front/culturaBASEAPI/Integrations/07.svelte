@@ -1,8 +1,8 @@
 <script>
     /*import  {onMount} from "svelte";
 	import {pop} from "svelte-spa-router";
-	import Table from "sveltestrap/src/Table.svelte";
-    import Button from "sveltestrap/src/Button.svelte";*/
+	import Table from "sveltestrap/src/Table.svelte";*/
+    import Button from "sveltestrap/src/Button.svelte";
 
     const url = "https://sos2021-07.herokuapp.com/api/integration/unemployment";
 
@@ -26,7 +26,7 @@
         let valores = [];
         let valor = {};
 
-        MyData.forEach((c)=>{
+        /*MyData.forEach((c)=>{
             externalApi.forEach((p)=>{
                 if(c.district.toLowerCase()== p.autonomous_community){
                     valor ={
@@ -37,30 +37,22 @@
                     valores.push(valor);
                 }
             })
+        })*/
+
+        MyData.forEach((c)=>{
+            externalApi.forEach((p)=>{
+                if(c.district.toLowerCase()== p.autonomous_community){
+                    valor ={
+                        name: [c.district + " " + p.province],
+                        data: [c.fundraising,   p.occupation_variation/500]
+                    }
+                    valores.push(valor);
+                }
+            })
         })
 
-        /*MyData.forEach((c)=>{
-            valor = {
-                name: c.district,
-                data: [c.fundraising, c.spectator, c.spending_per_view, 0, 0, 0]
-            }
-            console.log(valor);
-            
-            valores.push(valor);
-        });
-
-        externalApi.forEach( (p)=>{
-            valor = {
-                name: p.autonomous_community,
-                data: [0,0,0,p.youth_unemployment_rate, p.unemployment_rate, p.occupation_variation/500]
-            }
-            valores.push(valor);
-        });*/
 
         console.log(MyData);
-        
-
-       
 
         Highcharts.chart('container', {
             chart: {
@@ -73,7 +65,7 @@
                 text: ''
             },
             xAxis: {
-                categories: campos,
+                categories: ['Beneficio en las salas por comunidad', 'Variante ocupacional'],
                 tickmarkPlacement: 'on',
                 title: {
                     enabled: false
@@ -130,5 +122,6 @@
 
     </figure>
     
-    <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/integrations'" style="width: 100%; margin-bottom: 5%;"> Patrás</button><br>
+    <Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/integrations'" style="margin-left: 35%; 
+  margin-bottom: 5%; align-self: center; width: 25%; "> Patrás</Button>
 </main>

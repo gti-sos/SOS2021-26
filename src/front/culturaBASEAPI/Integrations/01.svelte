@@ -1,8 +1,8 @@
 <script>
     /*import  {onMount} from "svelte";
 	import {pop} from "svelte-spa-router";
-	import Table from "sveltestrap/src/Table.svelte";
-    import Button from "sveltestrap/src/Button.svelte";*/
+	import Table from "sveltestrap/src/Table.svelte";*/
+    import Button from "sveltestrap/src/Button.svelte";
 
     const url = "https://sos2021-01-life-stats.herokuapp.com/api/v2/life-stats/";
 
@@ -240,12 +240,19 @@
 
   </figure>
     
-  <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/integrations'" style="width: 100%; margin-bottom: 5%;"> Patrás</button><br>
+  <Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/integrations'" style="margin-left: 35%; 
+  margin-bottom: 5%; align-self: center; width: 25%; "> Patrás</Button>
 </main>
 
 <style>
     #container {
         height: 600px; 
     }
+
+    /*#Button{
+        margin-left: 25%; 
+        margin-bottom: 5%;
+        align-self: center;
+    }*/
         
 </style>
