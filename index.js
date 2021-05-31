@@ -2,7 +2,7 @@
 var express = require("express");
 var path = require("path");
 const { json } = require("body-parser");
-//const cors = require("cors")
+const cors = require("cors")
 
 //Attributes
 const PORT = (process.env.PORT || 1607);
@@ -11,7 +11,11 @@ const PORT = (process.env.PORT || 1607);
 //Start of the application
 var app = express();
 app.use(express.json());
-//app.use(cors());
+
+/*var urlGrupo07Proxy = "https://sos2021-07.herokuapp.com";
+var grupo07_unemployment = "/api/integration/unemployment";*/
+//Proxy Josemari con Grupo07
+app.use(cors());
 
 //Static navigation
 app.use("/", express.static(path.join(__dirname + "/public"))); 

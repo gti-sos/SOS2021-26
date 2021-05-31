@@ -291,8 +291,9 @@ module.exports = function(app){
         });
     });
 
+    /*Uso de proxy de 07*/
     app.use("/integration", function(req, res) {
-        var apiServerHost = 'https://sos2021-26.herokuapp.com';
+        var apiServerHost = 'https://sos2021-07.herokuapp.com';
 
         var url = apiServerHost + req.url;
         console.log('piped: ' + req.url);
