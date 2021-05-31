@@ -291,7 +291,7 @@
 </svelte:head>
 
 <main>
-    <div>
+    <div style="margin-left: 25%;">
         <Button color="primary"style="align:center;" on:click={getCulturaBASEResource}>Menu principal</Button>
         <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/graph'"> Ir a la gráfica de la industria Cinematográfica con line </Button>
         <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/graph2'"> Grafica con barras </Button>

@@ -93,5 +93,5 @@
         </p>
     </figure>
     
-    <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE'" style="width: 25%; margin-bottom: 5%;"> Volver a database</button><br>
+    <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE'" style="width: 25%; margin-bottom: 5%;margin-left: 35%;"> Volver a database</button><br>
 </main>
