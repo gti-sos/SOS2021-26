@@ -33,7 +33,7 @@
 		Highcharts.chart('container', {
 				chart: {
 					type: 'packedbubble',
-					height: '60%'
+					height: '43%'
 				},
                 /*title: {
                     text: "Comparativa con burbujiñas"
