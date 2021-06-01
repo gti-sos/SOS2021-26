@@ -27,6 +27,9 @@
 	//--Integraciones
 	import API07Integration from './hostelriesAPI/Integrations/API07.svelte';
 	import API30Integration from './hostelriesAPI/Integrations/API30.svelte';
+	import APIExt01Integration from './hostelriesAPI/Integrations/APIExt01.svelte';
+	import APIExt02Integration from './hostelriesAPI/Integrations/APIExt02.svelte';
+	
 
 
 	import DataGraph from './DataGraph.svelte';
@@ -54,6 +57,8 @@
 		'/hostelries/integrations' : IntegrationsHome,
 		'/hostelries/integrations/I_API_07' : API07Integration,
 		'/hostelries/integrations/I_API_30' : API30Integration,
+		'/hostelries/integrations/I_API_Ext_01' : APIExt01Integration,
+		'/hostelries/integrations/I_API_Ext_02' : APIExt02Integration,
 		'/hostelries/:district/:year': EditHostelryResource,
 
 		//CulturaBAse API

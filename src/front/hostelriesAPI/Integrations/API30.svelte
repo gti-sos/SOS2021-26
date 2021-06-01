@@ -8,7 +8,8 @@
         HostelryData = await resData.json(); 
 
         let API30Data = [];
-        const resData30 = await fetch('https://sos2021-30.herokuapp.com/api/v2/smokers-stats');
+        let url_API30 = 'https://sos2021-30.herokuapp.com/proxySmoker/';
+        const resData30 = await fetch(url_API30);
         API30Data = await resData30.json();
 
         let valores = [];
