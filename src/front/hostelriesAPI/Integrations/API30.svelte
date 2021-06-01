@@ -7,15 +7,21 @@
         const resData = await fetch("/api/v2/hostelries");
         HostelryData = await resData.json(); 
 
+        
         let API30Data = [];
-        const resData30 = await fetch('https://sos2021-30.herokuapp.com/api/v2/smokers-stats');
+        let url_API30 = '/smokers-stats';
+        const resData30 = await fetch(url_API30);
+        /*
         API30Data = await resData30.json();
+        
+        JSON.stringify(API30Data[0],null,2);
 
         let valores = [];
         let valor = {};
         let campos = ["Establecimientos abiertos","Turistas","Fumadores diarios"];
 
 
+        
         API30Data.forEach((x) => {
             HostelryData.forEach((h) => {
                 if(h.year == 2017){
@@ -52,6 +58,7 @@
         });
 
         console.log(valores);
+        */
     }
 
     loadGraph();

@@ -3,6 +3,7 @@
 	import {pop} from "svelte-spa-router";
 	import Table from "sveltestrap/src/Table.svelte";*/
     import Button from "sveltestrap/src/Button.svelte";
+    //El tema de las bromas se activa con la url de jokes/random, la parte random la hace randommize https://api.chucknorris.io/
     
     const url2 = "https://api.chucknorris.io/jokes/random";
     let apiExterna = [];
@@ -20,10 +21,11 @@
         let frase = apiExterna.value;
     
         var text = frase;
+        //le quitamos los valores que se pueden cargar la frase y lo spliteamos diferenciando frase de valores del tipo json
         var lines = text.split(/[,\. ]+/g),
         data = Highcharts.reduce(lines, function (arr, word) {
             var obj = Highcharts.find(arr, function (obj) {
-            return obj.name === word;
+                return obj.name === word;
             });
             if (obj) {
             obj.weight += 1;

@@ -12,8 +12,9 @@
 	import GraphCBar from  './culturaBASEAPI/MyGraphBar2.svelte';
 	import GraphCBAmChart from './culturaBASEAPI/MyGraph2AmChart.svelte';
 	import IntegrationsCB from './culturaBASEAPI/Integrations/IntegrationsCB.svelte';
-	import IntegrationsCB01 from './culturaBASEAPI/Integrations/01.svelte';
-	import IntegrationsCB07 from './culturaBASEAPI/Integrations/07.svelte';
+	import IntegrationsCB07 from './culturaBASEAPI/Integrations/07-2.svelte';
+	import IntegrationsCB07Fuse from './culturaBASEAPI/Integrations/07.svelte';
+	import IntegrationsCB01 from './culturaBASEAPI/Integrations/01-2.svelte';
 	import IntegrationsE1 from './culturaBASEAPI/Integrations/Externa1.svelte';
 	import IntegrationsE2 from './culturaBASEAPI/Integrations/Externa2.svelte';
 	
@@ -27,6 +28,9 @@
 	//--Integraciones
 	import API07Integration from './hostelriesAPI/Integrations/API07.svelte';
 	import API30Integration from './hostelriesAPI/Integrations/API30.svelte';
+	import APIExt01Integration from './hostelriesAPI/Integrations/APIExt01.svelte';
+	import APIExt02Integration from './hostelriesAPI/Integrations/APIExt02.svelte';
+	
 
 
 	import DataGraph from './DataGraph.svelte';
@@ -54,6 +58,8 @@
 		'/hostelries/integrations' : IntegrationsHome,
 		'/hostelries/integrations/I_API_07' : API07Integration,
 		'/hostelries/integrations/I_API_30' : API30Integration,
+		'/hostelries/integrations/I_API_Ext_01' : APIExt01Integration,
+		'/hostelries/integrations/I_API_Ext_02' : APIExt02Integration,
 		'/hostelries/:district/:year': EditHostelryResource,
 
 		//CulturaBAse API
@@ -65,6 +71,7 @@
 		'/culturaBASE/integrations': IntegrationsCB,
 		'/culturaBASE/integrations01': IntegrationsCB01,
 		'/culturaBASE/integrations07': IntegrationsCB07,
+		'/culturaBASE/integrations0702': IntegrationsCB07Fuse,
 		'/culturaBASE/Externa1': IntegrationsE1,
 		'/culturaBASE/Externa2': IntegrationsE2,
 
