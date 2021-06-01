@@ -388,10 +388,24 @@ module.exports = function(app){
 
 
     //####################################################    PROXY
+    //Proxy para compartir API
+    app.use("/proxy", function(req, res) {
+        
+        console.log("   --BackEnd:  new Proxy Call");
 
-     /*Proxy Mateo al Grupo
-     var proxyGrupo30 = 'smokers-stats';
-     var urlProxyGrupo30 = 'https://sos2021-30.herokuapp.com';
+        var apiServerHost = 'https://sos2021-26.herokuapp.com';
+        
+        console.log(`   ---BackEnd: PORXY -> apiServerHost = <${apiServerHost}>`);
+        console.log(`   ---BackEnd: PORXY -> baseUrl = <${req.baseUrl}>`);
+
+        console.log(`piped: <${req.baseUrl}${req.url} -> ${url}>`);
+        req.pipe(request(url)).pipe(res);
+        
+    });
+
+    /*Proxy Mateo al Grupo 30*/
+    var proxyGrupo30 = '/smokers-stats';
+    var urlProxyGrupo30 = 'https://sos2021-30.herokuapp.com';
 
     app.use(proxyGrupo30, function(req, res) {
         console.log("   --BackEnd:  new Proxy Call");
@@ -407,5 +421,4 @@ module.exports = function(app){
         console.log(`piped: <${req.baseUrl}${req.url} -> ${url}>`);
         req.pipe(request(url)).pipe(res);
     });
-    */
 }
