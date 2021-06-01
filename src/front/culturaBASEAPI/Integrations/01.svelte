@@ -150,7 +150,7 @@
 		
 		let datos_cb = cb.map((x) => {
             //Recordamos que los datos por espectadores y beneficio eran contados por millones
-				let res = {name: x.district + " " + x.year,value: x["fundraising"]};
+				let res = {name: x.district + " " + x.year,value: x["fundraising"]*100000};
 				return res;
 		});
 		let lifes = life.map((l) => {
