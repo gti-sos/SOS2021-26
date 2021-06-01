@@ -12,9 +12,18 @@ const PORT = (process.env.PORT || 1607);
 var app = express();
 app.use(express.json());
 
-/*var urlGrupo07Proxy = "https://sos2021-07.herokuapp.com";
-var grupo07_unemployment = "/api/integration/unemployment";*/
+var urlGrupo07Proxy = "https://sos2021-07.herokuapp.com";
+var grupo07_unemployment = "/api/integration/unemployment";
 //Proxy Josemari con Grupo07
+
+/*Uso de proxy de 07*/
+app.use(grupo07_unemployment, function(req, res) {
+        var apiServerHost = urlGrupo07Proxy;
+
+        var url = apiServerHost + req.url;
+        console.log('piped: ' + req.url);
+        req.pipe(request(url)).pipe(res);
+});
 app.use(cors());
 
 //Static navigation

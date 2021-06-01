@@ -150,7 +150,7 @@
 		
 		let datos_cb = cb.map((x) => {
             //Recordamos que los datos por espectadores y beneficio eran contados por millones
-				let res = {name: x.district + " " + x.year,value: x["fundraising"]*100000};
+				let res = {name: x.district + " " + x.year,value: x["fundraising"]};
 				return res;
 		});
 		let lifes = life.map((l) => {
@@ -171,10 +171,10 @@
 				},
 				plotOptions: {
 					packedbubble: {
-						minSize: '10%',
+						minSize: '30%',
 						maxSize: '100%',
 						zMin: 0,
-						zMax: 1000,
+						zMax: 500,
 						layoutAlgorithm: {
 							gravitationalConstant: 0.05,
 							splitSeries: true,
