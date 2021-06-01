@@ -11,12 +11,21 @@
         text-align: center;
         margin-top: 2%;
     }
+    #divButtonsMid{
+        text-align: center;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
 </style>
 
 <main>
     <div id="divButtons">
         <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/integrations01'"> Integraciones API 01</Button>
         <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/integrations07'"> Integraciones API 07</Button>
+    </div>
+
+    <div id="divButtonsMid">
+        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/integrations0702'"> Integraciones con API 07 Desempleo y CulturaBASE</Button>
     </div>
 
     <div id="divButtonsExterna">

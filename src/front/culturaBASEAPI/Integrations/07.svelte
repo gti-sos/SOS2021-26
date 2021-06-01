@@ -2,6 +2,8 @@
     /*import  {onMount} from "svelte";
 	import {pop} from "svelte-spa-router";
 	import Table from "sveltestrap/src/Table.svelte";*/
+
+    
     import Button from "sveltestrap/src/Button.svelte";
 
     const url = "https://sos2021-07.herokuapp.com/api/integration/unemployment";
@@ -98,11 +100,7 @@
             },
             series: valores
         });
-
-
     };
-
-
 
 </script>
 
