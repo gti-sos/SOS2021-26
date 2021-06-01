@@ -20,6 +20,27 @@ app.use(cors());
 //Static navigation
 app.use("/", express.static(path.join(__dirname + "/public"))); 
 
+//####################################################    PROXY
+
+/*Proxy Mateo al Grupo 30*/
+var proxyGrupo30 = '/smokers-stats';
+var urlProxyGrupo30 = 'https://sos2021-30.herokuapp.com';
+
+app.use(proxyGrupo30, function(req, res) {
+    console.log("   --BackEnd:  new Proxy Call");
+
+    var apiServerHost = urlProxyGrupo30;
+
+    console.log(`   ---BackEnd: PORXY -> apiServerHost = <${apiServerHost}>`);
+    console.log(`   ---BackEnd: PORXY -> baseUrl = <${req.baseUrl}>`);
+    console.log(`   ---BackEnd: PORXY -> url = <${req.url}>`);
+
+    var url = apiServerHost + req.url;
+
+    console.log(`piped: <${req.baseUrl}${req.url} -> ${url}>`);
+    req.pipe(request(url)).pipe(res);
+});
+
 //####################################### BACK-END 
 
 //Hostelry API

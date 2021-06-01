@@ -389,10 +389,14 @@ module.exports = function(app){
 
     //####################################################    PROXY
 
-    app.use("/proxy", function(req, res) {
+     /*Proxy Mateo al Grupo
+     var proxyGrupo30 = 'smokers-stats';
+     var urlProxyGrupo30 = 'https://sos2021-30.herokuapp.com';
+
+    app.use(proxyGrupo30, function(req, res) {
         console.log("   --BackEnd:  new Proxy Call");
 
-        var apiServerHost = 'https://sos2021-26.herokuapp.com';
+        var apiServerHost = urlProxyGrupo30;
 
         console.log(`   ---BackEnd: PORXY -> apiServerHost = <${apiServerHost}>`);
         console.log(`   ---BackEnd: PORXY -> baseUrl = <${req.baseUrl}>`);
@@ -402,7 +406,6 @@ module.exports = function(app){
 
         console.log(`piped: <${req.baseUrl}${req.url} -> ${url}>`);
         req.pipe(request(url)).pipe(res);
-      });
-      
-
+    });
+    */
 }
