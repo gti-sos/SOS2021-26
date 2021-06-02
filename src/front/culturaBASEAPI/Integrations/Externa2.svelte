@@ -35,9 +35,9 @@
 					type: 'packedbubble',
 					height: '43%'
 				},
-                /*title: {
-                    text: "Comparativa con burbujiñas"
-                },*/
+                title: {
+                    text: 'Grafica sobre los espectadores en el cine y el número de las cervecerías en EEUU'
+                },
 				tooltip: {
 					useHTML: true,
 					pointFormat: '<b>{point.name}:</b> {point.value}'

@@ -182,9 +182,9 @@
 					type: 'packedbubble',
 					height: '43%'
 				},
-                /*title: {
-                    text: "Comparativa con burbujiñas"
-                },*/
+                title: {
+                    text: 'Grafica sobre los gastos, gasto por espectador y beneficio en la industria cinematográfica, además de todo los datos sobre hostelería: establecimientos abiertos, staff contratado y viajeros hospeados'
+                },    
 				tooltip: {
 					useHTML: true,
 					pointFormat: '<b>{point.name}:</b> {point.value}'
