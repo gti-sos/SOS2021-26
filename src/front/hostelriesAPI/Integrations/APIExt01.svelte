@@ -33,8 +33,52 @@
         });
         
         //console.log("Datos\n"+titulo+"\n"+info_hoy+"\n"+info_manyana+"\n"+comunidad+"\n"+ciudad+"\n"+temp_min+"\n"+temp_max);
+        // for ESM environment, need to import modules as:
+        // import bb, {bubble} from "billboard.js"
+
+        var chart = bb.generate({
+        data: {
+            columns: [
+            ],
+            type: "bubble", // for ESM specify as: bubble()
+            labels: true
+        },
+        bubble: {
+            maxR: 85                               //Que tan grande la area
+        },
+        axis: {
+            x: {
+                type: "category",
+                categories: ["HOY"]
+            },
+            y: {
+                min: -15,
+                max: 50
+            }
+        },
+        bindto: "#bubbleChart"
+        });
+
+        setTimeout(function() {
+            chart.load({
+                columns: [
+                    ["Temperatura mínima", temp_min]                //tempMin_h,tempMinM
+                ]
+            });
+        }, 1000);
+
+        setTimeout(function() {
+            chart.load({
+                columns: [
+                    ["Temperatura máxima", temp_max]
+                ]
+            });
+        }, 2000);
+
     }
+
     loadAPI();
+    
 </script>
 
 <main>
@@ -47,7 +91,5 @@
         <br>
         Comunidad Autónoma : {comunidad}<br>
         Provincia: {ciudad}<br>
-        Temperatura mínima: {temp_min} ºC<br>
-        Temperatura máxima: {temp_max} ºC
     </p>
 </main>

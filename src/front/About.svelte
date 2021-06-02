@@ -19,13 +19,23 @@
         </div>
         
         
-        <div class="card" style="margin-left: 15%;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <div class="card border-success mb-3" style="">
+            <div class="card-header bg-transparent border-success" style="text-align: center;">Miembro
+                
             </div>
-        </div>
+            
+            <div class="card-body text-success">
+                <div class="embed-responsive embed-responsive-16by9 video">
+                    <!-- svelte-ignore a11y-missing-attribute -->
+                    <iframe width="816" height="441" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0"  allowfullscreen></iframe>
+                  </div>
+                
+              <h5 class="card-title">Mateo Serna Giraldo</h5>
+              <p class="card-text"><i>Desarrollador de la API REST: Hoslteries.<br>Interacción con servicios web en base a la recopilación de información del 
+                sector de la Hostelería de España.</i>
+              </p>
+            </div>
+    </div>
         
     </div>
     <!--<div class="card-group">
@@ -63,7 +73,7 @@
         max-width: 50rem;
     }
     .card.border-success.mb-3{
-        max-width: 18rem; 
+        max-width: 40rem; 
         margin-left: 10%;
     }
 
