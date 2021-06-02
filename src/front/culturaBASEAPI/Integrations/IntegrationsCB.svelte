@@ -20,17 +20,23 @@
 
 <main>
     <div id="divButtons">
-        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/integrations01'"> Integraciones API 01</Button>
-        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/integrations07'"> Integraciones API 07</Button>
+        <Button type="button" color="info" onclick="window.location.href='#/integrations/integrationsCB01'"> Uso API 01</Button>
+        <Button type="button" color="info" onclick="window.location.href='#/integrations/integrationsCB07'"> Uso API 07</Button>
     </div>
 
     <div id="divButtonsMid">
-        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/integrations0702'"> Integraciones con API 07 Desempleo y CulturaBASE</Button>
+        <Button type="button" color="info" onclick="window.location.href='#/integrations/integrationsCB0702'"> Integraciones con API 07 Desempleo y CulturaBASE</Button>
+    </div>
+
+    <div id="divButtonsMid">
+        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna1'"> Uso API Externa 1</Button>
+        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna2'"> Integración con API Externa 2</Button>
     </div>
 
     <div id="divButtonsExterna">
-        <Button type="button" color="danger" onclick="window.location.href='#/culturaBASE/Externa1'"> Integracion API Externa 1</Button>
-        <Button type="button" color="danger" onclick="window.location.href='#/culturaBASE/Externa2'"> Integracion API Externa 2</Button>
+
+        <Button type="button" color="danger" onclick="window.location.href='#/integrations'"> Menú de integraciones del equipo </Button>
+
     </div>
 
 </main>

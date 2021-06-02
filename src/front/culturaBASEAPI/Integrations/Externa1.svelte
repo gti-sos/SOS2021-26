@@ -76,6 +76,6 @@
         </p>
     </figure>
     <Button type="button" class="btn btn-secondary" onclick="location.reload()" style="margin-left: 35%; width: 25%;"> Siguiente frase</Button>
-    <Button type="button" color="danger" onclick="window.location.href='#/culturaBASE/integrations'"> Patrás </Button>
+    <Button type="button" color="danger" onclick="window.location.href='#/integrations/culturaBASE'"> Patrás </Button>
 </main>
 

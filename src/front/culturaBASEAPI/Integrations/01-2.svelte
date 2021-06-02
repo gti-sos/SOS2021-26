@@ -60,21 +60,21 @@
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.dataFields.valueY = "quality_life_index";
             series.dataFields.categoryX = "country";
-            series.name = "calidad de vida";
+            series.name = "Calidad de vida";
             series.tooltipText = "{name}: [bold]{valueY}[/]";
             series.stacked = true;
 
             var series2 = chart.series.push(new am4charts.ColumnSeries());
             series2.dataFields.valueY = "purchasing_power_index";
             series2.dataFields.categoryX = "country";
-            series2.name = "poder adquisitivo";
+            series2.name = "Poder adquisitivo";
             series2.tooltipText = "{name}: [bold]{valueY}[/]";
             series2.stacked = true;
 
             var series3 = chart.series.push(new am4charts.ColumnSeries());
-            series3.dataFields.valueY = "sales";
+            series3.dataFields.valueY = "safety_index";
             series3.dataFields.categoryX = "country";
-            series3.name = "Sales";
+            series3.name = "índice de seguridad";
             series3.tooltipText = "{name}: [bold]{valueY}[/]";
             series3.stacked = true;
 
@@ -108,7 +108,7 @@
 <main>
 
     <div id="chartdiv"></div>
-    <Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/integrations'" style="margin-left: 35%; 
+    <Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/integrations/culturaBASE'" style="margin-left: 35%; 
      margin-bottom: 5%; align-self: center; width: 25%; "> Patrás</Button>
     
 </main>

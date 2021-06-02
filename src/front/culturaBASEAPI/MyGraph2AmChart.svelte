@@ -11,27 +11,6 @@
             DataGraph.push({name: x.district + " " + x.year, data: [parseInt(x.fundraising), parseInt(x.spectator), parseInt(x.spending_per_view)], pointPlacement: 'on'})
         });
 
-       /* am4core.ready(function(){
-            am4core.useTheme(am4themes_dataviz);
-            am4core.useTheme(am4themes_animated);
-
-            var chart = am4core.create("chartdiv", am4charts.PieChart);
-
-            chart.data = CBData;
-
-            var pieSeries = chart.series.push(new am4charts.PieSeries());
-            pieSeries.dataFields.value = "fundraising";
-            pieSeries.dataFields.category = "district";
-            pieSeries.slices.template.stroke = am4core.color("#fff");
-            pieSeries.slices.template.strokeWidth = 2;
-            pieSeries.slices.template.strokeOpacity = 1;
-
-            pieSeries.hiddenState.properties.opacity = 1;
-            pieSeries.hiddenState.properties.endAngle = -90;
-            pieSeries.hiddenState.properties.startAngle = -90;
-
-        });*/
-
         am4core.ready(function() {
             
             // Themes begin
@@ -95,12 +74,14 @@
       height: 700px;
     }
     
+    
 </style>
 
 
 <main>
 
     <div id="chartdiv"></div>
+    <h5 style="text-align: center; margin-bottom: 2%;">Es una grafica de tipo pie que indica los beneficios obtenidos por comunidad autónoma</h5>
     <button type="button" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE'" style="width: 25%; margin-bottom: 5%; margin-left: 37%;"> Volver a database</button><br>
 
     

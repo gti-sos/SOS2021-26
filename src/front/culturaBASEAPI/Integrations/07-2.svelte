@@ -69,19 +69,21 @@
                         if(c.district.toLowerCase()== p.autonomous_community){
                             valor ={
                                 name: [c.district + " " + p.province],
-                                data: [c.fundraising,   p.occupation_variation/500]
+                                data: [c.fundraising, p.youth_unemployment_rate, p.unemployment_rate,   p.occupation_variation/500]
                             }
                             valores.push(valor);
                         }
                     })
             })
-
+            
+            console.log(valores);
                 
 
             am4core.ready(function(){
                 var chart = am4core.create("chartdiv", am4charts.RadarChart);
                 chart.marginRight = 400;
                 chart.data = externalApi;
+
 
                 /* Create axes */
                 var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
@@ -95,14 +97,24 @@
                 var series = chart.series.push(new am4charts.RadarSeries());
                 series.dataFields.valueY = "unemployment_rate";
                 series.dataFields.categoryX = "province";
-                series.name = "Desempleo";
+                series.name = "Índice de Desempleo";
                 series.strokeWidth = 3;
 
                 var series2 = chart.series.push(new am4charts.RadarSeries());
                 series2.dataFields.valueY = "youth_unemployment_rate";
                 series2.dataFields.categoryX = "province";
-                series2.name = "";
+                series2.name = "Índice de desempleo joven";
                 series2.strokeWidth = 3;
+
+                //Variante ocupacional
+                
+                var series3 = chart.series.push(new am4charts.RadarSeries());
+                series3.dataFields.valueY = "occupation_variation";
+                series3.dataFields.categoryX = "province";
+                series3.name = "Variante ocupacional";
+                series3.strokeWidth = 3;
+
+                chart.legend = new am4charts.Legend();
 
                 // Create axes
                 /*var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
@@ -169,7 +181,7 @@
 <main>
 
     <div id="chartdiv"></div>
-    <Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/integrations'" style="margin-left: 35%; 
+    <Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/integrations/culturaBASE'" style="margin-left: 35%; 
   margin-bottom: 5%; align-self: center; width: 25%; "> Patrás</Button>
 
     

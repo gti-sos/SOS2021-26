@@ -68,12 +68,12 @@
 		'/culturaBASE/graph': GraphCB,
 		'/culturaBASE/graph2': GraphCBar,
 		'/culturaBASE/graph3': GraphCBAmChart,
-		'/culturaBASE/integrations': IntegrationsCB,
-		'/culturaBASE/integrations01': IntegrationsCB01,
-		'/culturaBASE/integrations07': IntegrationsCB07,
-		'/culturaBASE/integrations0702': IntegrationsCB07Fuse,
-		'/culturaBASE/Externa1': IntegrationsE1,
-		'/culturaBASE/Externa2': IntegrationsE2,
+		'/integrations/culturaBASE': IntegrationsCB,
+		'/integrations/integrationsCB01': IntegrationsCB01,
+		'/integrations/integrationsCB07': IntegrationsCB07,
+		'/integrations/integrationsCB0702': IntegrationsCB07Fuse,
+		'/integrations/CBExterna1': IntegrationsE1,
+		'/integrations/CBExterna2': IntegrationsE2,
 
 		
 		//AirRoutes API

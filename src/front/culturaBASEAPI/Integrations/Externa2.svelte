@@ -91,7 +91,7 @@
 		<div id="container"></div>
 	</figure>
 	
-	<Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/integrations'" style="margin-left: 35%; 
+	<Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/integrations/culturaBASE'" style="margin-left: 35%; 
   margin-bottom: 5%; align-self: center; width: 25%; "> Patrás</Button>
 
 </main>
