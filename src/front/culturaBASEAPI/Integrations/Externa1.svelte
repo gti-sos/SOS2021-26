@@ -3,6 +3,7 @@
 	import {pop} from "svelte-spa-router";
 	import Table from "sveltestrap/src/Table.svelte";*/
     import Button from "sveltestrap/src/Button.svelte";
+    
     //El tema de las bromas se activa con la url de jokes/random, la parte random la hace randommize https://api.chucknorris.io/
     
     const url2 = "https://api.chucknorris.io/jokes/random";

@@ -17,6 +17,7 @@
 	import IntegrationsCB01 from './culturaBASEAPI/Integrations/01-2.svelte';
 	import IntegrationsE1 from './culturaBASEAPI/Integrations/Externa1.svelte';
 	import IntegrationsE2 from './culturaBASEAPI/Integrations/Externa2.svelte';
+	import IntegrationsE3 from './culturaBASEAPI/Integrations/Externa3.svelte';
 	
 
 	//Imports of Hostelries
@@ -74,6 +75,7 @@
 		'/integrations/integrationsCB0702': IntegrationsCB07Fuse,
 		'/integrations/CBExterna1': IntegrationsE1,
 		'/integrations/CBExterna2': IntegrationsE2,
+		'/integrations/CBExterna3': IntegrationsE3,
 
 		
 		//AirRoutes API

@@ -33,6 +33,11 @@
         <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna2'"> Integración con API Externa 2</Button>
     </div>
 
+    <div id="divButtonsMid">
+        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna3'"> Uso API Externa 3 (covid)</Button>
+        
+    </div>
+
     <div id="divButtonsExterna">
 
         <Button type="button" color="danger" onclick="window.location.href='#/integrations'"> Menú de integraciones del equipo </Button>
