@@ -159,12 +159,15 @@
 				return res;
 		});
 			
-		datosConjuntos = [{name: "Beneficio en cine",data: datos_cb},{name: "Índice de la buena vida",data: lifes}];
+		datosConjuntos = [{name: "Beneficio en cine",data: datos_cb},{name: "Índice de seguridad",data: lifes}];
 		Highcharts.chart('container', {
 				chart: {
 					type: 'packedbubble',
 					height: '40%'
 				},
+                title: {
+                    text: 'Grafica que enfrenta el ratio de seguridad en países contra el beneficio de la industria cinematografica dividido en comunidades autonomas'
+                },
 				tooltip: {
 					useHTML: true,
 					pointFormat: '<b>{point.name}:</b> {point.value}'
@@ -240,8 +243,8 @@
 
   </figure>
     
-  <Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/culturaBASE/integrations'" style="margin-left: 35%; 
-  margin-bottom: 5%; align-self: center; width: 25%; "> Patrás</Button>
+  <Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/integrations/culturaBASE'" style="margin-left: 35%; 
+  margin-bottom: 5%; align-self: center; width: 25%; "> Vuelta al menú de integraciones de CB</Button>
 </main>
 
 <style>

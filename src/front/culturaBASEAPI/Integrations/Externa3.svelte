@@ -31,49 +31,30 @@
 
         am4core.ready(function() {
 
-            var chart = am4core.create("chartdiv", am4charts.TreeMap);
+            /*var chart = am4core.create("chartdiv", am4charts.TreeMap);
+            chart.data = externalDataGraph;
+
+            chart.colors.step = 2;
+
+            
+            chart.dataFields.value = "value";
+            chart.dataFields.name = "name";*/
+
+            var chart = am4core.create("chartdiv", am4charts.SlicedChart);
             chart.data = externalDataGraph;
 
             /* Set color step */
             chart.colors.step = 2;
 
-            /* Define data fields */
-            chart.dataFields.value = "value";
-            chart.dataFields.name = "name";
+            let series = chart.series.push(new am4charts.FunnelSeries());
+            series.dataFields.value = "value";
+            series.dataFields.category = "name";
+            series.alignLabels = true;
+            series.orientation = "horizontal";
             
-            // Themes begin
-            /*am4core.useTheme(am4themes_dataviz);
-            am4core.useTheme(am4themes_animated);
-            // Themes end
-            // Create chart instance
-            var chart = am4core.create("chartdiv", am4charts.PieChart);
-            console.log(chart);
-            // Add data
-            chart.data = externalDataGraph;
-            // Set inner radius
-            chart.innerRadius = am4core.percent(50);
-            //chart.innerHeight = am4core.percent(50);
-            // Add and configure Series
-            var pieSeries = chart.series.push(new am4charts.PieSeries());
-            pieSeries.dataFields.value = "value";
-            pieSeries.dataFields.category = "name";
-            pieSeries.slices.template.stroke = am4core.color("#fff");
-            pieSeries.slices.template.strokeWidth = 2;
-            pieSeries.slices.template.strokeOpacity = 1;
-            pieSeries.slices.template.states.getKey("hover").properties.shiftRadius = 0;
-            pieSeries.slices.template.states.getKey("hover").properties.scale = 1.1;*/
+            
         });
 
-        /*let datosUsados = []
-        externalData.forEach((c) => {
-            if(c.Deaths>1000){
-                    valor ={
-                        name: [c.Date],
-                        data: [c.Deaths]
-                    }
-                    datosUsados.push(valor);
-            }
-        });*/
 
         
 	}

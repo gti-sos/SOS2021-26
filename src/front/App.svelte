@@ -15,8 +15,10 @@
 	import IntegrationsCB07 from './culturaBASEAPI/Integrations/07-2.svelte';
 	import IntegrationsCB07Fuse from './culturaBASEAPI/Integrations/07.svelte';
 	import IntegrationsCB01 from './culturaBASEAPI/Integrations/01-2.svelte';
+	import IntegrationsCB01Fuse from './culturaBASEAPI/Integrations/01.svelte';
 	import IntegrationsE1 from './culturaBASEAPI/Integrations/Externa1.svelte';
 	import IntegrationsE2 from './culturaBASEAPI/Integrations/Externa2.svelte';
+	import IntegrationsE2U from './culturaBASEAPI/Integrations/Externa2-2.svelte';
 	import IntegrationsE3 from './culturaBASEAPI/Integrations/Externa3.svelte';
 	
 
@@ -77,8 +79,10 @@
 		'/integrations/integrationsCB01': IntegrationsCB01,
 		'/integrations/integrationsCB07': IntegrationsCB07,
 		'/integrations/integrationsCB0702': IntegrationsCB07Fuse,
+		'/integrations/integrationsCB0102': IntegrationsCB01Fuse,
 		'/integrations/CBExterna1': IntegrationsE1,
 		'/integrations/CBExterna2': IntegrationsE2,
+		'/integrations/CBExterna2-2': IntegrationsE2U,
 		'/integrations/CBExterna3': IntegrationsE3,
 
 		
