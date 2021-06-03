@@ -13,16 +13,16 @@ const puppeteer = require('puppeteer');
   await page.screenshot({ path: './tests/'+'_CB.png' });
   //Cargamos los datos
   await page.click("body > main > main > main > button");
-  //await page.waitForTimeout(1000);
+  await page.waitForTimeout(800);
   await page.screenshot({ path: './tests/'+'_CargadoDatos.png' });
   //Enseñamos la grafica con barras de highchart
   await page.click("body > main > main > main > div > button:nth-child(3)");
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(500);
   await page.screenshot({ path: './tests/'+'_GraficaBarrasCB.png' });
   //Enseñamos la grafica de amchart de cb
   await page.click("body > main > main > button");
   await page.click("body > main > main > main > div > button:nth-child(4)");
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(500);
   await page.screenshot({ path: './tests/'+'_GraficaAmChartCB.png' });
   
   //Llegar a about sobre amchart
@@ -34,7 +34,7 @@ const puppeteer = require('puppeteer');
   //Vamos a la gráfica conjunta
   await page.click("body > main > main > button");
   await page.click("body > main > main > ul > li:nth-child(6) > a");
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(500);
   await page.screenshot({ path: './tests/'+ 'Conjunta.png' });
 
   //Vamos al menú de integraciones
