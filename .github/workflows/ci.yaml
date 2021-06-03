@@ -14,6 +14,6 @@ jobs:
       - run: npm start &
       - run: npx newman run tests/culturaBASE_integration.json
       # - run: npx newman run tests/hostelries_integration.json
-      # - run: node tests/e2e.js
+      - run: node tests/e2e.js
       
       
