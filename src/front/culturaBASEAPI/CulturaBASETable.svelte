@@ -294,7 +294,7 @@
     <div style="margin-left: 25%;">
         <Button color="primary"style="align:center;" on:click={getCulturaBASEResource}>Menu principal</Button>
         <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/graph'"> Ir a la gráfica de la industria Cinematográfica con line </Button>
-        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/graph2'"> Grafica con barras </Button>
+        <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/graph2'"> Grafica Highchart </Button>
         <Button type="button" color="info" onclick="window.location.href='#/culturaBASE/graph3'"> Grafica Amchart </Button>
         <Button type="button" color="danger" onclick="window.location.href='#/info'"> Volver </Button>
     </div>
@@ -353,7 +353,7 @@
                 <th style="text-align: center;">Año</th>
                 <th style="text-align: center;">Recaudación total (contada por millones)</th>
                 <th style="text-align: center;">Espectadores (contados por millones)</th>
-                <th style="text-align: center;">Gasto por espectador(contado por millones)</th>
+                <th style="text-align: center;">Gasto por espectador</th>
                 <td><Button outline color = "danger" on:click="{deleteAllCultura}">Eliminarlo todo</Button></td>
             </tr>
         </thead>

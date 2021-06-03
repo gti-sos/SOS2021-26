@@ -68,7 +68,7 @@
                 externalApi.forEach((p)=>{
                         if(c.district.toLowerCase()== p.autonomous_community){
                             valor ={
-                                name: [c.district + " " + p.province],
+                                name: [p.province],
                                 data: [c.fundraising, p.youth_unemployment_rate, p.unemployment_rate,   p.occupation_variation/500]
                             }
                             valores.push(valor);
@@ -113,6 +113,13 @@
                 series3.dataFields.categoryX = "province";
                 series3.name = "Variante ocupacional";
                 series3.strokeWidth = 3;
+
+                /*var series4 = chart.series.push(new am4charts.RadarSeries());
+                series4.dataFields.valueY = "fundraising";
+                series4.dataFields.categoryX = "province";
+                series4.name = "Beneficio";
+                series4.strokeWidth = 3;*/
+
 
                 chart.legend = new am4charts.Legend();
 
