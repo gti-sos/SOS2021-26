@@ -116,42 +116,6 @@
 
                 chart.legend = new am4charts.Legend();
 
-                // Create axes
-                /*var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-                categoryAxis.dataFields.category = "province";
-                categoryAxis.title.text = "Provincias";
-                categoryAxis.renderer.grid.template.location = 0;
-                categoryAxis.renderer.minGridDistance = 20;
-
-
-                var  valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-                valueAxis.title.text = "Índice de desempleo";
-
-                // Create series
-                var series = chart.series.push(new am4charts.ColumnSeries());
-                series.dataFields.valueY = "unemployment_rate";
-                series.dataFields.categoryX = "province";
-                series.name = "desempleo";
-                series.tooltipText = "{name}: [bold]{valueY}[/]";
-                series.stacked = true;
-
-                var series2 = chart.series.push(new am4charts.ColumnSeries());
-                series2.dataFields.valueY = "youth_unemployment_rate";
-                series2.dataFields.categoryX = "province";
-                series2.name = "desempleo joven";
-                series2.tooltipText = "{name}: [bold]{valueY}[/]";
-                series2.stacked = true;
-
-                var series3 = chart.series.push(new am4charts.ColumnSeries());
-                series3.dataFields.valueY = "sales";
-                series3.dataFields.categoryX = "country";
-                series3.name = "Sales";
-                series3.tooltipText = "{name}: [bold]{valueY}[/]";
-                series3.stacked = true;
-
-                // Add cursor
-                chart.cursor = new am4charts.XYCursor();*/
-
 
             });
 

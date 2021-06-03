@@ -25,14 +25,15 @@
     </div>
 
     <div id="divButtonsMid">
-        <Button type="button" color="info" onclick="window.location.href='#/integrations/integrationsCB0702'"> Integraciones con API 07 Desempleo y CulturaBASE</Button>
         <Button type="button" color="info" onclick="window.location.href='#/integrations/integrationsCB0102'"> Integraciones con API 01 Buena vida y CulturaBASE</Button>
+        <Button type="button" color="info" onclick="window.location.href='#/integrations/integrationsCB0702'"> Integraciones con API 07 Desempleo y CulturaBASE</Button>
+        
     </div>
 
     <div id="divButtonsMid">
-        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna1'"> Uso API Externa 1</Button>
-        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna2-2'"> Uso API Externa 2</Button>
-        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna2'"> Integración con API Externa 2</Button>
+        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna1'"> Uso API Externa 1 (Frases)</Button>
+        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna2-2'"> Uso API Externa 2 (cervecerías)</Button>
+        <!--<Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna2'"> Integración con API Externa 2</Button>-->
     </div>
 
     <div id="divButtonsMid">
