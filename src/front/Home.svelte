@@ -31,6 +31,19 @@
             </ul>
         </li><br>
 
+        <li>
+            <a href="#/about">Sobre nosotros</a>
+        </li>
+
+        <li>
+            <a href="#/analytics">Grafica conjunta</a>
+
+        </li>
+
+        <li>
+            <a href="#/integrations">Integraciones</a>
+        </li>
+
         
         <li>
             <b><a href="https://github.com/gti-sos/SOS2021-26">Repositorio</a></b>

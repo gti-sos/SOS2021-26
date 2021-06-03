@@ -31,13 +31,13 @@
     </div>
 
     <div id="divButtonsMid">
-        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna1'"> Uso API Externa 1 (Frases)</Button>
-        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna2-2'"> Uso API Externa 2 (cervecerías)</Button>
+        <!--<Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna1'"> Uso API Externa 1 (Frases)</Button>-->
+        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna2-2'"> Uso API Externa cervecerías</Button>
         <!--<Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna2'"> Integración con API Externa 2</Button>-->
     </div>
 
     <div id="divButtonsMid">
-        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna3'"> Uso API Externa 3 (covid)</Button>
+        <Button type="button" color="success" onclick="window.location.href='#/integrations/CBExterna3'"> Uso API Externa covid</Button>
         
     </div>
 

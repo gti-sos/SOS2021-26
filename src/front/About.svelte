@@ -1,3 +1,6 @@
+<script>
+    import Button from "sveltestrap/src/Button.svelte";
+</script>
 <main>
 
     <div class="card-group">
@@ -38,6 +41,10 @@
     </div>
         
     </div>
+
+    <Button type="button" color = "danger" class="btn btn-secondary" onclick="window.location.href='#/info'" style="margin-left: 35%; 
+  margin-bottom: 5%; align-self: center; width: 25%; "> Volvemos al menú principal</Button>
+
     <!--<div class="card-group">
         <div class="col">
             <div class="card border-success mb-3" style="max-width: 18rem;">
