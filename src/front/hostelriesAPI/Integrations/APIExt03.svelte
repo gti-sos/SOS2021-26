@@ -73,4 +73,5 @@
 
 <main>
     <div id="barChart"></div>
+    <button type="button" class="btn btn-secondary" onclick="window.location.href='#/hostelries/integrations'" style="width: 100%; margin-bottom: 5%;"> Volver</button><br>
 </main>

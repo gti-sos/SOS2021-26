@@ -431,5 +431,9 @@
     {#if outputMsg_E}
         <p style="color: red">{outputMsg_E}</p>
     {/if}
+    
+
+    <Button type="button" color="primary" onclick="window.location.href='#/info'"> Volver </Button>
 
 </main>
+
