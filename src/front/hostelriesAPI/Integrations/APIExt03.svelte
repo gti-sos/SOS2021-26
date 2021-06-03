@@ -1,7 +1,7 @@
 <script>
 
 
-    // API EXTERNA 1: Prediccion edad según nombre
+    // API EXTERNA 03: Prediccion edad según nombre
     // https://agify.io/
     // https://api.agify.io/?name=mateo
 

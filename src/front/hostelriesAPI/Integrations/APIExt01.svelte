@@ -7,7 +7,7 @@
     let temp_min = 0;
     let temp_max = 0;
 
-    // API EXTERNA 1
+    // API EXTERNA 1: EL TIEMPO EN SEVILLA
     async function loadAPI() {
 
         let APIExt01Data = [];
