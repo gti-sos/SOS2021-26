@@ -131,10 +131,13 @@ var n = 0;
   ... TOO MUCH !!!!
   */
 
-  if(n !== 14){
+  await browser.close();
+
+  if(n == 14){
+    process.exit(0);
+  }else{
     console.error("No puede haber más de 14 capturas");
     process.exit(1);
   }
 
-  await browser.close();
 })();
