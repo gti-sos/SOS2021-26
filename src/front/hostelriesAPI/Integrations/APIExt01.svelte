@@ -33,8 +33,7 @@
         });
         
         //console.log("Datos\n"+titulo+"\n"+info_hoy+"\n"+info_manyana+"\n"+comunidad+"\n"+ciudad+"\n"+temp_min+"\n"+temp_max);
-        // for ESM environment, need to import modules as:
-        // import bb, {bubble} from "billboard.js"
+
 
         var chart = bb.generate({
         data: {
@@ -92,4 +91,5 @@
         Comunidad Autónoma : {comunidad}<br>
         Provincia: {ciudad}<br>
     </p>
+    <div id="bubbleChart"></div>
 </main>

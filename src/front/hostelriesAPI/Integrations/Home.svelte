@@ -22,6 +22,8 @@
     <div id="divButtonsExterna">
         <Button type="button" color="danger" onclick="window.location.href='#/hostelries/integrations/I_API_Ext_01'"> Integracion API Externa 1</Button>
         <Button type="button" color="danger" onclick="window.location.href='#/hostelries/integrations/I_API_Ext_02'"> Integracion API Externa 2</Button>
+        <Button type="button" color="danger" onclick="window.location.href='#/hostelries/integrations/I_API_Ext_03'"> Integracion API Externa 3</Button>
+        <Button type="button" color="danger" onclick="window.location.href='#/hostelries/integrations/I_API_Ext_04'"> Integracion API Externa 4</Button>
     </div>
 
 </main>
