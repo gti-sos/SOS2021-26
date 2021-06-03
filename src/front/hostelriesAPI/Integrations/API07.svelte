@@ -49,7 +49,7 @@
         
         Highcharts.chart('container', {
             chart: {
-                type: 'column'
+                type: 'bar'
             },
             title: {
                 text: ''
