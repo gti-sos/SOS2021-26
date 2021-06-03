@@ -21,6 +21,13 @@
         "traveler_numer"    :   18838408
     },
     {
+        "district"           :   "Andalucia",
+        "year"              :   "2017",
+        "employee_staff"    :   409377,
+        "establishment_open":   29602,
+        "traveler_numer"    :   18429692
+    },
+    {
         "district"           :   "Aragon",
         "year"              :   "2020",
         "employee_staff"    :   24389,
@@ -84,6 +91,13 @@
         "traveler_numer"    :   20045332
     },
     {
+        "district"           :   "Cataluña",
+        "year"              :   "2017",
+        "employee_staff"    :   394743,
+        "establishment_open":   26998,
+        "traveler_numer"    :   19771967
+    },
+    {
         "district"           :   "Madrid",
         "year"              :   "2020",
         "employee_staff"    :   70703,
@@ -103,5 +117,12 @@
         "employee_staff"    :   168971,
         "establishment_open":   13015,
         "traveler_numer"    :   12436260
+    },
+    {
+        "district"           :   "Madrid",
+        "year"              :   "2017",
+        "employee_staff"    :   170608,
+        "establishment_open":   13165,
+        "traveler_numer"    :   12066592
     }
 ]
