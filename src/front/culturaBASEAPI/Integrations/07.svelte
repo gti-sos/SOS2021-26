@@ -54,7 +54,7 @@
         })
 
 
-        console.log(MyData);
+        //console.log(MyData);
 
         Highcharts.chart('container', {
             chart: {

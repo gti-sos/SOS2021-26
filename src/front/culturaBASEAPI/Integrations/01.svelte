@@ -9,11 +9,11 @@
     let externalApi = []
     let MyData = []
 
-    async function loadGraph(){
+    /*async function loadGraph(){
         const res = await fetch(url);
         if (res.ok){
             console.log("Cargada API01 correctamente");
-            /*Cargamos los datos y los guardamos en la variable anteriormente definida convertida en json para manipularla luego*/
+    
             const json = await res.json();
             externalApi = json;
         }else{
@@ -44,53 +44,11 @@
                 }      
             }
             valores.push(valor);
-        })
-
-        /*MyData.forEach((c)=>{
-            externalApi.forEach((l)=>{
-                if(c.year== l.date){
-                    valor ={
-                        name: [c.year],
-                        data: [c.fundraising, c.spectator, c.spending_per_view,
-                        l.quality_life_index, l.purchasing_power_index, l.safety_index]
-                    }
-                    valores.push(valor);
-                }
-            })
-        })*/
-
-        /*for(var i = 2017; i<=2020; i++){
-            MyData.forEach((c)=>{
-                if(c.year==i){
-                    valor = {
-                        name: [c.year],
-                        data: [c.fundraising, c.spectator, c.spending_per_view,0,0,0]
-                    }
-                }
-                
-                
-                valores.push(valor);
-            })
-
-            externalApi.forEach( (l)=>{
-            if(l.date == i){
-                valor = {
-                    name: [l.date],
-                    data: [0,0,0,l.quality_life_index, l.purchasing_power_index, l.safety_index]
-                }
-            }
-            
-
-            valores.push(valor);
-        })
-        }*/
-       
-
-        
+        })        
 
         Highcharts.chart('container', {
             chart: {
-                type: 'column'
+                type: 'columnpyramid'
             },
             title: {
                 text: 'Integración API 01'
@@ -134,7 +92,7 @@
         });
 
 
-    };
+    };*/
 
     async function loadGraph2() {
 		let datosConjuntos = [];   
@@ -214,7 +172,7 @@
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph2}" ></script>-->
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph2}" ></script>
 
     <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph2}></script>>
     <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph2}></script>>
