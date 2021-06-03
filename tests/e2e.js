@@ -7,6 +7,7 @@ const puppeteer = require('puppeteer');
   await page.waitForTimeout(1000);
   await page.screenshot({ path: './tests/'+ '_Principal_SOS202126.png' });
 
+  //############################ API:CULTURABASE
   //Vamos a culturaBASE
   await page.click("body > main > main > ul > li:nth-child(3) > ul > li:nth-child(1) > a");
   //await page.waitForTimeout(1000);
@@ -70,6 +71,53 @@ const puppeteer = require('puppeteer');
   await page.waitForTimeout(1000);
   await page.screenshot({ path: './tests/'+ 'MenuIntegraciones.png' });*/
   
+  //############################ API:HOSTELRIES
+  await page.goto('https://sos2021-26.herokuapp.com/');
+  await page.waitForTimeout(500);
+  //- Hostelries Table
+  await page.click("body > main > main > ul > li:nth-child(3) > ul > li:nth-child(2) > a");
+  await page.waitForTimeout(1000);
+  await page.screenshot({ path: './tests/'+'_1_HostelryTable.png' });
+  //-- Cargar Datos 
+  await page.click("body > main > main > main > button.btn.btn-info");
+  await page.waitForTimeout(1000);
+  await page.screenshot({ path: './tests/'+'_2_HostelryTableDatos.png' });
+  //-- Gráfica HighChart
+  await page.click("body > main > main > main > button:nth-child(2)");
+  await page.waitForTimeout(1000);
+  await page.screenshot({ path: './tests/'+'_3_HighChartGraphHostelry.png'});
+  //-- Gráfica Billboard
+  await page.click("body > main > main > button");
+  await page.click("body > main > main > main > button:nth-child(3)");
+  await page.waitForTimeout(1000);
+  await page.screenshot({ path: './tests/'+'_4_BillboardGraphHostelry.png'});
+  //-- atras al home
+  await page.click("body > main > main > button");
+  await page.click("body > main > main > main > button.btn.btn-primary");
+  //-Integraciones
+  await page.click("body > main > main > ul > li:nth-child(7) > a");
+  //--Integraciones de API_Hostelries
+  await page.click("#divButtons > button:nth-child(2)");
+  await page.screenshot({ path: './tests/'+'_5_HostelryIntegrations.png'});
+  
+  /*
+  //---Integration: API07
+  await page.click("#divButtons > button:nth-child(1)");
+  await page.waitForTimeout(1000);
+  await page.screenshot({ path: './tests/'+'_6_API07IntHostelry.png'});
+  await page.click("body > main > main > button");
+  //---Integration: API30
+  await page.click("#divButtons > button:nth-child(2)");
+  await page.waitForTimeout(1000);
+  await page.screenshot({ path: './tests/'+'_7_API30IntHostelry.png'});
+  await page.click("body > main > main > button");
+  //---Integration: APIEXT01
+  await page.click("#divButtons > button:nth-child(2)");
+  await page.waitForTimeout(1000);
+  await page.screenshot({ path: './tests/'+'_7_API30IntHostelry.png'});
+  await page.click("body > main > main > button");
+  ... TOO MUCH !!!!
+  */
 
   await browser.close();
 })();
