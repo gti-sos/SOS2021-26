@@ -30,9 +30,19 @@
         console.log(externalDataGraph);
 
         am4core.ready(function() {
+
+            var chart = am4core.create("chartdiv", am4charts.TreeMap);
+            chart.data = externalDataGraph;
+
+            /* Set color step */
+            chart.colors.step = 2;
+
+            /* Define data fields */
+            chart.dataFields.value = "value";
+            chart.dataFields.name = "name";
             
             // Themes begin
-            am4core.useTheme(am4themes_dataviz);
+            /*am4core.useTheme(am4themes_dataviz);
             am4core.useTheme(am4themes_animated);
             // Themes end
             // Create chart instance
@@ -51,7 +61,7 @@
             pieSeries.slices.template.strokeWidth = 2;
             pieSeries.slices.template.strokeOpacity = 1;
             pieSeries.slices.template.states.getKey("hover").properties.shiftRadius = 0;
-            pieSeries.slices.template.states.getKey("hover").properties.scale = 1.1;
+            pieSeries.slices.template.states.getKey("hover").properties.scale = 1.1;*/
         });
 
         /*let datosUsados = []
