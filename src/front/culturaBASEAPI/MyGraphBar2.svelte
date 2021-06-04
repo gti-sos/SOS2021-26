@@ -1,25 +1,4 @@
 <script type="text/javascript">
-    /*import {
-        onMount
-    } from "svelte";
- 
-    let data = [];
-    async function getData(){
-        console.log("Fetching data...");
-        const res = await fetch("/data");
-        if(res.ok){
-            console.log("Ok.");
-            const json = await res.json();
-            data = json;
-            console.log(`We have received ${data.length} data points.`);
-        }else{
-            console.log("Error!");
-        }
-    } 
-    
-    onMount(getData);*/
-
-    /*Ejemplo de uso para basic bar que viene bastante bien: https://www.highcharts.com/demo/bar-basic*/
 
     async function loadGraph2() {
         let CBData = [];
@@ -63,10 +42,12 @@
 <svelte:head>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <!--<script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}" ></script>-->
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph2}" ></script>
+
+    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph2}></script>
+    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph2}></script>
+    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph2}></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph2}></script>
 
 </svelte:head>
 

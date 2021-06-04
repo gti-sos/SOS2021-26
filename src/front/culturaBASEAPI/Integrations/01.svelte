@@ -10,6 +10,8 @@
     let MyData = []
 
     /*async function loadGraph(){
+
+        //Ver por si acaso: https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/demo/lollipop
         const res = await fetch(url);
         if (res.ok){
             console.log("Cargada API01 correctamente");
@@ -116,7 +118,7 @@
 				console.log(res);
 				return res;
 		});
-			
+		//Ver por si nos quitan bubble: https://www.highcharts.com/docs/chart-and-series-types/venn-series
 		datosConjuntos = [{name: "Beneficio en cine",data: datos_cb},{name: "Índice de seguridad",data: lifes}];
 		Highcharts.chart('container', {
 				chart: {
