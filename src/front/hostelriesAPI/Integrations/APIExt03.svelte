@@ -40,9 +40,6 @@
                     ,
                     type: "bar", // for ESM specify as: bar()
                 },
-                title: {
-                    text: 'Predicción de la edad según el nombre'
-                },
                 axis: {
                     x: {
                         label : "Nombres"
@@ -72,6 +69,10 @@
 </svelte:head>
 
 <main>
+    <h3 style="text-align:center;">Integración externa de la API:agify</h3>
+    <p style="text-align:center;">
+        Predicción de la edad según el nombre.
+    </p>
     <div id="barChart"></div>
     <button type="button" class="btn btn-secondary" onclick="window.location.href='#/hostelries/integrations'" style="width: 100%; margin-bottom: 5%;"> Volver</button><br>
 </main>

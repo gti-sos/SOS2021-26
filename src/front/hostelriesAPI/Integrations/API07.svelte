@@ -55,7 +55,7 @@
                 text: ''
             },
             subtitle: {
-                text: 'Comparativa entre la hostelría y la renta de alquileres de algunas comunidades autónomas de España.'
+                text: ''
             },
             xAxis: {
                 categories: campos,
@@ -104,10 +104,14 @@
 </svelte:head>
 
 <main>
-	<h3 style="text-align: center;"> Integración con API 07 SOS2021</h3>
+	<h3 style="text-align: center;"> Integración con API:07-Rentals SOS2021</h3>
+    <p style="text-align: center;">Comparativa entre la hostelería y la renta de alquileres de algunas comunidades autónomas de España.</p>
 
 	<figure class="highcharts-figure">
 		<div id="container"></div>
 	</figure>
+    <p style="text-align: center;">
+         En caso de que la gráfica no se cargue ir al enlace : <a href="https://sos2021-07.herokuapp.com/api/v1/integration/rentals">API:07</a>
+    </p>
     <button type="button" class="btn btn-secondary" onclick="window.location.href='#/hostelries/integrations'" style="width: 100%; margin-bottom: 5%;"> Volver</button><br>
 </main>

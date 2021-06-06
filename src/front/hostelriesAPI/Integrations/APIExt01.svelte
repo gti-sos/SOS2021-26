@@ -55,6 +55,12 @@
                 max: 50
             }
         },
+
+        size: {
+            width: 640,
+            height: 480
+        },
+
         bindto: "#bubbleChart"
         });
 
@@ -81,6 +87,10 @@
 </script>
 
 <main>
+    <h3 style="text-align:center;">Integración externa de la API:el-tiempo</h3>
+    <p style="text-align:center;">
+        Se puede obtener información meteorologíca a tiempo real.
+    </p>
     <h3>
         {titulo}<br>
     </h3>
@@ -88,8 +98,8 @@
         {info_hoy}<br>
         {info_manyana}<br>
         <br>
-        Comunidad Autónoma : {comunidad}<br>
-        Provincia: {ciudad}<br>
+        <b>Comunidad Autónoma:</b> {comunidad}<br>
+        <b>Provincia: </b>{ciudad}<br>
     </p>
     <div id="bubbleChart"></div>
     <button type="button" class="btn btn-secondary" onclick="window.location.href='#/hostelries/integrations'" style="width: 100%; margin-bottom: 5%;"> Volver</button><br>
