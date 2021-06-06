@@ -84,8 +84,8 @@
                     (desarrollado por <a href="https://github.com/darlopvil">Darío López Villegas</a>)
                 </li>-->
                 <li>
-                    <a href="https://sos2021-26.herokuapp.com/api/v2/hostelries/">https://sos2021-26.herokuapp.com/api/v2/hostelries/</a> 
-                    (desarrollado por <a href="https://github.com/keffren">Mateo Serna Giraldo</a>)
+                    <a href="https://www.youtube.com/watch?v=5qap5aO4i9A">https://www.youtube.com/watch?v=5qap5aO4i9A</a> 
+                    (video subido por <a href="https://github.com/keffren">Mateo Serna Giraldo</a>)
                 </li>
             </ul>
         </li><br>
