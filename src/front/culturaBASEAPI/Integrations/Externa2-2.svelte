@@ -8,11 +8,12 @@
     import Button from "sveltestrap/src/Button.svelte";
 	async function loadGraph() {
 		 
-		let externalApi = [];
+		    let externalApi = [];
             let DataGraph2 = [];
             const url = "https://api.openbrewerydb.org/breweries";
 
             const res = await fetch(url);
+            console.log(res);
             if (res.ok){
                 console.log("Cargada cevecerias correctamente");
                 const json = await res.json();
@@ -24,6 +25,8 @@
             externalApi.forEach((x) => {
                 DataGraph2.push({name: x.city,value: parseInt(x.phone), pointPlacement: 'on'})
             });
+
+            console.log(externalApi);
 
         am4core.ready(function() {
 

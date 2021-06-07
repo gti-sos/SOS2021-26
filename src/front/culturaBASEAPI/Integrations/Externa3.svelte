@@ -13,6 +13,7 @@
 		//const CBData = await fetch("/api/v2/culturaBASE");
 		
         const resExternalData = await fetch(url);
+        console.log(resExternalData);
         if (resExternalData.ok){
             console.log("Datos covid recibidos");
             externalData = await resExternalData.json();
