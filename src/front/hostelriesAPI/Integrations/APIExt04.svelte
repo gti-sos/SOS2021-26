@@ -27,9 +27,8 @@
                     columns: [[genero, resData.probability*100]],
                     type: 'gauge' // for ESM specify as: gauge()
                 },
-                title: {
-                    text: 'Predicción del género según el nombre: MATEO.'
-                },
+                //gauge{opciones del objeto gauje}
+                //https://naver.github.io/billboard.js/release/latest/doc/Options.html#.gauge
                 gauge: {},
                 color: {
                     pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
@@ -38,7 +37,7 @@
                     }
                 },
                 size: {
-                    height: 180
+                    height: 300
                 },
                 bindto: '#gaugeChart'
             });
@@ -58,6 +57,10 @@
 </svelte:head>
 
 <main>
+    <h3 style="text-align:center;">Integración externa de la API:genderize</h3>
+    <p style="text-align:center;">
+        Predicción del género según el nombre: MATEO.
+    </p>
     <div id="gaugeChart"></div>
     <button type="button" class="btn btn-secondary" onclick="window.location.href='#/hostelries/integrations'" style="width: 100%; margin-bottom: 5%;"> Volver</button><br>
 </main>

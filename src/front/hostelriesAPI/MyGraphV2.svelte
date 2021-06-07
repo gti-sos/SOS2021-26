@@ -40,6 +40,7 @@
 
         var chart = bb.generate({
             data: {
+                //Data format-> https://naver.github.io/billboard.js/release/latest/doc/Options.html#.data%25E2%2580%25A4xFormat
                 x: "x",
                 columns: [
                 comunidades,
@@ -50,19 +51,15 @@
                 type: "radar",
                 labels: false       //desactiva los numeros en cada punto de la gráfica
             },
-            title: {
-				text: 'Hostelería España'
-			},
-			
             radar: {
                 axis: {
                 max: 21000000
                 },
                 level: {
-                depth: 3
+                depth: 3        //Profundidad de la gráfica -> núm de serctores
                 },
                 direction: {
-                clockwise: true
+                clockwise: true  //Set the direction to be drawn. -> en funcion de las agujas del reloj
                 }
             },
             bindto: "#radarChart"
@@ -78,12 +75,11 @@
 </svelte:head>
 
 <main>
-
-    <div id="radarChart"></div>
-    
+    <h3 style="text-align:center;">Estadística de turistas en España</h3>
     <p style="text-align:center;">
         En la gráfica podemos observar el número de turistas en España según las Comunidades Autonomas.
     </p>
+    <div id="radarChart"></div>
     
     <button type="button" class="btn btn-secondary" onclick="window.location.href='#/hostelries'" style="width: 100%; margin-bottom: 5%;"> Volver</button><br>
 </main>

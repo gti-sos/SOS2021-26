@@ -37,7 +37,7 @@
                     type: 'pie'
                 },
                 title: {
-                    text: 'Probabilidad de nacionalidad según el nombre: Mateo.'
+                    text: ''
                 },
                 //The plotOptions is a wrapper object for config objects for each series type.
                 // The config objects for each series can also be overridden for each series item as given in the series array.
@@ -68,6 +68,10 @@
 </svelte:head>
 
 <main>
+    <h3 style="text-align:center;">Integración externa de la API:nationalize</h3>
+    <p style="text-align:center;">
+        Probabilidad de nacionalidad según el nombre: Mateo.
+    </p>
     <div id="apiEXT02"></div>
     <button type="button" class="btn btn-secondary" onclick="window.location.href='#/hostelries/integrations'" style="width: 100%; margin-bottom: 5%;"> Volver</button><br>
 </main>
