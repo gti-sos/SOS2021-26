@@ -52,6 +52,10 @@
                     data: APIExt02Data
                 }]
             });
+
+            console.log("Foreign API REST Call");
+            console.log(res);
+            console.log(resData);
         }
         else{
             console.log("Error fetching data.");

@@ -13,7 +13,7 @@
 
             let resData = await res.json();
             let genero = "";
-            console.log(resData);
+            //console.log(resData);
 
             if(resData.gender == "male"){
                 genero = "Hombre";
@@ -41,6 +41,10 @@
                 },
                 bindto: '#gaugeChart'
             });
+
+            console.log("Foreign API REST Call");
+            console.log(res);
+            console.log(resData);
 
         }
         else{

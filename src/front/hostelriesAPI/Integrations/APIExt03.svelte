@@ -15,20 +15,31 @@
             let APIExt03Data = [];
             let json = await resData01.json();
 
+            console.log("Foreign API REST Call");
+            console.log(resData01);
+            console.log(json);
+
             APIExt03Data.push({name: json.name, data: [json.age]});
 
             json = await resData02.json();
+
+            console.log(resData02);
+            console.log(json);
 
             APIExt03Data.push({name: json.name, data: [json.age]});
 
             json = await resData03.json();
 
+            console.log(resData03);
+            console.log(json);
+
             APIExt03Data.push({name: json.name, data: [json.age]});
 
-
+            /* VER ESTRUCTURA DATOS
             console.log(APIExt03Data);
             console.log(APIExt03Data[0].name, "-", APIExt03Data[0].data[0]);
             console.log(APIExt03Data[1].name, "-", APIExt03Data[1].data[0]);
+            */
             var chart = bb.generate({
                 data: {
                     columns:   
@@ -56,10 +67,11 @@
                 bindto: "#barChart"
             });
 
+        }else{
+            console.log("Error fetching data.");
         }
 
     }
-
     loadAPI();
     
 </script>

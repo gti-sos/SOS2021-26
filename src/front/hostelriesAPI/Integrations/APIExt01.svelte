@@ -14,6 +14,10 @@
         const resData = await fetch("https://www.el-tiempo.net/api/json/v2/provincias/41");
         APIExt01Data = await resData.json();
 
+        console.log("Foreign API REST Call");
+        console.log(resData);
+        console.log(APIExt01Data);
+
         
         titulo = APIExt01Data.title;
         
@@ -95,8 +99,8 @@
         {titulo}<br>
     </h3>
     <p>
-        {info_hoy}<br>
-        {info_manyana}<br>
+        <b>HOY: </b>{info_hoy}<br>
+        <b>MAÑANA: </b>{info_manyana}<br>
         <br>
         <b>Comunidad Autónoma:</b> {comunidad}<br>
         <b>Provincia: </b>{ciudad}<br>
