@@ -87,7 +87,6 @@ const culturaBASEBackAPI2 = require('./src/back/culturaBASEAPI/v2/index');
 culturaBASEBackAPI(app);
 culturaBASEBackAPI2(app);
 
-
 //Runing server
 app.listen(PORT, () =>{
     console.log("Server running at port:" + PORT);
