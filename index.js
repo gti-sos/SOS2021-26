@@ -87,7 +87,6 @@ const culturaBASEBackAPI2 = require('./src/back/culturaBASEAPI/v2/index');
 culturaBASEBackAPI(app);
 culturaBASEBackAPI2(app);
 
-//####################################### FRONT-END
 
 //Runing server
 app.listen(PORT, () =>{
